@@ -41,9 +41,6 @@
                 <button id="myb" class="nav-link" onclick="location.href='{{route('homepage.index')}}'">首頁
                   <span class="sr-only">(current)</span></button>
               </li>
-              <li class="nav-item">
-                <button class="nav-link" onclick="location.href='{{route('buy.index')}}'">我要訂麵包</button>
-              </li>
               <li class="nav-item ">
                 <button id="myb" class="nav-link" onclick="location.href='{{route('product.index')}}'">商品介紹</button>
               </li>

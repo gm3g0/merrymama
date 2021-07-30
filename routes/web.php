@@ -32,7 +32,11 @@ Route::resource('homepage', be_homepage::class)->only('index');
 Route::resource('login', login::class)->only('index');
 Route::resource('singup', singup::class)->only('index');
 Route::resource('QA', be_QA::class)->only('index');
-Route::resource('buy',be_buy::class)->only('index');
+
+Route::resource('buy',be_buy::class)->only('index','create','store');
+Route::get('/buycheck',[be_buy::class,'create'])->name('be_buy.index2');
+Route::get('/finish',[be_buy::class,'store'])->name('be_buy.finish');
+
 Route::resource('story', be_story::class)->only('index');
 Route::resource('product', be_product::class)->only('index');
 Route::resource('contact', be_contact::class)->only('index');
