@@ -39,7 +39,7 @@
   </div> {{-- 輪播END --}}
 <br>
 <div>
-  <h2 class="fas fa-crown">暢銷排行</h2>
+  <h2 class="fas fa-crown">必買推薦</h2>
 </div>
 
 </div>

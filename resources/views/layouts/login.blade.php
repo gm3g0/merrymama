@@ -41,6 +41,9 @@
                 <button id="myb" class="nav-link" onclick="location.href='{{route('homepage.index')}}'">首頁
                   <span class="sr-only">(current)</span></button>
               </li>
+              <li class="nav-item">
+                <button id="myb" class="nav-link" onclick="location.href='{{route('buy.index')}}'">我要購買</button>
+              </li>
               <li class="nav-item ">
                 <button id="myb" class="nav-link" onclick="location.href='{{route('product.index')}}'">商品介紹</button>
               </li>
@@ -54,7 +57,7 @@
                 <button id="myb" class="nav-link" onclick="location.href='{{route('contact.index')}}'">聯絡資訊</button>
               </li>
               <li class="nav-item">
-                <button id="myb" class="nav-link" >管理後台</button>
+                <button id="myb" class="nav-link" onclick="location.href='{{route('member.index')}}'">會員專區</button>
               </li>
               <li class="nav-item">
                 <button id="myb" class="nav-link" >登出</button>
@@ -85,10 +88,10 @@
             var d=document.getElementById('Date');
             d.innerHTML='現在時間:'+year+'年'+mon+'月'+da+'日'+/*'星期'+day+*/' '+h+':'+m+':'+s; },1000) }</script>
         </div> --}}
-    
-        @yield('main')
         <div class="col warp">
           <div class="row justify-content-center mt-0">
+        @yield('main')
+        
       </div></div>
       <i class="fas fa-arrow-up text-center" id=top style="display: none"><br>TOP</i>
       <footer class="footer">

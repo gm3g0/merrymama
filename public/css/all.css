@@ -4,7 +4,20 @@
 .dropdown-item:active {
     background-color: #80b7d5;
 }
-
+#top {
+    position: fixed;
+    float: right;
+    position: fixed;
+    border-radius: 50px;
+    right: 10px;
+    bottom: 70px;
+    padding: 10px 16px;
+    font-size: 25px;
+    background: rgba(228, 211, 211, 0.36);
+    color: #6c4438;
+    cursor: pointer;
+    z-index: 1000;
+}
 #myb {
     background: transparent; /*按钮背景透明*/
     border-width: 0px; /*边框透明*/
@@ -40,6 +53,71 @@
         margin-top: 0px;
     }
 }
+#pa {
+    padding-left: 100px !important;
+}
+@media screen and (max-width: 768px) {
+    #pa {
+        padding-left: 0px !important;
+    }
+}
+#pl {
+    margin-left: 200px;
+}
+@media screen and (max-width: 768px) {
+    #pl {
+        margin-left: 1px;
+    }
+}
+
+/*滾動監控*/
+.js-scrollspy-nav > a {
+    color: #333;
+    text-decoration: none;
+    display: block;
+    padding-right: 0px;
+    padding-bottom: 10px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.nav {
+    position: fixed;
+    left: 10px;
+    font-size: 20px;
+    padding: 0px;
+}
+@media screen and (max-width: 992px) {
+    .nav {
+        position: relative;
+        left: 0px;
+    }
+}
+.content {
+    margin: 0;
+    padding: 0;
+}
+
+.content > li {
+    display: block;
+    height: 400px;
+    box-sizing: border-box;
+    border-top: 2px solid #eee;
+}
+
+.content > li:last-child {
+    border-bottom: 2px solid #eee;
+}
+.content > li:first-child {
+    height: auto;
+}
+.is-inview {
+    background-color: #4c5eff;
+    color: #fff;
+}
+/*滾動監控END*/
 
 .qty {
     /*計數器*/

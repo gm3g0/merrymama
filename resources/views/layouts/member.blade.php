@@ -57,46 +57,78 @@
                 <button id="myb" class="nav-link" onclick="location.href='{{route('contact.index')}}'">聯絡資訊</button>
               </li>
               <li class="nav-item">
-                <button id="myb" class="nav-link" >會員專區</button>
+                <button id="myb" class="nav-link" onclick="location.href='{{route('member.index')}}'">會員專區</button>
               </li>
               <li class="nav-item">
                 <button id="myb" class="nav-link" >登出</button>
-              </li>
-    
-            
-    
+              </li>        
+              </ul>
+              <ul class="navbar-nav">                           
+                <!-- This menu is hidden in bigger devices with d-sm-none. -->
+                <li class="nav-item dropdown d-sm-block d-md-none" >
+                      <button class="dropdown-item" >訂單查看</button>
+                      <button class="dropdown-item" >修改資料</button>                                                                     
+                </li><!-- Smaller devices menu END -->
               </ul>
             </div>
           </div>
         </nav>
       <!-- /.container -->
     </div>
+<!-- Sidebar -->
+<div id="sidebar-container" class="sidebar-expanded d-none d-md-block" style="width: 230px;"><!-- d-* hiddens the Sidebar in smaller devices. Its itens can be kept on the Navbar 'Menu' -->
+  <!-- Bootstrap List Group -->
+  <ul class="list-group">
+      <!-- Separator with title -->
+      
+      <!-- /END Separator -->
+      <!-- Menu with submenu -->
 
-        {{-- <div mv-app="clock" mv-bar="none">
-
-            <script type="text/javascript"> //現在時間
-            window.onload=function(){
-            setInterval(function(){
-            var date=new Date();
-            var year=date.getFullYear(); //獲取當前年份
-            var mon=date.getMonth()+1; //獲取當前月份
-            var da=date.getDate(); //獲取當前日
-            var day=date.getDay(); //獲取當前星期幾
-            var h=date.getHours(); //獲取小時
-            var m=date.getMinutes(); //獲取分鐘
-            var s=date.getSeconds(); //獲取秒
-            var d=document.getElementById('Date');
-            d.innerHTML='現在時間:'+year+'年'+mon+'月'+da+'日'+/*'星期'+day+*/' '+h+':'+m+':'+s; },1000) }</script>
-        </div> --}}
+    
+</div><!-- sidebar-container END -->
+        
         <div class="col warp">
           <div class="row justify-content-center mt-0">
+
+            <div class="col-12 col-sm-10 col-md-10 col-lg-8  text-center p-0 mt-5 mb-3">
+
+              <div class="col-lg-2 js-scrollspy-nav nav" style="height: 50px;">
+                <div class="col-12">Day &nbsp;<i class="fas fa-heart"></i><hr style="height:1px;border:none;border-top:1px dashed #0066CC;"/></div>
+                <button class="list-group-item list-group-item-action flex-column align-items-start" id=myb>
+                    <div class="d-flex w-100 justify-content-start align-items-center"style="color: black">
+                        <span class=" mr-3"aria-hidden="true"></span>
+                        <span class="menu-collapsed" >訂單查看</span>    
+                    </div>
+                </button>
+                <button  class="list-group-item list-group-item-action flex-column align-items-start" id=myb>
+                    <div class="d-flex w-100 justify-content-start align-items-center"style="color: black">
+                        <span class=" mr-3"aria-hidden="true"></span>
+                        <span class="menu-collapsed" >修改資料</span>    
+                    </div>
+                </button>
+              </div>
         @yield('main')
         
-      </div></div>
+      </div></div></div>
+      <i class="fas fa-arrow-up text-center" id=top style="display: none"><br>TOP</i>
       <footer class="footer">
         <label class="col align-self-center"style="margin-top: 15px;">Copyright © 2021 瑪利MAMA 中科大團隊 products. 版權所有</label>
       </footer>
 
+      <script>
+        $("#top").click(function(){
+          jQuery("html,body").animate({
+              scrollTop:0
+          },100);
+        });
+        $(window).scroll(function() {
+          if ( $(this).scrollTop() > 200){
+              $('#top').fadeIn("fast");
+          } else {
+              $('#top').stop().fadeOut("fast");
+          }
+        });
+      </script>
   
   <script>// Hide submenus
     $('#body-row .collapse').collapse('hide'); 

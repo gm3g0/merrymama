@@ -38,11 +38,14 @@ Route::get('/buycheck',[be_buy::class,'create'])->name('be_buy.index2');
 Route::get('/finish',[be_buy::class,'store'])->name('be_buy.finish');
 
 Route::resource('story', be_story::class)->only('index');
-Route::resource('product', be_product::class)->only('index');
+
+Route::resource('product', be_product::class)->only('index','create');
+Route::get('/products',[be_product::class,'create'])->name('be_product.index2');
+
 Route::resource('contact', be_contact::class)->only('index');
 
 Route::resource('member', be_member::class)->only('index','create');
-Route::get('/edit',[ordermanage::class,'create']);
+Route::get('/edit',[be_member::class,'create'])->name('be_member.edit');
 
 Route::resource('order', ordermanage::class)->only('index','create');
 Route::get('/history',[ordermanage::class,'create']);

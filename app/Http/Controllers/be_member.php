@@ -14,6 +14,7 @@ class be_member extends Controller
     public function index()
     {
         //
+        return view('be_member.check');
     }
 
     /**
@@ -24,6 +25,7 @@ class be_member extends Controller
     public function create()
     {
         //
+        return view('be_member.edit');
     }
 
     /**

@@ -89,11 +89,24 @@
         @yield('main')
 
       </div></div>
-
+        <i class="fas fa-arrow-up text-center" id=top style="display: none"><br>TOP</i>
       <footer class="footer">
         <label class="col align-self-center"style="margin-top: 15px;">Copyright © 2021 瑪利MAMA 中科大團隊 products. 版權所有</label>
       </footer>
-
+  <script>
+    $("#top").click(function(){
+      jQuery("html,body").animate({
+          scrollTop:0
+      },100);
+    });
+    $(window).scroll(function() {
+      if ( $(this).scrollTop() > 200){
+          $('#top').fadeIn("fast");
+      } else {
+          $('#top').stop().fadeOut("fast");
+      }
+    });
+  </script>
   
   <script>// Hide submenus
     $('#body-row .collapse').collapse('hide'); 

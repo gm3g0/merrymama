@@ -25,6 +25,7 @@ class be_product extends Controller
     public function create()
     {
         //
+        return view('be_product.index2');
     }
 
     /**
