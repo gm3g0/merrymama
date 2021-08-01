@@ -16,6 +16,7 @@
     {{-- <link rel="icon.png" type="image/x-icon"/> --}}
     @yield('css')
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
     
@@ -41,9 +42,6 @@
                 <button id="myb" class="nav-link" onclick="location.href='{{route('homepage.index')}}'">首頁
                   <span class="sr-only">(current)</span></button>
               </li>
-              <li class="nav-item">
-                <button id="myb" class="nav-link" onclick="location.href='{{route('buy.index')}}'">我要購買</button>
-              </li>
               <li class="nav-item ">
                 <button id="myb" class="nav-link" onclick="location.href='{{route('product.index')}}'">商品介紹</button>
               </li>
@@ -57,13 +55,11 @@
                 <button id="myb" class="nav-link" onclick="location.href='{{route('contact.index')}}'">聯絡資訊</button>
               </li>
               <li class="nav-item">
-                <button id="myb" class="nav-link" onclick="location.href='{{route('member.index')}}'">會員專區</button>
+                <button id="myb" class="nav-link" >管理後台</button>
               </li>
               <li class="nav-item">
                 <button id="myb" class="nav-link" >登出</button>
               </li>
-    
-            
     
               </ul>
             </div>
@@ -72,27 +68,61 @@
       <!-- /.container -->
     </div>
 
-        {{-- <div mv-app="clock" mv-bar="none">
 
-            <script type="text/javascript"> //現在時間
-            window.onload=function(){
-            setInterval(function(){
-            var date=new Date();
-            var year=date.getFullYear(); //獲取當前年份
-            var mon=date.getMonth()+1; //獲取當前月份
-            var da=date.getDate(); //獲取當前日
-            var day=date.getDay(); //獲取當前星期幾
-            var h=date.getHours(); //獲取小時
-            var m=date.getMinutes(); //獲取分鐘
-            var s=date.getSeconds(); //獲取秒
-            var d=document.getElementById('Date');
-            d.innerHTML='現在時間:'+year+'年'+mon+'月'+da+'日'+/*'星期'+day+*/' '+h+':'+m+':'+s; },1000) }</script>
-        </div> --}}
-        <div class="col warp">
-          <div class="row justify-content-center mt-0">
+    <button class="sidebar" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" id="myb">
+       <span class="fa-stack fa-lg">
+        <i class="far fa-square fa-stack-2x"></i>
+        <i class="fas fa-bars fa-stack-1x"></i>
+      </span> 
+     
+    </button>
+      
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div>
+          Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+        </div>
+        <div class="dropdown mt-3">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+            Dropdown button
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col warp">
+      <div class="row justify-content-center mt-0">
+
+        <div class="col-12 col-sm-10 col-md-10 col-lg-8  text-center p-0 mt-5 mb-3" id="member">
+
+          <div class="col-lg-2 js-scrollspy-nav side" style="height: 50px;">
+            <div class="col-12">會員專區<hr style="height:1px;border:none;border-top:1px dashed #0066CC;"/></div>
+            <button class=" flex-column align-items-start ch1" id=myb style="margin-bottom: 20px" onclick="location.href='{{route('member.index')}}'">
+                <div class="d-flex w-100 align-items-center col-md-12">
+                    {{-- <span class="far fa-list-alt fa-fw mr-3"aria-hidden="true"></span> --}}
+                    <span class="menu-collapsed" >訂單查看</span>    
+                </div>
+            </button><br>
+            <button class="flex-column align-items-start ch2"id=myb onclick="location.href='{{route('be_member.edit')}}'">
+              <div class="d-flex w-100 align-items-center col-md-12">
+                  {{-- <span class="fas fa-edit fa-fw mr-3"aria-hidden="true"></span> --}}
+                  <span class="menu-collapsed" >修改資料</span>    
+              </div>
+          </button>
+          </div>
+
+
         @yield('main')
         
-      </div></div>
+      </div></div></div>
       <i class="fas fa-arrow-up text-center" id=top style="display: none"><br>TOP</i>
       <footer class="footer">
         <label class="col align-self-center"style="margin-top: 15px;">Copyright © 2021 瑪利MAMA 中科大團隊 products. 版權所有</label>
@@ -159,6 +189,9 @@ src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
 integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
 crossorigin="anonymous"
 ></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>

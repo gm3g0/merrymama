@@ -20,7 +20,20 @@
       價格：<br>
       介紹：<br>&nbsp;&nbsp;
     </div>
+  </div><br>
+
+  <div class="row col-md-6 justify-content-center text-start" id="pl">
+    <div class="col-md-12">
+      <h4>我要留言</h4>
+      <textarea class="col-md-12 wishContent" maxlength="150" Wrap="Virtual" placeholder="最多輸入150字" style="height: 120px"></textarea>
+      <span class="wordsNum" style="margin-left: 90%">0/150</span>
+    </div>
+    <div class="col-md-12 text-start">
+      
+      <h4>留言板</h4><br>&nbsp;&nbsp;
+    </div>
   </div>
+ 
 </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
@@ -29,5 +42,35 @@
           window.history.back();
       }
   </script>
+<script>
+  //封裝一個限制字數方法
+var checkStrLengths = function (str, maxLength) {
+    var maxLength = maxLength;
+    var result = 0;
+    if (str && str.length > maxLength) {
+        result = maxLength;
+    } else {
+        result = str.length;
+    }
+    return result;
+}
 
+//監聽輸入
+$(".wishContent").on('input propertychange', function () {
+
+    //獲取輸入內容
+    var userDesc = $(this).val();
+
+    //判斷字數
+    var len;
+    if (userDesc) {
+        len = checkStrLengths(userDesc, 150);
+    } else {
+        len = 0
+    }
+
+    //顯示字數
+    $(".wordsNum").html(len + '/150');
+});
+</script>
 @endsection

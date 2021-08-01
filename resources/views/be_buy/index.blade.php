@@ -10,6 +10,10 @@
 @section('main')
 <div class="col-12 col-sm-10 col-md-10 col-lg-8  text-center p-0 mt-5 mb-3">
   <h2><i class="fas fa-shopping-cart"></i>&nbsp;我要購買</h2><hr>
+  <h3 class="text-start">注意事項</h3>
+  <div class="row col-md-12 text-start">
+    <p>&nbsp;&nbsp;adlvnaldkvnsldkb</p>
+  </div>
   <form action="{{ route('be_buy.index2')}}" method="GET">
     <h4 class="text-start">星期：</h4>
     <div class="card mb-3" style="max-width: 1000px;">

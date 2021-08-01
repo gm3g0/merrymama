@@ -28,7 +28,7 @@
         <nav class="navbar navbar-expand-lg navbar-light static-top" style="background-color: #fdd977 ">
           <div class="container">
             <button class="navbar-brand no-gutters" style="border: 0px;background: transparent;">
-              <img src="logo.png" height="90px" width="140px" style="margin: 0px;padding: 0px;" alt="icon" class="navbar-brand no-gutters">
+              <img src="{{ asset('/logo.png')}}" height="90px" width="140px" style="margin: 0px;padding: 0px;" alt="icon" class="navbar-brand no-gutters">
             </button>
 
             <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -66,8 +66,8 @@
               <ul class="navbar-nav">                           
                 <!-- This menu is hidden in bigger devices with d-sm-none. -->
                 <li class="nav-item dropdown d-sm-block d-md-none" >
-                      <button class="dropdown-item" >訂單查看</button>
-                      <button class="dropdown-item" >修改資料</button>                                                                     
+                      <button class="dropdown-item ch1" onclick="location.href='{{route('member.index')}}'">訂單查看</button>
+                      <button class="dropdown-item ch2" onclick="location.href='{{route('be_member.edit')}}'">修改資料</button>                                                                     
                 </li><!-- Smaller devices menu END -->
               </ul>
             </div>
@@ -90,22 +90,22 @@
         <div class="col warp">
           <div class="row justify-content-center mt-0">
 
-            <div class="col-12 col-sm-10 col-md-10 col-lg-8  text-center p-0 mt-5 mb-3">
+            <div class="col-12 col-sm-10 col-md-10 col-lg-8  text-center p-0 mt-5 mb-3" id="member">
 
-              <div class="col-lg-2 js-scrollspy-nav nav" style="height: 50px;">
-                <div class="col-12">Day &nbsp;<i class="fas fa-heart"></i><hr style="height:1px;border:none;border-top:1px dashed #0066CC;"/></div>
-                <button class="list-group-item list-group-item-action flex-column align-items-start" id=myb>
-                    <div class="d-flex w-100 justify-content-start align-items-center"style="color: black">
-                        <span class=" mr-3"aria-hidden="true"></span>
+              <div class="col-lg-2 js-scrollspy-nav side" style="height: 50px;">
+                <div class="col-12">會員專區<hr style="height:1px;border:none;border-top:1px dashed #0066CC;"/></div>
+                <button class=" flex-column align-items-start ch1" id=myb style="margin-bottom: 20px" onclick="location.href='{{route('member.index')}}'">
+                    <div class="d-flex w-100 align-items-center col-md-12">
+                        {{-- <span class="far fa-list-alt fa-fw mr-3"aria-hidden="true"></span> --}}
                         <span class="menu-collapsed" >訂單查看</span>    
                     </div>
-                </button>
-                <button  class="list-group-item list-group-item-action flex-column align-items-start" id=myb>
-                    <div class="d-flex w-100 justify-content-start align-items-center"style="color: black">
-                        <span class=" mr-3"aria-hidden="true"></span>
-                        <span class="menu-collapsed" >修改資料</span>    
-                    </div>
-                </button>
+                </button><br>
+                <button class="flex-column align-items-start ch2"id=myb onclick="location.href='{{route('be_member.edit')}}'">
+                  <div class="d-flex w-100 align-items-center col-md-12">
+                      {{-- <span class="fas fa-edit fa-fw mr-3"aria-hidden="true"></span> --}}
+                      <span class="menu-collapsed" >修改資料</span>    
+                  </div>
+              </button>
               </div>
         @yield('main')
         

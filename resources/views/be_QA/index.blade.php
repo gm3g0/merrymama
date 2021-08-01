@@ -26,8 +26,8 @@
          <div class="container">
           <div class="row">
             <h5 class="fs">A1：</h5></div> <br>
-          <div class="row offset-md-1">
-            <div class="col-md-6">不知道不知道不知道不知道不知道不知道不知道</div>
+          <div class="row col-md-12 text-start align-self-center" style="margin: 0px">
+            &nbsp;&nbsp;不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知不知道不知道不知道不知道不知道不知道
           </div><br>
         </div>
          

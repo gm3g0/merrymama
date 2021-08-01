@@ -28,7 +28,7 @@
         <nav class="navbar navbar-expand-lg navbar-light static-top" style="background-color: #fdd977 ">
           <div class="container">
             <button class="navbar-brand no-gutters" style="border: 0px;background: transparent;">
-              <img src="logo.png" height="90px" width="140px" style="margin: 0px;padding: 0px;" alt="icon" class="navbar-brand no-gutters">
+              <img src="{{ asset('/logo.png')}}" height="90px" width="140px" style="margin: 0px;padding: 0px;" alt="icon" class="navbar-brand no-gutters">
             </button>
 
             <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"

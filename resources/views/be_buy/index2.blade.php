@@ -11,7 +11,8 @@
 <div class="col-12 col-sm-10 col-md-10 col-lg-8  text-center p-0 mt-5 mb-3">
   <h2>填寫資料</h2><hr><br>
   <form action="{{ route('be_buy.finish')}}" method="GET" id="msform">
-    <div class="row text-start justify-content-center">
+  <div class="container" style="padding-left: 50px;">
+    <div class="row col-md-12 text-start justify-content-center">
       <div class="col-md-3"> 
           姓名：<input type="text" name="cname" value=""></div>
       <div class="col-md-3">
@@ -27,10 +28,11 @@
       </div>
       <div class="col-md-7">
         總金額：<strong>1111</strong>元</div>
-
-    <div class="row justify-content-between">
-      <div class="col-md-4 " style="margin: 0px"><input type="button" class="previous action-button-previous" style="outline: none;" id='back' value='上一步'></div>
-      <div class="col-md-4 " style="margin: 0px"><button type="submit" class="next action-button btn pull-right" style="outline: none;">訂購</button></div>
+      </div>
+        <br>
+    <div class="row col-md-12 justify-content-between">
+      <input type="button" class="previous action-button-previous col-md-4 " style="outline: none;margin: 0px" id='back' value='上一步'>
+      <button type="submit" class="next action-button btn pull-right col-md-4 " style="outline: none;margin: 0px">訂購</button>
     </div>
 
     </div>
