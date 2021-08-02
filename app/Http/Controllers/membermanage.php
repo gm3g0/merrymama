@@ -14,6 +14,7 @@ class membermanage extends Controller
     public function index()
     {
         //
+        return view('membermanage.list');
     }
 
     /**
@@ -24,6 +25,7 @@ class membermanage extends Controller
     public function create()
     {
         //
+        return view('membermanage.order');
     }
 
     /**

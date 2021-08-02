@@ -13,6 +13,9 @@ use \App\Http\Controllers\be_member;
 use \App\Http\Controllers\ordermanage;
 use \App\Http\Controllers\productmanage;
 use \App\Http\Controllers\membermanage;
+use \App\Http\Controllers\backbuy;
+use \App\Http\Controllers\backdata;
+use \App\Http\Controllers\contact_edit;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,9 +50,17 @@ Route::resource('contact', be_contact::class)->only('index');
 Route::resource('member', be_member::class)->only('index','create');
 Route::get('/edit',[be_member::class,'create'])->name('be_member.edit');
 
-Route::resource('order', ordermanage::class)->only('index','create');
-Route::get('/history',[ordermanage::class,'create']);
+Route::resource('ordermanage', ordermanage::class)->only('index','create');
+Route::get('/or_history',[ordermanage::class,'create'])->name('ordermanage.history');
 
+Route::resource('membermanage', membermanage::class)->only('index','create');
+Route::get('/me_order',[membermanage::class,'create'])->name('memberrmanage.order');
 
+Route::resource('productmanage', productmanage::class)->only('index','create');
+Route::get('/pr_edit',[productmanage::class,'create'])->name('productmanage.edit');
+
+Route::resource('backbuy',backbuy::class)->only('index');
+Route::resource('data',backdata::class)->only('index');
+Route::resource('contact_edit',contact_edit::class)->only('index');
 
 //Route::resource('store', store::class)->only('index');

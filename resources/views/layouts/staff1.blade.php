@@ -25,7 +25,7 @@
     <div>
         <!-- Navigation導覽列 -->
         <!-- navbar只有light,dark,為設定字體顏色 -->
-        <nav class="navbar navbar-expand-lg navbar-light static-top" style="background-color: #fdd977 ">
+        <nav class="navbar navbar-expand-lg navbar-dark static-top" style="background-color: #6C4438">
           <div class="container">
             <button class="navbar-brand no-gutters" style="border: 0px;background: transparent;">
               <img src="{{ asset('/logo.png')}}" height="90px" width="140px" style="margin: 0px;padding: 0px;" alt="icon" class="navbar-brand no-gutters">
@@ -69,29 +69,14 @@
       <!-- /.container -->
     </div>
 
-        {{-- <div mv-app="clock" mv-bar="none">
-
-            <script type="text/javascript"> //現在時間
-            window.onload=function(){
-            setInterval(function(){
-            var date=new Date();
-            var year=date.getFullYear(); //獲取當前年份
-            var mon=date.getMonth()+1; //獲取當前月份
-            var da=date.getDate(); //獲取當前日
-            var day=date.getDay(); //獲取當前星期幾
-            var h=date.getHours(); //獲取小時
-            var m=date.getMinutes(); //獲取分鐘
-            var s=date.getSeconds(); //獲取秒
-            var d=document.getElementById('Date');
-            d.innerHTML='現在時間:'+year+'年'+mon+'月'+da+'日'+/*'星期'+day+*/' '+h+':'+m+':'+s; },1000) }</script>
-        </div> --}}
+       
     
         @yield('main')
         <div class="col warp">
           <div class="row justify-content-center mt-0">
       </div></div>
       <i class="fas fa-arrow-up text-center" id=top style="display: none"><br>TOP</i>
-      <footer class="footer">
+      <footer class="backfooter">
         <label class="col align-self-center"style="margin-top: 15px;">Copyright © 2021 瑪利MAMA 中科大團隊 products. 版權所有</label>
       </footer>
 

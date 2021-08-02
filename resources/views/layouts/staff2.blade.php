@@ -26,7 +26,7 @@
     <div>
         <!-- Navigation導覽列 -->
         <!-- navbar只有light,dark,為設定字體顏色 -->
-        <nav class="navbar navbar-expand-lg navbar-light static-top" style="background-color: #fdd977 ">
+        <nav class="navbar navbar-expand-lg navbar-dark static-top" style="background-color: #6C4438 ">
           <div class="container">
             <button class="navbar-brand no-gutters" style="border: 0px;background: transparent;">
               <img src="{{ asset('/logo.png')}}" height="90px" width="140px" style="margin: 0px;padding: 0px;" alt="icon" class="navbar-brand no-gutters">
@@ -74,49 +74,170 @@
         <i class="far fa-square fa-stack-2x"></i>
         <i class="fas fa-bars fa-stack-1x"></i>
       </span> 
-     
     </button>
       
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas offcanvas-start"  tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" style="width: 265px">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel"></h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
-        <div>
-          Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
-        </div>
-        <div class="dropdown mt-3">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
-            Dropdown button
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
+        
+        <div class="js-scrollspy-nav" style="height: 50px;">
+          <!-- Sidebar -->
+          <div id="sidebar-container"  style="width: 230px;"><!-- d-* hiddens the Sidebar in smaller devices. Its itens can be kept on the Navbar 'Menu' -->
+            <!-- Bootstrap List Group -->
+            <ul class="list-group">
+                <!-- Menu with submenu -->
+                <a href="#submenu1" class="bg-transparent list-group-item list-group-item-action" data-toggle="collapse" aria-expanded="false">
+                    <div class="d-flex w-100 justify-content-start align-items-center">
+                        <span class="menu-collapsed">訂單管理</span>
+                        <span class="submenu-icon ml-auto"></span>
+                    </div>
+                </a>
+                <div id='submenu1' class="collapse sidebar-submenu show active" >
+                    <button onclick="location.href='{{route('ordermanage.index')}}'" class="list-group-item list-group-item-action flex-column align-items-start"style="padding-left:30px"id="chc1">
+                        <div class="d-flex w-100 justify-content-start align-items-center">
+                            <span class="fas fa-info-circle fa-fw mr-3"aria-hidden="true"></span> 
+                            <span class="menu-collapsed" >訂單資訊</span>
+                        </div>
+                    </button>
+                    <button onclick="location.href='{{route('ordermanage.history')}}'"  class=" list-group-item list-group-item-action flex-column align-items-start"style="padding-left:30px"id="chc2">
+                        <div class="d-flex w-100 justify-content-start align-items-center">
+                            <span class="fas fa-history fa-fw mr-3"aria-hidden="true"></span>
+                            <span class="menu-collapsed" >歷史訂單</span>
+                        </div>
+                    </button>
+                </div>
+          
+                <a href="#submenu2" class="bg-transparent list-group-item list-group-item-action" data-toggle="collapse" aria-expanded="false">
+                  <div class="d-flex w-100 justify-content-start align-items-center">
+                      <span class="menu-collapsed">商品管理</span>
+                      <span class="submenu-icon ml-auto"></span>
+                  </div>
+              </a>
+              <div id='submenu2' class="collapse sidebar-submenu show active" >
+                  <button onclick="location.href='{{route('productmanage.index')}}'" class="list-group-item list-group-item-action flex-column align-items-start"style="padding-left:30px"id="chc1">
+                      <div class="d-flex w-100 justify-content-start align-items-center">
+                          <span class="fas fa-list-alt fa-fw mr-3"aria-hidden="true"></span> 
+                          <span class="menu-collapsed" >商品目錄</span>
+                      </div>
+                  </button>
+                  <button onclick="location.href='{{route('productmanage.edit')}}'" class=" list-group-item list-group-item-action flex-column align-items-start"style="padding-left:30px"id="chc2">
+                      <div class="d-flex w-100 justify-content-start align-items-center">
+                          <span class="fas fa-edit fa-fw mr-3"aria-hidden="true"></span>
+                          <span class="menu-collapsed" >商品編輯</span>
+                      </div>
+                  </button>
+              </div>
+              <button onclick="location.href='{{route('backbuy.index')}}'" class="bg-transparent list-group-item list-group-item-action flex-column align-items-start"id="chc6">
+                  <div class="d-flex w-100 justify-content-start align-items-center">
+                      <span class="fas fa-shopping-cart fa-fw mr-3"aria-hidden="true"style="margin-right:13px !important;"></span>
+                      <span class="menu-collapsed" >我要購買</span>    
+                  </div>
+              </button>
+              <button onclick="location.href='{{route('memberrmanage.order')}}'" class="bg-transparent list-group-item list-group-item-action flex-column align-items-start">
+                  <div class="d-flex w-100 justify-content-start align-items-center">
+                      <span class="fas fa-user fa-fw mr-3"aria-hidden="true"></span>
+                      <span class="menu-collapsed" >會員管理</span>    
+                  </div>
+              </button>
+              <button onclick="location.href='{{route('contact_edit.index')}}'" class="bg-transparent  list-group-item list-group-item-action flex-column align-items-start"id="chc6">
+                <div class="d-flex w-100 justify-content-start align-items-center">
+                    <span class="fas fa-address-book fa-fw mr-3"aria-hidden="true"></span>
+                    <span class="menu-collapsed" >聯絡資訊</span>
+                </div>
+            </button>
+            <button onclick="location.href='{{route('data.index')}}'" class="bg-transparent list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-start align-items-center">
+                    <span class="far fa-chart-bar fa-fw mr-3"aria-hidden="true"></span>
+                    <span class="menu-collapsed" >數據統計</span>   
+                </div>
+            </button>
+          </div><!-- sidebar-container END -->
+
         </div>
       </div>
     </div>
+
     <div class="col warp">
       <div class="row justify-content-center mt-0">
 
         <div class="col-12 col-sm-10 col-md-10 col-lg-8  text-center p-0 mt-5 mb-3" id="member">
 
           <div class="col-lg-2 js-scrollspy-nav side" style="height: 50px;">
-            <div class="col-12">會員專區<hr style="height:1px;border:none;border-top:1px dashed #0066CC;"/></div>
-            <button class=" flex-column align-items-start ch1" id=myb style="margin-bottom: 20px" onclick="location.href='{{route('member.index')}}'">
-                <div class="d-flex w-100 align-items-center col-md-12">
-                    {{-- <span class="far fa-list-alt fa-fw mr-3"aria-hidden="true"></span> --}}
-                    <span class="menu-collapsed" >訂單查看</span>    
+            <!-- Sidebar -->
+            <div id="sidebar-container" class="sidebar-expanded d-none d-md-block" style="width: 230px;"><!-- d-* hiddens the Sidebar in smaller devices. Its itens can be kept on the Navbar 'Menu' -->
+              <!-- Bootstrap List Group -->
+              <ul class="list-group">
+                  <!-- Menu with submenu -->
+                  <a href="#submenu1" class="bg-transparent list-group-item list-group-item-action" data-toggle="collapse" aria-expanded="false">
+                      <div class="d-flex w-100 justify-content-start align-items-center">
+                          <span class="menu-collapsed">訂單管理</span>
+                          <span class="submenu-icon ml-auto"></span>
+                      </div>
+                  </a>
+                  <div id='submenu1' class="collapse sidebar-submenu show active" >
+                      <button onclick="location.href='{{route('ordermanage.index')}}'" class="list-group-item list-group-item-action flex-column align-items-start"style="padding-left:30px"id="chc1">
+                          <div class="d-flex w-100 justify-content-start align-items-center">
+                              <span class="fas fa-info-circle fa-fw mr-3"aria-hidden="true"></span> 
+                              <span class="menu-collapsed" >訂單資訊</span>
+                          </div>
+                      </button>
+                      <button onclick="location.href='{{route('ordermanage.history')}}'" class=" list-group-item list-group-item-action flex-column align-items-start"style="padding-left:30px"id="chc2">
+                          <div class="d-flex w-100 justify-content-start align-items-center">
+                              <span class="fas fa-history fa-fw mr-3"aria-hidden="true"></span>
+                              <span class="menu-collapsed" >歷史訂單</span>
+                          </div>
+                      </button>
+                  </div>
+            
+                  <a href="#submenu2" class="bg-transparent list-group-item list-group-item-action" data-toggle="collapse" aria-expanded="false">
+                    <div class="d-flex w-100 justify-content-start align-items-center">
+                        <span class="menu-collapsed">商品管理</span>
+                        <span class="submenu-icon ml-auto"></span>
+                    </div>
+                </a>
+                <div id='submenu2' class="collapse sidebar-submenu show active" >
+                    <button onclick="location.href='{{route('productmanage.index')}}'" class="list-group-item list-group-item-action flex-column align-items-start"style="padding-left:30px"id="chc1">
+                        <div class="d-flex w-100 justify-content-start align-items-center">
+                            <span class="fas fa-list-alt fa-fw mr-3"aria-hidden="true"></span> 
+                            <span class="menu-collapsed" >商品目錄</span>
+                        </div>
+                    </button>
+                    <button onclick="location.href='{{route('productmanage.edit')}}'" class=" list-group-item list-group-item-action flex-column align-items-start"style="padding-left:30px"id="chc2">
+                        <div class="d-flex w-100 justify-content-start align-items-center">
+                            <span class="fas fa-edit fa-fw mr-3"aria-hidden="true"></span>
+                            <span class="menu-collapsed" >商品編輯</span>
+                        </div>
+                    </button>
                 </div>
-            </button><br>
-            <button class="flex-column align-items-start ch2"id=myb onclick="location.href='{{route('be_member.edit')}}'">
-              <div class="d-flex w-100 align-items-center col-md-12">
-                  {{-- <span class="fas fa-edit fa-fw mr-3"aria-hidden="true"></span> --}}
-                  <span class="menu-collapsed" >修改資料</span>    
-              </div>
-          </button>
+                <button  onclick="location.href='{{route('backbuy.index')}}'"  class="bg-transparent list-group-item list-group-item-action flex-column align-items-start"id="chc6">
+                    <div class="d-flex w-100 justify-content-start align-items-center">
+                        <span class="fas fa-shopping-cart fa-fw mr-3"aria-hidden="true"style="margin-right:13px !important;"></span>
+                        <span class="menu-collapsed" >我要購買</span>    
+                    </div>
+                </button>
+                <button onclick="location.href='{{route('membermanage.index')}}'" class="bg-transparent list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-start align-items-center">
+                        <span class="fas fa-user fa-fw mr-3"aria-hidden="true"></span>
+                        <span class="menu-collapsed" >會員管理</span>    
+                    </div>
+                </button>
+                <button onclick="location.href='{{route('contact_edit.index')}}'"  class="bg-transparent  list-group-item list-group-item-action flex-column align-items-start"id="chc6">
+                  <div class="d-flex w-100 justify-content-start align-items-center">
+                      <span class="fas fa-address-book fa-fw mr-3"aria-hidden="true"></span>
+                      <span class="menu-collapsed" >聯絡資訊</span>
+                  </div>
+              </button>
+              <button onclick="location.href='{{route('data.index')}}'"  class="bg-transparent list-group-item list-group-item-action flex-column align-items-start">
+                  <div class="d-flex w-100 justify-content-start align-items-center">
+                      <span class="far fa-chart-bar fa-fw mr-3"aria-hidden="true"></span>
+                      <span class="menu-collapsed" >數據統計</span>   
+                  </div>
+              </button>
+            </div><!-- sidebar-container END -->
+
           </div>
 
 
@@ -124,7 +245,7 @@
         
       </div></div></div>
       <i class="fas fa-arrow-up text-center" id=top style="display: none"><br>TOP</i>
-      <footer class="footer">
+      <footer class="backfooter">
         <label class="col align-self-center"style="margin-top: 15px;">Copyright © 2021 瑪利MAMA 中科大團隊 products. 版權所有</label>
       </footer>
 
@@ -172,7 +293,6 @@
         $('#collapse-icon').toggleClass('fa-angle-double-left fa-angle-double-right');
     }</script>
 
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
 src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -190,11 +310,11 @@ integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv
 crossorigin="anonymous"
 ></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js" integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ" crossorigin="anonymous"></script> 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+
 </body>
 </html>

@@ -193,6 +193,44 @@ html {
     padding: 0px;
     margin: 0px;
 }
+.backfooter {
+    background-color: #6c4438;
+    height: 50pt;
+    color: white;
+    width: 100%;
+    position: relative;
+    top: auto;
+    bottom: 0%;
+    left: 0px;
+    font-size: 14px;
+    text-align: center;
+    vertical-align: bottom;
+    padding: 0px;
+    margin: 0px;
+}
+/* Closed submenu icon */
+#sidebar-container
+    .list-group
+    .list-group-item[aria-expanded="false"]
+    .submenu-icon::after {
+    content: " \f0d7";
+    font-family: FontAwesome;
+    display: inline;
+    text-align: right;
+    padding-left: 10px;
+}
+/* Opened submenu icon */
+#sidebar-container
+    .list-group
+    .list-group-item[aria-expanded="true"]
+    .submenu-icon::after {
+    content: " \f0da";
+    font-family: FontAwesome;
+    display: inline;
+    text-align: right;
+    padding-left: 10px;
+}
+
 .la {
     top: 50%;
 }
