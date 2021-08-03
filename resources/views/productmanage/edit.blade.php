@@ -9,7 +9,7 @@
 
 @section('main')
   <h2>商品管理-商品編輯</h2>
-<form action=""  method="POST">  
+<form action=""  method="" id="msform">  
   <div class="row col-md-2 align-self-start"style="padding-right: 50px;padding-left: 30px;"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#new">新增</button></div>
   <section class="table table-hover">
     <div class="col align-self-center"> <!--時間表-->
@@ -79,12 +79,13 @@
         </div>
         <div class="modal-body">
             <div class="mb-3">
+
               <div class="container">
                 <div class="row justify-content-center">
                   <div class="row col-md-12 text-start justify-content-center">
                     <div class="col-md-10">名稱：<input type="text" name=""></div>
                     <div class="col-md-10">價格：<input type="text" name=""></div>
-                    <div class="col-md-10">分類：
+                    <div class="col-md-10" style="margin-bottom: 25px;">分類：<br>
                       <div class="form-check form-check-inline">
                         <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
                         <label class="form-check-label" for="inlineCheckbox1">星期一</label>
@@ -106,19 +107,20 @@
                         <label class="form-check-label" for="inlineCheckbox2">星期五</label>
                       </div>
                     </div>
-                    <div class="col-md-10">圖片：<input type="file" name=""/></div>
-                    <div class="col-md-10">介紹：<textarea name=""></textarea></div>
+                    <div class="col-md-10"style="margin-bottom: 25px;">圖片：<input type="file" class="form-control" name=""/></div>
+                    <div class="col-md-10">介紹：<textarea name="" style="height: 100px"></textarea>
                   </div>
                 </div>
-                
               </div>
             </div>
+            
         </div>
         <div class="modal-footer">
             <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
             <button type="submit" class="btn btn-primary">確認</button>
         </div>
-        </div>
+      </div>
+    </div>
     </div>
 </div>
 {{-- 修改 --}}
@@ -127,12 +129,44 @@
       <div class="modal-content">
       <div class="modal-header">
           {{-- <input type="hidden" name="fId"> --}}
-          <h5 class="modal-title" id="exampleModalLabel">確認刪除</h5>
+          <h5 class="modal-title" id="exampleModalLabel">修改資料</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
           <div class="mb-3">
-              確定要刪除嗎?
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="row col-md-12 text-start justify-content-center">
+                  <div class="col-md-10">名稱：<input type="text" name=""></div>
+                  <div class="col-md-10">價格：<input type="text" name=""></div>
+                  <div class="col-md-10" style="margin-bottom: 25px;">分類：<br>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                      <label class="form-check-label" for="inlineCheckbox1">星期一</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                      <label class="form-check-label" for="inlineCheckbox2">星期二</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option1">
+                      <label class="form-check-label" for="inlineCheckbox1">星期三</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option2">
+                      <label class="form-check-label" for="inlineCheckbox2">星期四</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option2">
+                      <label class="form-check-label" for="inlineCheckbox2">星期五</label>
+                    </div>
+                  </div>
+                  <div class="col-md-10"style="margin-bottom: 25px;">圖片：<input type="file" class="form-control" name=""/></div>
+                  <div class="col-md-10">介紹：<textarea name="" style="height: 100px"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
           </div>
       </div>
       <div class="modal-footer">

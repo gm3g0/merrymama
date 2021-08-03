@@ -279,8 +279,7 @@ html {
     text-align: left;
 }
 
-#msform input,
-#msform textarea {
+#msform input[type="text"] {
     padding: 0px 8px 4px 8px;
     border: none;
     border-bottom: 1px solid #ccc;
@@ -294,9 +293,21 @@ html {
     font-size: 16px;
     letter-spacing: 1px;
 }
-
-#msform input:focus,
-#msform textarea:focus {
+#msform textarea {
+    padding: 0px 8px 4px 8px;
+    border: none;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    margin-bottom: 25px;
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2c3e50;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+#msform input:focus {
     -moz-box-shadow: none !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
