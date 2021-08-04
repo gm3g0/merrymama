@@ -10,6 +10,7 @@
 
 @section('main')
 <div class="col-12 col-sm-10 col-md-10 col-lg-8  text-center p-0 mt-5 mb-3">
+  <h2 class="fas fa-bullhorn">&nbsp;最新消息</h2><br>
   {{-- 輪播式 --}}
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
@@ -37,9 +38,22 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div> {{-- 輪播END --}}
-<br>
-<div>
-  <h2 class="fas fa-crown">必買推薦</h2>
+<br><br>
+<h2 class="fas fa-crown">&nbsp;必買推薦</h2>
+<div class="row justify-content-between">
+
+  <div class="col-md-4">
+    <img src="bread_test.jpg" class="card-img-top align-self-center" alt="測試麵包圖" style="height: 200px;width: 205px;"><br>
+    1235
+  </div>
+  <div class="col-md-4">
+    <img src="bread_test.jpg" class="card-img-top align-self-center" alt="測試麵包圖" style="height: 200px;width: 205px;"><br>
+    135
+  </div>
+  <div class="col-md-4">
+    <img src="bread_test.jpg" class="card-img-top align-self-center" alt="測試麵包圖" style="height: 200px;width: 205px;"><br>
+    3216
+  </div>
 </div>
 
 </div>

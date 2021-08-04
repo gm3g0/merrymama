@@ -29,8 +29,18 @@
       <span class="wordsNum" style="margin-left: 90%">0/150</span>
     </div>
     <div class="col-md-12 text-start">
-      
-      <h4>留言板</h4><br>&nbsp;&nbsp;
+      <h4>留言板</h4>
+      <div class="card">
+        <div class="card-header">
+          使用者名字
+        </div>
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p>內容A well-known quote, contained in a blockquote element.</p>
+            <footer class="blockquote-footer text-end">時間標記 </footer>
+          </blockquote>
+        </div>
+      </div>
     </div>
   </div>
  

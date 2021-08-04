@@ -15,7 +15,7 @@
     <P class="col-md-7">您的訂單已成立，<br>訂單編號：</P>
     <P class="col-md-7">訂單詳細資訊請至E-mail查看，或點擊下面按鈕至會員專區的訂單查詢</P>
   </div><br>
-  <div  style="margin: 0px"  id="msform"><button type="submit" class="next action-button btn pull-center" style="outline: none;">訂單查詢</button></div>
+  <div style="margin: 0px"  id="msform"><button type="submit" class="next action-button btn pull-center" onclick="location.href='{{route('member.index')}}'" style="outline: none;">訂單查看</button></div>
 
 
 

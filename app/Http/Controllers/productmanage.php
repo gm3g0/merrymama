@@ -14,7 +14,7 @@ class productmanage extends Controller
     public function index()
     {
         //
-        return view('productmanage.list');
+        return view('productmanage.edit');
     }
 
     /**
@@ -25,7 +25,6 @@ class productmanage extends Controller
     public function create()
     {
         //
-        return view('productmanage.edit');
     }
 
     /**

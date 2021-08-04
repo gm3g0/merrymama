@@ -56,8 +56,7 @@ Route::get('/or_history',[ordermanage::class,'create'])->name('ordermanage.histo
 Route::resource('membermanage', membermanage::class)->only('index','create');
 Route::get('/me_order',[membermanage::class,'create'])->name('memberrmanage.order');
 
-Route::resource('productmanage', productmanage::class)->only('index','create');
-Route::get('/pr_edit',[productmanage::class,'create'])->name('productmanage.edit');
+Route::resource('productmanage', productmanage::class)->only('index');
 
 Route::resource('backbuy',backbuy::class)->only('index');
 Route::resource('data',backdata::class)->only('index');

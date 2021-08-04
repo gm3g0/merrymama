@@ -4,7 +4,7 @@
 @endsection
 
 @section('title')
-    <title>瑪利MAMA後台|</title>
+    <title>瑪利MAMA後台|會員管理_會員資訊</title>
 @endsection
 
 @section('main')
@@ -19,10 +19,10 @@
       </div>
     </div>
 
-  <div class="row justify-content-between">
-    <div class="col-md-2">訂購次數：</div>
-    <div class="col-md-2">累計金額：</div>
-  </div>
+  <h5 class="row justify-content-between">
+    <div class="col-md-4 text-start">訂購次數：<strong>122</strong></div>
+    <div class="col-md-4 text-end">累計金額：<strong>122</strong></div>
+  </h5>
 </div>
 <section class="table table-hover">
   <div class="col align-self-center"> <!--時間表-->

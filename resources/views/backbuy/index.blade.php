@@ -12,7 +12,7 @@
 <form action="" id="msform" method="GET">
   <div class="container">
     <div class="row align-items-center">
-      <div class="col-md-2">
+      <div class="col-auto">
         <h4 class="text-start">本次訂購：</h4>
       </div>
       <div class="col-md-3">
