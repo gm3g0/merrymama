@@ -11,6 +11,40 @@
   <h2>商品管理-商品編輯</h2>
 <form action=""  method="" id="msform">  
   <div class="row col-md-2 align-self-start"style="padding-right: 50px;padding-left: 30px;"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#new">新增</button></div>
+  {{-- <section class="table table-hover">
+    <div class="col align-self-center"> <!--時間表-->
+      <table cellpadding="0" cellspacing="0" >
+        <thead>
+          <tr class="tbl-header">
+            <th><h6><b> 麵包名稱</th>
+            <th><h6><b> 介紹</th>
+            <th><h6><b> 分類</th>
+            <th><h6><b> 價格</th>
+            <th><h6><b> 圖片</th>
+            <th><h6><b> 刪除</th>
+            <th><h6><b> 修改</th>
+          </tr>
+        </thead>
+    </div>
+    <div class="tbl-content">
+        <tbody >
+                <tr>
+                    <td>02</td>
+                    <td>02</td>  
+                    <td>02</td>
+                    <td>02</td>
+                    <td>02</td>
+                    <td ><div class="text-center"><input type="checkbox" id="checkboxNoLabel" style="height: 15px;width:15px"></div></td>
+                    <td>
+                      <div>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit">修改</button>
+                      </div>
+                    </td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+  </section> --}}
   <section class="table table-hover">
     <div class="col align-self-center"> <!--時間表-->
       <table cellpadding="0" cellspacing="0" >
@@ -69,6 +103,7 @@
         </div>
     </div>
   </div>
+
 {{-- 新增 --}}
   <div class="modal fade" id="new" data-bs-backdrop="static"  aria-labelledby="new" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -123,6 +158,7 @@
     </div>
     </div>
 </div>
+
 {{-- 修改 --}}
 <div class="modal fade" id="edit" data-bs-backdrop="static"  aria-labelledby="edit" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">

@@ -22,6 +22,16 @@
                 密碼：<input type="password" name="mpw"><br>
                 姓名：<input type="text" name="name"><br>
                 電話：<input type="tel" name="phone">
+                生理性別：
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                  <label class="form-check-label" for="inlineRadio1">男</label>
+                </div>
+                <div class="form-check form-check-inline" style="margin-bottom: 25px">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                  <label class="form-check-label" for="inlineRadio2">女</label>
+                </div><br>
+                生日：<input type="date" name="birth"><br>
               </div>
             </div>
             <div class="col-10" style="text-align: center;">

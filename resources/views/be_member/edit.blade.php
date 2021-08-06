@@ -20,9 +20,8 @@
           <div class="container">
             <div class="row justify-content-center">
               <div class="col-md-4 text-start ">
-                E-mail(帳號)：<input type="email" name="nacount" value=""><br>
                 密碼：<input type="password" name="npw" value=""><br>
-                姓名：<input type="text" name="nname" value=""><br>
+                名稱：<input type="text" name="nname" value=""><br>
                 電話：<input type="tel" name="nphone" value="">
               </div>
             </div>

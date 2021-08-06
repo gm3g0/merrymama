@@ -13,11 +13,13 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8 text-start justify-content-center">
-        <div class="col-md-9">名稱：<input type="text" name="nstore"></div>
-        <div class="col-md-9">帳號(E-mail)：<input type="text" name="nstphone"></div>
-        <div class="col-md-9">電話：<input type="text" name="nadd"></div>
+        <div class="col-md-9">名稱：</div>
+        <div class="col-md-9">帳號(E-mail)：</div>
+        <div class="col-md-9">電話：</div>
+        <div class="col-md-9">生理性別：</div>
+        <div class="col-md-9">生日：</div>
       </div>
-    </div>
+    </div><br>
 
   <h5 class="row justify-content-between">
     <div class="col-md-4 text-start">訂購次數：<strong>122</strong></div>

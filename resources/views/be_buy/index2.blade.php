@@ -26,6 +26,8 @@
       <div class="col-md-7">&nbsp;
         &nbsp;&nbsp;瑪利媽媽經典麵包
       </div>
+      <div class="col-md-7"> 
+        備註：<textarea name="" value=""style="height: 80px" Wrap="Virtual"></textarea></div>
       <div class="col-md-7">
         總金額：<strong>1111</strong>元</div>
       </div>

@@ -24,7 +24,7 @@
         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
           <div class="accordion-body">
          <div class="container">
-          <div class="row">
+          <div class="row text-start">
             <h5 class="fs">A1：</h5></div> <br>
           <div class="row col-md-12 text-start align-self-center" style="margin: 0px">
             &nbsp;&nbsp;不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知不知道不知道不知道不知道不知道不知道

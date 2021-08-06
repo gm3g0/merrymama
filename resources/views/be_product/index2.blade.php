@@ -8,17 +8,17 @@
 @endsection
 
 @section('main')
-<h5 class="fas fa-angle-double-left" id="back" style="cursor: pointer;color:#6c4438;">&nbsp;上一頁</h5>
+
 <div class="col-12 col-sm-10 col-md-10 col-lg-8  text-center p-0 mt-5 mb-3">
-  <div class="row col-md-6 justify-content-center" id="pl">
-    <div class="col-md-12">
+  <div class="row col-md-6 justify-content-between"id="pl">
+    <div class="col-md-6">
       <img src="bread_test.jpg"  alt="測試麵包圖" style="height: 250px;width: 245px;">
     </div>
     <br>
-    <div class="col-md-10 text-start">
+    <div class="row col-md-6 text-start align-items-center justify-content-center">
       名稱：<br>
-      價格：<br>
-      介紹：<br>&nbsp;&nbsp;
+      介紹：<br>
+      售價：<br>&nbsp;&nbsp;
     </div>
   </div><br>
 
@@ -47,11 +47,7 @@
 </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script>
-      document.getElementById('back').onclick = function () {
-          window.history.back();
-      }
-  </script>
+
 <script>
   //封裝一個限制字數方法
 var checkStrLengths = function (str, maxLength) {

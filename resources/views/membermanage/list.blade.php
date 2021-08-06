@@ -14,7 +14,7 @@
     @csrf
   <div class="row g-3 align-items-center float-right" style="padding: 0px;">
     <div class="col-auto">
-        <label for="inputPassword6" class="col-form-label">電話號碼：</label>
+        <label for="inputPassword6" class="col-form-label">名稱：</label>
     </div>
     <div class="col-auto">
         <input type="text" value="" name="" class="form-control"id="" >

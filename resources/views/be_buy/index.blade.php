@@ -29,8 +29,7 @@
               <input style="width:30px;" type='button' value='+' class='qtyplus' field='ticket' />
             </div>
             <div class="card-text col-md-2"><strong>NT$120元</strong></div>
-            <div class="card-text col-md-1"><input type="checkbox"  id="checkboxNoLabel" style="height: 15px;width:15px">切</div>
-            <div class="card-text col-md-1"><input type="checkbox"  id="checkboxNoLabe2" style="height: 20px;width:20px"></div>
+            <div class="card-text col-md-2"><input type="checkbox"  id="checkboxNoLabel" style="height: 15px;width:15px">切</div>
           </div>
       </div>
     </div>
@@ -47,8 +46,7 @@
               <input style="width:30px;" type='button' value='+' class='qtyplus' field='ticket1' />
             </div>
             <div class="card-text col-md-2"><strong>NT$120元</strong></div>
-            <div class="card-text col-md-1"><input type="checkbox" id="checkboxNoLabel" style="height: 15px;width:15px">切</div>
-            <div class="card-text col-md-1"><input type="checkbox" id="checkboxNoLabe2" style="height: 20px;width:20px"></div>
+            <div class="card-text col-md-2"><input type="checkbox" id="checkboxNoLabel" style="height: 15px;width:15px">切</div>
           </div>
       </div>
     </div>
