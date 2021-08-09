@@ -8,7 +8,7 @@
 @endsection
 
 @section('main')
-<h2><i class="fas fa-shopping-cart"></i>&nbsp;我要購買</h2><hr>
+<h2>我要購買</h2><hr>
 <form action="" id="msform" method="GET">
   <div class="container">
     <div class="row align-items-center">
@@ -29,7 +29,7 @@
           取貨日期：<input type="date" name="" value="" id="dateto2"   min="">
       </div>
       <div class="col-md-2"  style="margin: 0px">
-        <button type="submit" class="next action-button" style="outline: none;">確定</button>
+        <button type="submit" class="next action-buttonb" style="outline: none;">確定</button>
       </div>
     </div>
   </div>

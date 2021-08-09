@@ -169,12 +169,13 @@ input.qtyminus {
 body {
     height: 100%;
     margin: 0;
-    font-size: 16px;
 }
 html {
     height: 100%;
     margin: 0;
-    font-size: 18px;
+}
+div {
+    font-size: large;
 }
 .warp {
     min-height: 82%;
@@ -318,13 +319,12 @@ html {
     box-shadow: none !important;
     border: none;
     font-weight: bold;
-    border-bottom: 2px solid skyblue;
+    border-bottom: 2px solid rgb(134, 195, 219);
     outline-width: 0;
 }
-
-#msform .action-button {
+#msform .action-buttonb {
     width: 100px;
-    background: rgb(245, 227, 177);
+    background: #adc178;
     font-weight: bold;
     color: white;
     border: 0 none;
@@ -333,16 +333,35 @@ html {
     padding: 10px 5px;
     margin: 10px 5px;
     text-decoration: none;
+    font-size: 16px;
+}
+
+#msform .action-buttonb:hover,
+#msform .action-buttonb:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #adc178;
+}
+#msform .action-button {
+    width: 100px;
+    background: rgb(134, 195, 219);
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 0px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+    text-decoration: none;
+    font-size: 16px;
 }
 
 #msform .action-button:hover,
 #msform .action-button:focus {
-    box-shadow: 0 0 0 2px white, 0 0 0 3px rgb(122, 211, 134);
+    box-shadow: 0 0 0 2px white, 0 0 0 3px rgb(134, 195, 219);
 }
 
 #msform .action-button-previous {
     width: 100px;
-    background: #616161;
+    background: #6c4438;
     font-weight: bold;
     color: white;
     border: 0 none;
@@ -355,7 +374,7 @@ html {
 
 #msform .action-button-previous:hover,
 #msform .action-button-previous:focus {
-    box-shadow: 0 0 0 2px white, 0 0 0 3px #616161;
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #6c4438;
 }
 
 select.list-dt {
@@ -368,7 +387,7 @@ select.list-dt {
 }
 
 select.list-dt:focus {
-    border-bottom: 2px solid skyblue;
+    border-bottom: 2px solid rgb(134, 195, 219);
 }
 
 .card {

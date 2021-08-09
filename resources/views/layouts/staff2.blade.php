@@ -19,10 +19,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
-    
+
+    @yield('javascript')
+
     @yield('title')
 </head>
-<body >
+<body>
     <div>
         <!-- Navigation導覽列 -->
         <!-- navbar只有light,dark,為設定字體顏色 -->
@@ -31,17 +33,16 @@
             <button class="navbar-brand no-gutters" style="border: 0px;background: transparent;">
               <img src="{{ asset('/logo.png')}}" height="90px" width="140px" style="margin: 0px;padding: 0px;" alt="icon" class="navbar-brand no-gutters">
             </button>
-
-          <button class="sidebar" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" id="myb">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
           </div>
         </nav>
       <!-- /.container -->
     </div>
 
-
+    <div class="navbar navbar-light">
+      <button class="sidebar " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" id="myb">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
     {{-- <button class="sidebar" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" id="myb">
        <span class="fa-stack fa-lg">
         <i class="far fa-square fa-stack-2x"></i>

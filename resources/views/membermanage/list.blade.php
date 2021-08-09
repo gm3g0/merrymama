@@ -9,7 +9,7 @@
 
 @section('main')
 <h2>會員管理</h2>
-<form action="" method="POST">
+<form action="" method="POST" id="msform">
     {{-- @method('GET') --}}
     @csrf
   <div class="row g-3 align-items-center float-right" style="padding: 0px;">
@@ -20,7 +20,7 @@
         <input type="text" value="" name="" class="form-control"id="" >
     </div>
     <div class="col-auto">
-        <button type="submit" class="btn btn-primary">搜尋</button>
+        <button type="submit" class="next action-buttonb" style="outline: none;">搜尋</button>
     </div>
   </div><br>
 

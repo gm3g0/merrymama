@@ -6,14 +6,83 @@
 @section('title')
     <title>瑪利MAMA後台|商品管理_商品編輯</title>
 @endsection
+<style>
+ 
 
+
+/* Responsive */
+
+@media (max-width: 767px) {
+    .fl-table {
+        display: block;
+        width: 100%;
+    }
+    .table-wrapper:before{
+        content: "Scroll horizontally >";
+        display: block;
+        text-align: right;
+        font-size: 11px;
+        color: white;
+        padding: 0 0 10px;
+    }
+    .fl-table thead, .fl-table tbody, .fl-table thead th {
+        display: block;
+    }
+    .fl-table thead th:last-child{
+        border-bottom: none;
+    }
+    .fl-table thead {
+        float: left;
+    }
+    .fl-table tbody {
+        width: auto;
+        position: relative;
+        overflow-x: auto;
+    }
+    .fl-table td, .fl-table th {
+        padding: 20px .625em .625em .625em;
+        height: 60px;
+        vertical-align: middle;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        overflow-y: auto;
+        width: 120px;
+        font-size: 13px;
+        text-overflow: ellipsis;
+    }
+    .fl-table thead th {
+        text-align: left;
+        border-bottom: 1px solid #f7f7f9;
+    }
+    .fl-table tbody tr {
+        display: table-cell;
+    }
+    .fl-table tbody tr:nth-child(odd) {
+        background: none;
+    }
+    .fl-table tr:nth-child(even) {
+        background: transparent;
+    }
+    .fl-table tr td:nth-child(odd) {
+        background: #F8F8F8;
+        border-right: 1px solid #E6E4E4;
+    }
+    .fl-table tr td:nth-child(even) {
+        border-right: 1px solid #E6E4E4;
+    }
+    .fl-table tbody td {
+        display: block;
+        text-align: center;
+    }
+}
+</style>
 @section('main')
   <h2>商品管理-商品編輯</h2>
 <form action=""  method="" id="msform">  
-  <div class="row col-md-2 align-self-start"style="padding-right: 50px;padding-left: 30px;"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#new">新增</button></div>
-  {{-- <section class="table table-hover">
-    <div class="col align-self-center"> <!--時間表-->
-      <table cellpadding="0" cellspacing="0" >
+  <div class="row col-md-2 align-self-start"style="padding-left: 22px;"><button type="button" class="next action-buttonb" data-bs-toggle="modal" data-bs-target="#new">新增</button></div>
+   <section class="table table-hover">
+    <div class="col align-self-center table-wrapper"> <!--時間表-->
+      <table cellpadding="0" cellspacing="0" class="fl-table">
         <thead>
           <tr class="tbl-header">
             <th><h6><b> 麵包名稱</th>
@@ -37,14 +106,41 @@
                     <td ><div class="text-center"><input type="checkbox" id="checkboxNoLabel" style="height: 15px;width:15px"></div></td>
                     <td>
                       <div>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit">修改</button>
+                        <button type="button"  class="btn  next action-buttonb" data-bs-toggle="modal" data-bs-target="#edit">修改</button>
                       </div>
                     </td>
                 </tr>
+                <tr>
+                  <td>02</td>
+                  <td>02</td>  
+                  <td>02</td>
+                  <td>02</td>
+                  <td>02</td>
+                  <td ><div class="text-center"><input type="checkbox" id="checkboxNoLabel" style="height: 15px;width:15px"></div></td>
+                  <td>
+                    <div>
+                      <button type="button"  class="btn next action-buttonb" data-bs-toggle="modal" data-bs-target="#edit">修改</button>
+                    </div>
+                  </td>
+              </tr>
+              <tr>
+                <td>02</td>
+                <td>02</td>  
+                <td>02</td>
+                <td>02</td>
+                <td>02</td>
+                <td ><div class="text-center"><input type="checkbox" id="checkboxNoLabel" style="height: 15px;width:15px"></div></td>
+                <td>
+                  <div>
+                    <button type="button"  class="btn next action-buttonb" data-bs-toggle="modal" data-bs-target="#edit">修改</button>
+                  </div>
+                </td>
+            </tr>
         </tbody>
       </table>
     </div>
-  </section> --}}
+  </section> 
+
   <section class="table table-hover">
     <div class="col align-self-center"> <!--時間表-->
       <table cellpadding="0" cellspacing="0" >
@@ -71,7 +167,7 @@
                     <td ><div class="text-center"><input type="checkbox" id="checkboxNoLabel" style="height: 15px;width:15px"></div></td>
                     <td>
                       <div>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit">修改</button>
+                        <button type="button" class="btn next action-buttonb"data-bs-toggle="modal" data-bs-target="#edit">修改</button>
                       </div>
                     </td>
                 </tr>
@@ -81,7 +177,7 @@
   </section>
   <div class="d-grid gap-2 col-md-2 mx-auto">
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">刪除</button>
+    <button type="button" class="next action-buttonb" data-bs-toggle="modal" data-bs-target="#exampleModal">刪除</button>
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -96,8 +192,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
-                <button type="submit" class="btn btn-primary">確認</button>
+                <button type="submit" class="previous action-button-previous" data-bs-dismiss="modal">取消</button>
+                <button type="submit" class="next action-buttonb">確認</button>
             </div>
             </div>
         </div>
@@ -148,13 +244,13 @@
                 </div>
               </div>
             </div>
-            
+          </div> 
         </div>
         <div class="modal-footer">
-            <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
-            <button type="submit" class="btn btn-primary">確認</button>
+            <button type="submit" class="previous action-button-previous" data-bs-dismiss="modal">取消</button>
+            <button type="submit" class="next action-buttonb">確認</button>
         </div>
-      </div>
+      
     </div>
     </div>
 </div>
@@ -164,7 +260,6 @@
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
       <div class="modal-header">
-          {{-- <input type="hidden" name="fId"> --}}
           <h5 class="modal-title" id="exampleModalLabel">修改資料</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
@@ -206,8 +301,8 @@
           </div>
       </div>
       <div class="modal-footer">
-          <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
-          <button type="submit" class="btn btn-primary">確認</button>
+          <button type="submit" class="previous action-button-previous" data-bs-dismiss="modal">取消</button>
+          <button type="submit" class="next action-buttonb">確認</button>
       </div>
       </div>
   </div>
