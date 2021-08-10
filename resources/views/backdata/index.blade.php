@@ -17,7 +17,18 @@
 <script src="/js/adapters/mootools-adapter.js" type="text/javascript"></script> 
 <script src="/js/highcharts.js" type="text/javascript"></script> 
 @endsection
-
+@section('name')
+<style>
+  #chc2,#chc3, #chc4,#chc5, #chc6,#chc7,#chc8,#chc1 {
+    color: black;
+} 
+#chc9 {
+    color: black;
+    background-color: #fdd977;
+    border-bottom-width:3px 
+} 
+</style>
+@endsection
 @section('main')
 <h2>數據統計</h2>
 <div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>

@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
 
     @yield('javascript')
-
+    @yield('name')
     @yield('title')
 </head>
 <body>
@@ -64,63 +64,89 @@
             <ul class="list-group">
                 <!-- Menu with submenu -->
                 <a href="#submenu1" class="bg-transparent list-group-item list-group-item-action" data-toggle="collapse" aria-expanded="false">
-                    <div class="d-flex w-100 justify-content-start align-items-center">
-                        <span class="menu-collapsed">訂單管理</span>
-                        <span class="submenu-icon ml-auto"></span>
-                    </div>
+                  <div class="d-flex w-100 justify-content-start align-items-center">
+                      <span class="menu-collapsed">前台編輯</span>
+                      <span class="submenu-icon ml-auto"></span>
+                  </div>
                 </a>
                 <div id='submenu1' class="collapse sidebar-submenu show active" >
-                    <button onclick="location.href='{{route('ordermanage.index')}}'" class="list-group-item list-group-item-action flex-column align-items-start"style="padding-left:30px"id="chc1">
+                    <button onclick="location.href='{{route('edit_homepage.index')}}'" class="list-group-item list-group-item-action flex-column align-items-start"style="padding-left:30px"id="chc1">
                         <div class="d-flex w-100 justify-content-start align-items-center">
-                            <span class="fas fa-info-circle fa-fw mr-3"aria-hidden="true"></span> 
-                            <span class="menu-collapsed" >訂單資訊</span>
+                            <span class="fas fa-home fa-fw mr-3"aria-hidden="true"></span> 
+                            <span class="menu-collapsed" >首頁</span>
                         </div>
                     </button>
-                    <button onclick="location.href='{{route('ordermanage.history')}}'"  class=" list-group-item list-group-item-action flex-column align-items-start"style="padding-left:30px"id="chc2">
+                    <button onclick="location.href='{{route('edit_QA.index')}}'" class=" list-group-item list-group-item-action flex-column align-items-start"style="padding-left:30px"id="chc2">
                         <div class="d-flex w-100 justify-content-start align-items-center">
-                            <span class="fas fa-history fa-fw mr-3"aria-hidden="true"></span>
-                            <span class="menu-collapsed" >歷史訂單</span>
+                            {{-- <span class="fas fa-question-circle fa-fw mr-3"aria-hidden="true"></span> --}}
+                            <span class="fa-stack fa-fw mr-3"aria-hidden="true" style="font-size: 12px">
+                              <i class="far fa-comment fa-stack-2x"></i>
+                              <i class="fas fa-question fa-stack-1x"></i>
+                            </span> 
+                            <span class="menu-collapsed" >QA</span>
                         </div>
+                    </button>
+                    <button  onclick="location.href='{{route('backbuy.index')}}'"  class=" list-group-item list-group-item-action flex-column align-items-start"style="padding-left:30px"id="chc3">
+                      <div class="d-flex w-100 justify-content-start align-items-center">
+                          <span class="fas fa-shopping-cart fa-fw mr-3"aria-hidden="true"></span>
+                          <span class="menu-collapsed" >我要購買</span>    
+                      </div>
+                    </button>
+                    <button onclick="location.href='{{route('contact_edit.index')}}'" class=" list-group-item list-group-item-action flex-column align-items-start"style="padding-left:30px"id="chc4">
+                      <div class="d-flex w-100 justify-content-start align-items-center">
+                          <span class="fas fa-address-book fa-fw mr-3"aria-hidden="true"></span>
+                          <span class="menu-collapsed" >聯絡資訊</span>
+                      </div>
                     </button>
                 </div>
-          
+
+                  <a href="#submenu2" class="bg-transparent list-group-item list-group-item-action" data-toggle="collapse" aria-expanded="false">
+                      <div class="d-flex w-100 justify-content-start align-items-center">
+                          <span class="menu-collapsed">訂單管理</span>
+                          <span class="submenu-icon ml-auto"></span>
+                      </div>
+                  </a>
+                  <div id='submenu2' class="collapse sidebar-submenu show active" >
+                      <button onclick="location.href='{{route('ordermanage.index')}}'" class="list-group-item list-group-item-action flex-column align-items-start"style="padding-left:30px"id="chc5">
+                          <div class="d-flex w-100 justify-content-start align-items-center">
+                              <span class="fas fa-clipboard-list fa-fw mr-3"aria-hidden="true"></span> 
+                              <span class="menu-collapsed" >訂單資訊</span>
+                          </div>
+                      </button>
+                      <button onclick="location.href='{{route('ordermanage.history')}}'" class=" list-group-item list-group-item-action flex-column align-items-start"style="padding-left:30px"id="chc6">
+                          <div class="d-flex w-100 justify-content-start align-items-center">
+                              <span class="fas fa-tasks fa-fw mr-3"aria-hidden="true"></span>
+                              <span class="menu-collapsed" >歷史訂單</span>
+                          </div>
+                      </button>
+                  </div>
+            
+                <button  onclick="location.href='{{route('productmanage.index')}}'"  class="bg-transparent list-group-item list-group-item-action flex-column align-items-start"id="chc7">
+                  <div class="d-flex w-100 justify-content-start align-items-center">
+                      <span class="fas fa-edit fa-fw mr-3"aria-hidden="true"></span>
+                      <span class="menu-collapsed" >商品編輯</span>    
+                  </div>
+                </button>
                 
-              <button onclick="location.href='{{route('productmanage.index')}}'" class="bg-transparent list-group-item list-group-item-action flex-column align-items-start"id="chc6">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fas fa-edit fa-fw mr-3"aria-hidden="true"style="margin-right:13px !important;"></span>
-                    <span class="menu-collapsed" >商品編輯</span>    
-                </div>
-            </button>
-              <button onclick="location.href='{{route('backbuy.index')}}'" class="bg-transparent list-group-item list-group-item-action flex-column align-items-start"id="chc6">
+                <button onclick="location.href='{{route('membermanage.index')}}'" class="bg-transparent list-group-item list-group-item-action flex-column align-items-start"id="chc8">
+                    <div class="d-flex w-100 justify-content-start align-items-center">
+                        <span class="fas fa-user fa-fw mr-3"aria-hidden="true"></span>
+                        <span class="menu-collapsed" >會員管理</span>    
+                    </div>
+                </button>
+                
+                <button onclick="location.href='{{route('data.index')}}'"  class="bg-transparent list-group-item list-group-item-action flex-column align-items-start"id="chc9">
+                    <div class="d-flex w-100 justify-content-start align-items-center">
+                        <span class="far fa-chart-bar fa-fw mr-3"aria-hidden="true"></span>
+                        <span class="menu-collapsed" >數據統計</span>   
+                    </div>
+                </button>
+                <button onclick="location.href='{{route('data.index')}}'"  class="bg-transparent list-group-item list-group-item-action flex-column align-items-start">
                   <div class="d-flex w-100 justify-content-start align-items-center">
-                      <span class="fas fa-shopping-cart fa-fw mr-3"aria-hidden="true"style="margin-right:13px !important;"></span>
-                      <span class="menu-collapsed" >我要購買</span>    
+                      <span class="fas fa-sign-out-alt fa-fw mr-3"aria-hidden="true"></span>
+                      <span class="menu-collapsed" >登出</span>   
                   </div>
-              </button>
-              <button onclick="location.href='{{route('memberrmanage.order')}}'" class="bg-transparent list-group-item list-group-item-action flex-column align-items-start">
-                  <div class="d-flex w-100 justify-content-start align-items-center">
-                      <span class="fas fa-user fa-fw mr-3"aria-hidden="true"></span>
-                      <span class="menu-collapsed" >會員管理</span>    
-                  </div>
-              </button>
-              <button onclick="location.href='{{route('contact_edit.index')}}'" class="bg-transparent  list-group-item list-group-item-action flex-column align-items-start"id="chc6">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fas fa-address-book fa-fw mr-3"aria-hidden="true"></span>
-                    <span class="menu-collapsed" >聯絡資訊</span>
-                </div>
-            </button>
-            <button onclick="location.href='{{route('data.index')}}'" class="bg-transparent list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="far fa-chart-bar fa-fw mr-3"aria-hidden="true"></span>
-                    <span class="menu-collapsed" >數據統計</span>   
-                </div>
-            </button>
-            <button onclick="location.href='{{route('data.index')}}'"  class="bg-transparent list-group-item list-group-item-action flex-column align-items-start">
-              <div class="d-flex w-100 justify-content-start align-items-center">
-                  <span class="fas fa-sign-out-alt fa-fw mr-3"aria-hidden="true"></span>
-                  <span class="menu-collapsed" >登出</span>   
-              </div>
-            </button>
+                </button>
           </div><!-- sidebar-container END -->
 
         </div>
@@ -132,71 +158,97 @@
 
         <div class="col-12 col-sm-10 col-md-10 col-lg-8  text-center p-0 mt-5 mb-3" id="member">
 
-          <div class="col-lg-2 js-scrollspy-nav side" style="height: 50px;">
+          <div class="col-lg-2 js-scrollspy-nav" id="side" style="height: 50px;">
             <!-- Sidebar -->
             <div id="sidebar-container" class="sidebar-expanded d-none d-md-block" style="width: 230px;"><!-- d-* hiddens the Sidebar in smaller devices. Its itens can be kept on the Navbar 'Menu' -->
               <!-- Bootstrap List Group -->
               <ul class="list-group">
                   <!-- Menu with submenu -->
-                  <a href="#submenu1" class="bg-transparent list-group-item list-group-item-action" data-toggle="collapse" aria-expanded="false">
+                <a href="#submenu1" class="bg-transparent list-group-item list-group-item-action" data-toggle="collapse" aria-expanded="false">
+                  <div class="d-flex w-100 justify-content-start align-items-center">
+                      <span class="menu-collapsed">前台編輯</span>
+                      <span class="submenu-icon ml-auto"></span>
+                  </div>
+                </a>
+                <div id='submenu1' class="collapse sidebar-submenu show active" >
+                    <button onclick="location.href='{{route('edit_homepage.index')}}'" class="list-group-item list-group-item-action flex-column align-items-start"style="padding-left:30px"id="chc1">
+                        <div class="d-flex w-100 justify-content-start align-items-center">
+                            <span class="fas fa-home fa-fw mr-3"aria-hidden="true"></span> 
+                            <span class="menu-collapsed" >首頁</span>
+                        </div>
+                    </button>
+                    <button onclick="location.href='{{route('edit_QA.index')}}'" class=" list-group-item list-group-item-action flex-column align-items-start"style="padding-left:30px"id="chc2">
+                        <div class="d-flex w-100 justify-content-start align-items-center">
+                            {{-- <span class="fas fa-question-circle fa-fw mr-3"aria-hidden="true"></span> --}}
+                            <span class="fa-stack fa-fw mr-3"aria-hidden="true" style="font-size: 12px">
+                              <i class="far fa-comment fa-stack-2x"></i>
+                              <i class="fas fa-question fa-stack-1x"></i>
+                            </span> 
+                            <span class="menu-collapsed" >QA</span>
+                        </div>
+                    </button>
+                    <button  onclick="location.href='{{route('backbuy.index')}}'"  class=" list-group-item list-group-item-action flex-column align-items-start"style="padding-left:30px"id="chc3">
+                      <div class="d-flex w-100 justify-content-start align-items-center">
+                          <span class="fas fa-shopping-cart fa-fw mr-3"aria-hidden="true"></span>
+                          <span class="menu-collapsed" >我要購買</span>    
+                      </div>
+                    </button>
+                    <button onclick="location.href='{{route('contact_edit.index')}}'" class=" list-group-item list-group-item-action flex-column align-items-start"style="padding-left:30px"id="chc4">
+                      <div class="d-flex w-100 justify-content-start align-items-center">
+                          <span class="fas fa-address-book fa-fw mr-3"aria-hidden="true"></span>
+                          <span class="menu-collapsed" >聯絡資訊</span>
+                      </div>
+                    </button>
+                </div>
+
+                  <a href="#submenu2" class="bg-transparent list-group-item list-group-item-action" data-toggle="collapse" aria-expanded="false">
                       <div class="d-flex w-100 justify-content-start align-items-center">
                           <span class="menu-collapsed">訂單管理</span>
                           <span class="submenu-icon ml-auto"></span>
                       </div>
                   </a>
-                  <div id='submenu1' class="collapse sidebar-submenu show active" >
-                      <button onclick="location.href='{{route('ordermanage.index')}}'" class="list-group-item list-group-item-action flex-column align-items-start"style="padding-left:30px"id="chc1">
+                  <div id='submenu2' class="collapse sidebar-submenu show active" >
+                      <button onclick="location.href='{{route('ordermanage.index')}}'" class="list-group-item list-group-item-action flex-column align-items-start"style="padding-left:30px"id="chc5">
                           <div class="d-flex w-100 justify-content-start align-items-center">
-                              <span class="fas fa-info-circle fa-fw mr-3"aria-hidden="true"></span> 
+                              <span class="fas fa-clipboard-list fa-fw mr-3"aria-hidden="true"></span> 
                               <span class="menu-collapsed" >訂單資訊</span>
                           </div>
                       </button>
-                      <button onclick="location.href='{{route('ordermanage.history')}}'" class=" list-group-item list-group-item-action flex-column align-items-start"style="padding-left:30px"id="chc2">
+                      <button onclick="location.href='{{route('ordermanage.history')}}'" class=" list-group-item list-group-item-action flex-column align-items-start"style="padding-left:30px"id="chc6">
                           <div class="d-flex w-100 justify-content-start align-items-center">
-                              <span class="fas fa-history fa-fw mr-3"aria-hidden="true"></span>
+                              <span class="fas fa-tasks fa-fw mr-3"aria-hidden="true"></span>
                               <span class="menu-collapsed" >歷史訂單</span>
                           </div>
                       </button>
                   </div>
             
-                
-                <button  onclick="location.href='{{route('productmanage.index')}}'"  class="bg-transparent list-group-item list-group-item-action flex-column align-items-start"id="chc6">
+                <button  onclick="location.href='{{route('productmanage.index')}}'"  class="list-group-item list-group-item-action flex-column align-items-start"id="chc7">
                   <div class="d-flex w-100 justify-content-start align-items-center">
                       <span class="fas fa-edit fa-fw mr-3"aria-hidden="true"></span>
                       <span class="menu-collapsed" >商品編輯</span>    
                   </div>
-              </button>
-                <button  onclick="location.href='{{route('backbuy.index')}}'"  class="bg-transparent list-group-item list-group-item-action flex-column align-items-start"id="chc6">
-                    <div class="d-flex w-100 justify-content-start align-items-center">
-                        <span class="fas fa-shopping-cart fa-fw mr-3"aria-hidden="true"></span>
-                        <span class="menu-collapsed" >我要購買</span>    
-                    </div>
                 </button>
-                <button onclick="location.href='{{route('membermanage.index')}}'" class="bg-transparent list-group-item list-group-item-action flex-column align-items-start">
+                
+                <button onclick="location.href='{{route('membermanage.index')}}'" class="list-group-item list-group-item-action flex-column align-items-start"id="chc8">
                     <div class="d-flex w-100 justify-content-start align-items-center">
                         <span class="fas fa-user fa-fw mr-3"aria-hidden="true"></span>
                         <span class="menu-collapsed" >會員管理</span>    
                     </div>
                 </button>
-                <button onclick="location.href='{{route('contact_edit.index')}}'"  class="bg-transparent  list-group-item list-group-item-action flex-column align-items-start"id="chc6">
+                
+                <button onclick="location.href='{{route('data.index')}}'"  class=" list-group-item list-group-item-action flex-column align-items-start"id="chc9">
+                    <div class="d-flex w-100 justify-content-start align-items-center">
+                        <span class="far fa-chart-bar fa-fw mr-3"aria-hidden="true"></span>
+                        <span class="menu-collapsed" >數據統計</span>   
+                    </div>
+                </button>
+                <button onclick="location.href='{{route('data.index')}}'"  class="bg-transparent list-group-item list-group-item-action flex-column align-items-start">
                   <div class="d-flex w-100 justify-content-start align-items-center">
-                      <span class="fas fa-address-book fa-fw mr-3"aria-hidden="true"></span>
-                      <span class="menu-collapsed" >聯絡資訊</span>
+                      <span class="fas fa-sign-out-alt fa-fw mr-3"aria-hidden="true"></span>
+                      <span class="menu-collapsed" >登出</span>   
                   </div>
-              </button>
-              <button onclick="location.href='{{route('data.index')}}'"  class="bg-transparent list-group-item list-group-item-action flex-column align-items-start">
-                  <div class="d-flex w-100 justify-content-start align-items-center">
-                      <span class="far fa-chart-bar fa-fw mr-3"aria-hidden="true"></span>
-                      <span class="menu-collapsed" >數據統計</span>   
-                  </div>
-              </button>
-              <button onclick="location.href='{{route('data.index')}}'"  class="bg-transparent list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fas fa-sign-out-alt fa-fw mr-3"aria-hidden="true"></span>
-                    <span class="menu-collapsed" >登出</span>   
-                </div>
-              </button>
-            </div><!-- sidebar-container END -->
+                </button>
+              </div><!-- sidebar-container END -->
 
           </div>
 
@@ -214,6 +266,14 @@
           jQuery("html,body").animate({
               scrollTop:0
           },100);
+        });
+        var element = document.getElementById('side');
+        $(window).scroll(function() {
+          if ( $(this).scrollTop() > 50){
+              element.style.top = "60px"
+          } else {
+              element.style.top = "140px"
+          }
         });
         $(window).scroll(function() {
           if ( $(this).scrollTop() > 200){

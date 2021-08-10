@@ -67,14 +67,15 @@
         margin-left: 1px;
     }
 }
-.side {
+#side {
     position: fixed;
     left: 60px;
     font-size: 20px;
     padding: 0px;
+    top: 140px;
 }
 @media screen and (max-width: 992px) {
-    .side {
+    #side {
         display: none;
     }
 }

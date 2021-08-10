@@ -6,7 +6,19 @@
 @section('title')
     <title>瑪利MAMA後台|訂單管理_訂單資訊</title>
 @endsection
+@section('name')
+<style>
+  #chc2,#chc3, #chc4,#chc1, #chc6,#chc7,#chc8,#chc9 {
+    color: black;
 
+} 
+#chc5 {
+    color: black;
+    background-color: #fdd977;
+    border-bottom-width:3px 
+} 
+</style>
+@endsection
 @section('main')
 <h2>訂單管理-訂單資訊</h2><br>
 <div class="container">

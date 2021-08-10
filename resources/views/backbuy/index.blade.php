@@ -6,9 +6,20 @@
 @section('title')
     <title>瑪利MAMA後台|我要購買</title>
 @endsection
-
+@section('name')
+<style>
+  #chc2,#chc1, #chc4,#chc5, #chc6,#chc7,#chc8,#chc9 {
+    color: black;
+} 
+#chc3 {
+    color: black;
+    background-color: #fdd977;
+    border-bottom-width:3px 
+} 
+</style>
+@endsection
 @section('main')
-<h2>我要購買</h2><hr>
+<h2>我要購買</h2>
 <form action="" id="msform" method="GET">
   <div class="container">
     <div class="row align-items-center">

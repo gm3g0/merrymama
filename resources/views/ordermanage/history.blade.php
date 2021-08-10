@@ -6,7 +6,18 @@
 @section('title')
     <title>瑪利MAMA後台|訂單管理_歷史訂單</title>
 @endsection
-
+@section('name')
+<style>
+  #chc2,#chc3, #chc4,#chc5, #chc1,#chc7,#chc8,#chc9 {
+    color: black;
+} 
+#chc6 {
+    color: black;
+    background-color: #fdd977;
+    border-bottom-width:3px 
+} 
+</style>
+@endsection
 @section('main')
 <h2>訂單管理-歷史訂單</h2><br>
 <div class="accordion" id="accordionExample"><!--手風琴-->

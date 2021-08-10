@@ -16,6 +16,8 @@ use \App\Http\Controllers\membermanage;
 use \App\Http\Controllers\backbuy;
 use \App\Http\Controllers\backdata;
 use \App\Http\Controllers\contact_edit;
+use \App\Http\Controllers\edit_homepage;
+use \App\Http\Controllers\edit_QA;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,5 +63,7 @@ Route::resource('productmanage', productmanage::class)->only('index');
 Route::resource('backbuy',backbuy::class)->only('index');
 Route::resource('data',backdata::class)->only('index');
 Route::resource('contact_edit',contact_edit::class)->only('index');
+Route::resource('edit_homepage',edit_homepage::class)->only('index');
+Route::resource('edit_QA',edit_QA::class)->only('index');
 
-//Route::resource('store', store::class)->only('index');
+

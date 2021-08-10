@@ -6,7 +6,19 @@
 @section('title')
     <title>瑪利MAMA後台|會員管理</title>
 @endsection
+@section('name')
+<style>
+  #chc2,#chc3, #chc4,#chc5, #chc6,#chc7,#chc1,#chc9 {
+    color: black;
 
+} 
+#chc8 {
+    color: black;
+    background-color: #fdd977;
+    border-bottom-width:3px 
+} 
+</style>
+@endsection
 @section('main')
 <h2>會員管理</h2>
 <form action="" method="POST" id="msform">
