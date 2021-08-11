@@ -23,7 +23,7 @@
 </head>
 <body >
     <div>
-        <!-- Navigation導覽列 -->
+        <!-- Navigation導覽列. -->
         <!-- navbar只有light,dark,為設定字體顏色 -->
         <nav class="navbar navbar-expand-lg navbar-light static-top" style="background-color: #fdd977 ">
           <div class="container">
