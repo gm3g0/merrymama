@@ -62,7 +62,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script>      
       $(function() {
-      // This button will increment the value
+      // This button will increment the value.
       $('.qtyplus').click(function(e) {
         // Stop acting like a button
         e.preventDefault();
