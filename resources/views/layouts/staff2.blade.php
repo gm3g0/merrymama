@@ -30,8 +30,9 @@
         <!-- navbar只有light,dark,為設定字體顏色 -->
         <nav class="navbar navbar-expand-lg navbar-dark static-top" style="background-color: #6C4438 ">
           <div class="container">
-            <button class="navbar-brand no-gutters" style="border: 0px;background: transparent;">
+            <button class="navbar-brand no-gutters" style="border: 0px;background: transparent;"id="myb"onclick="location.href='{{route('homepage.index')}}'">
               <img src="{{ asset('/logo.png')}}" height="90px" width="140px" style="margin: 0px;padding: 0px;" alt="icon" class="navbar-brand no-gutters">
+              回前台
             </button>
           </div>
         </nav>

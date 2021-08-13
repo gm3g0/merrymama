@@ -45,6 +45,7 @@
     }
     .fl-table thead {
         float: left;
+        text-align: center
     }
     .fl-table tbody {
         width: auto;

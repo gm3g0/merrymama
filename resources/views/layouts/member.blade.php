@@ -27,7 +27,7 @@
         <!-- navbar只有light,dark,為設定字體顏色 -->
         <nav class="navbar navbar-expand-lg navbar-light static-top" style="background-color: #fdd977 ">
           <div class="container">
-            <button class="navbar-brand no-gutters" style="border: 0px;background: transparent;">
+            <button class="navbar-brand no-gutters" style="border: 0px;background: transparent;"id="myb"onclick="location.href='{{route('homepage.index')}}'">
               <img src="{{ asset('/logo.png')}}" height="90px" width="140px" style="margin: 0px;padding: 0px;" alt="icon" class="navbar-brand no-gutters">
               中科分店
             </button>
@@ -93,7 +93,7 @@
 
             <div class="col-12 col-sm-10 col-md-10 col-lg-8  text-center p-0 mt-5 mb-3" id="member">
 
-              <div class="col-lg-2 js-scrollspy-nav side" style="height: 50px;">
+              <div class="col-lg-2 js-scrollspy-nav side"  style="height: 50px;">
                 <div class="col-12">會員專區<hr style="height:1px;border:none;border-top:1px dashed #0066CC;"/></div>
                 <button class=" flex-column align-items-start ch1" id=myb style="margin-bottom: 20px" onclick="location.href='{{route('member.index')}}'">
                     <div class="d-flex w-100 align-items-center col-md-12">
