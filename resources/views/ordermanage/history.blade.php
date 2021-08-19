@@ -75,15 +75,32 @@
             <h2 class="accordion-header" id="headingTwo">
               <button class="accordion-button  collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" >
                 <div class="row">
-                  <div class="fs" style="font-size: 16px">訂單編號：&nbsp;&nbsp;日期：&nbsp;&nbsp;金額：</div>
+                  <div class="fs" style="font-size: 16px">訂單編號：&nbsp;&nbsp;日期：&nbsp;&nbsp;會員：</div>
                 </div>
               </button>
             </h2>
               <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
                   <div class="container"><br>
-                    <div class="row col-md-12 text-start align-self-center" style="margin: 0px">
-                      &nbsp;&nbsp;不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知不知道不知道不知道不知道不知道不知道
+                    <div class="row col-md-12 text-start align-self-center" style="margin: 0px;">
+                      <div class="col-md-6">
+                        不知道不知道不知道不知道
+                      </div>
+                      <div class="col-md-2">
+                        Ｘ0
+                      </div>
+                      <div class="col-md-4">
+                        切
+                      </div><hr style="margin: 10px">
+                      <div class="col-md-6">
+                        不知道不知道
+                      </div>
+                      <div class="col-md-2">
+                        Ｘ0
+                      </div>
+                      <div class="col-md-4">
+                        不切
+                      </div><hr style="margin: 10px">
                     </div><br>
                   </div>
                 </div>

@@ -27,7 +27,7 @@
         <h4 class="text-start">本次訂購：</h4>
       </div>
       <div class="col-md-3">
-        <select name="be_apfo" class="form-select" aria-label="Default select example" id="sonSelect">
+        <select name="buyweek" class="form-select" aria-label="Default select example" id="buyweek">
           <option selected></option>
           <option value="1">星期一</option>
           <option value="2">星期二</option>
@@ -44,8 +44,9 @@
       </div>
     </div>
   </div>
-  
-  <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px">
+</form>
+
+  <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px;display: none;"id="week1">
     <div class="col">
       <div class="card">
         <img src="bread_test.jpg" class="card-img-top align-self-center" alt="測試麵包圖" style="height: 150px;width: 145px;">
@@ -74,21 +75,74 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px;display: none;" id="week2">
+    <div class="col">
+      <div class="card">
+        <img src="bread_test.jpg" class="card-img-top align-self-center" alt="測試麵包圖" style="height: 150px;width: 145px;">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          
+        </div>
+      </div>
+    </div>
     <div class="col">
       <div class="card">
         <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px;display: none;" id="week3">
+    <div class="col">
+      <div class="card">
+        <img src="bread_test.jpg" class="card-img-top align-self-center" alt="測試麵包圖" style="height: 150px;width: 145px;">
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
           <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
         </div>
       </div>
     </div>
-  </div><br>
+  </div>
 
+  <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px;display: none;"id="week4">
+    <div class="col">
+      <div class="card">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-</form>
-  
-
+  <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px;display: none;"id="week5">
+    <div class="col">
+      <div class="card">
+        <img src="bread_test.jpg" class="card-img-top align-self-center" alt="測試麵包圖" style="height: 150px;width: 145px;">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script>
@@ -109,5 +163,50 @@
         //設置input標籤的max屬性
         $("#dateto2").attr("min",nowdate);});  
     </script>
+    <script>
+      $(function() {
+  $("#buyweek").change(function() {
+    switch ($(this).val()) {
+      case "1":
+        $("#week1").show();
+        $("#week2").hide();
+        $("#week3").hide();
+        $("#week4").hide();
+        $("#week5").hide();
+        break;
+      case "2":
+        $("#week1").hide();
+        $("#week2").show();
+        $("#week3").hide();
+        $("#week4").hide();
+        $("#week5").hide();
+        break;
+      case "3":
+        $("#week1").hide();
+        $("#week2").hide();
+        $("#week3").show();
+        $("#week4").hide();
+        $("#week5").hide();
+      break;
+      case "4":
+        $("#week1").hide();
+        $("#week2").hide();
+        $("#week3").hide();
+        $("#week4").show();
+        $("#week5").hide();
+      break;
+      case "5":
+        $("#week1").hide();
+        $("#week2").hide();
+        $("#week3").hide();
+        $("#week4").hide();
+        $("#week5").show();
+      break;
+      default:
+        return;
+    }
+  });
+});
 
+    </script>
 @endsection
