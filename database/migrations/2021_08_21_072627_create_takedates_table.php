@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatTest2 extends Migration
+class CreateTakedatesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,9 @@ class CreatTest2 extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('takedates', function (Blueprint $table) {
+            $table->date('tekedate_time');
+        });
     }
 
     /**
@@ -23,6 +25,6 @@ class CreatTest2 extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('takedates');
     }
 }
