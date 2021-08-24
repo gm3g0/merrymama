@@ -30,9 +30,12 @@ use \App\Http\Controllers\edit_QA;
 |
 */
 
-// Route::get('/', function () {
-//     return view('be_homepage.index');
-// });
+ //Route::get('/', function () {  //設定首頁，http://127.0.0.1:8000 進去就會看到的頁面
+ //    return view('be_homepage.index');
+ //});
+
+Route::get('/' , [be_homepage::class , 'index'])->name('root'); //設定首頁，並給它名字(只要用到root這個路徑，就會來這個頁面)
+
 Route::resource('homepage', be_homepage::class)->only('index');
 Route::resource('login', login::class)->only('index');
 Route::resource('singup', singup::class)->only('index');
