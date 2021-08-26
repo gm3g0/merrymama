@@ -27,8 +27,9 @@
         <!-- navbar只有light,dark,為設定字體顏色 -->
         <nav class="navbar navbar-expand-lg navbar-light static-top" style="background-color: #fdd977 ">
           <div class="container">
-            <button class="navbar-brand no-gutters" style="border: 0px;background: transparent;">
+            <button class="navbar-brand no-gutters" style="border: 0px;background: transparent;"onclick="location.href='{{route('homepage.index')}}'">
               <img src="{{ asset('/logo.png')}}" height="90px" width="140px" style="margin: 0px;padding: 0px;" alt="icon" class="navbar-brand no-gutters">
+              中科大分店
             </button>
 
             <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"

@@ -16,8 +16,8 @@
       <div class="row col-md-6 text-start  justify-content-center">
         <div class="col-md-10">門市：中科大</div>
         <div class="col-md-10">電話：中科大</div>
-        <div class="col-md-10">官方：</div>
-        <div class="col-md-10"> &emsp; &emsp;<img src="qrcode.png" alt="qrcode"></div>
+        <div class="col-md-10">Line官方：</div>
+        <div class="col-md-10"> &emsp; &emsp;<img src="qrcode.jpg" alt="qrcode" style="width: 200px;"></div>
         <div class="col-md-10">地址：404台中市北區三民路三段129號</div>
         <div class="col-md-10">E-mail：中科大</div>
       </div>

@@ -34,9 +34,9 @@ use \App\Http\Controllers\edit_QA;
  //    return view('be_homepage.index');
  //});
 
-Route::get('/' , [be_homepage::class , 'index'])->name('root'); //設定首頁，並給它名字(只要用到root這個路徑，就會來這個頁面)
+Route::get('/' , [be_homepage::class , 'index'])->name('homepage.index'); //設定首頁，並給它名字(只要用到root這個路徑，就會來這個頁面)
 
-Route::resource('homepage', be_homepage::class)->only('index');
+// Route::resource('homepage', be_homepage::class)->only('index');
 Route::resource('login', login::class)->only('index');
 Route::resource('singup', singup::class)->only('index');
 Route::resource('QA', be_QA::class)->only('index');
