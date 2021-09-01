@@ -51,8 +51,13 @@
               <li class="nav-item ">
                 <button id="myb" class="nav-link" onclick="location.href='{{route('QA.index')}}'">常見Q&A</button>
               </li>
-              <li class="nav-item">
-                <button id="myb" class="nav-link" onclick="location.href='{{route('story.index')}}'">品牌故事</button>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">關於我們</a>
+                <div class="dropdown-menu dropdown-menu-right"aria-labelledby="navbarDropdownPortfolio">
+                  <button class="dropdown-item text-center" onclick="location.href='{{route('story.index')}}'">瑪利媽媽介紹</button>
+                  <button class="dropdown-item text-center" onclick="location.href='{{route('story.index2')}}'">團隊介紹</button>
+                </div>
               </li>
               <li class="nav-item">
                 <button id="myb" class="nav-link" onclick="location.href='{{route('contact.index')}}'">聯絡資訊</button>

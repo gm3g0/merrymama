@@ -4,7 +4,7 @@
 @endsection
 
 @section('title')
-    <title>瑪利MAMA|瑪利媽媽介紹</title>
+    <title>瑪利MAMA|團隊介紹</title>
 @endsection
 
 @section('main')

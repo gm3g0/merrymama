@@ -25,6 +25,7 @@ class be_story extends Controller
     public function create()
     {
         //
+        return view('be_story.index2');
     }
 
     /**

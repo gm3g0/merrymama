@@ -45,7 +45,9 @@ Route::resource('buy',be_buy::class)->only('index','create','store');
 Route::get('/buycheck',[be_buy::class,'create'])->name('be_buy.index2');
 Route::get('/finish',[be_buy::class,'store'])->name('be_buy.finish');
 
-Route::resource('story', be_story::class)->only('index');
+Route::resource('story', be_story::class)->only('index','create');
+Route::get('/teamstory',[be_story::class,'create'])->name('story.index2');
+
 
 Route::resource('product', be_product::class)->only('index','create');
 Route::get('/products',[be_product::class,'create'])->name('be_product.index2');
