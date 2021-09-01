@@ -10,6 +10,7 @@
 @section('main')
 
 <div class="col-12 col-sm-10 col-md-10 col-lg-8  text-center p-0 mt-5 mb-3" id="pa">
+  <h2>商品介紹</h2><hr>
   <div id="js-scrollspy">
     <div class="col-lg-2 js-scrollspy-nav nav">
       <div class="col-12">Day &nbsp;<i class="fas fa-heart"></i><hr style="height:1px;border:none;border-top:1px dashed #0066CC;"/></div>

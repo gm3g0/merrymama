@@ -10,7 +10,7 @@
 
 @section('main')
 <div class="col-12 col-sm-10 col-md-10 col-lg-8  text-center p-0 mt-5 mb-3">
-  <h2>常見Q&A</h2><br>
+  <h2>常見Q&A</h2><hr><br>
   <div class="accordion" id="accordionExample"><!--手風琴-->
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingOne">
