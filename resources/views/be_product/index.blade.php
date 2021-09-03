@@ -20,116 +20,106 @@
       <a href="#four"  class="col-12" >星期四</a>
       <a href="#five"  class="col-12" >星期五</a>
     </div>
+
     <div class="js-scrollspy-content content" id="msform">
       <h4 id="one" class="text-start" style="margin-left: 5px">星期一</h4>
       <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px">
-        <div class="col">
+      @foreach($Mon as $product)
+      <div class="col">
           <div class="card">
-            <img src="bread_test.jpg" class="card-img-top align-self-center" alt="測試麵包圖" style="height: 150px;width: 145px;">
+            @if($product->pic)
+            <img src="{{ asset('product_images/' . $product->pic )}}" class="card-img-top align-self-center" alt="{{ $product->pic }}" style="height: 150px;width: 145px;">
+            @else
+              <img src="{{ asset('bread_test.jpg')}}" class="card-img-top align-self-center" alt="測試麵包圖" style="height: 150px;width: 145px;">
+            @endif
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <a onclick="location.href='{{route('be_product.index2')}}'" class="next action-button">詳細介紹</a>
+              <h5 class="card-title">{{ $product->PName }}</h5>
+              <p class="card-text">{{ $product->introduction }}</p>
+              <a onclick="location.href='{{ route('be_product.index2')}}'" class="next action-button">詳細介紹</a>
             </div>
           </div>
         </div>
-        <div class="col">
-          <div class="card">
-            <img src="bread_test.jpg" class="card-img-top align-self-center" alt="測試麵包圖" style="height: 150px;width: 145px;">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <a onclick="location.href='{{route('be_product.index2')}}'" class="next action-button">詳細介紹</a>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-          </div>
-        </div>
+      @endforeach
       </div><br>
 
       <h4 id="two" class="text-start" style="margin-left: 5px">星期二</h4>
       <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px">
-        <div class="col">
+      @foreach($Tue as $product)
+      <div class="col">
           <div class="card">
-            <img src="bread_test.jpg" class="card-img-top align-self-center" alt="測試麵包圖" style="height: 150px;width: 145px;">
+            @if($product->pic)
+            <img src="{{ asset('product_images/' . $product->pic )}}" class="card-img-top align-self-center" alt="{{ $product->pic }}" style="height: 150px;width: 145px;">
+            @else
+              <img src="{{ asset('bread_test.jpg')}}" class="card-img-top align-self-center" alt="測試麵包圖" style="height: 150px;width: 145px;">
+            @endif
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <h5 class="card-title">{{ $product->PName }}</h5>
+              <p class="card-text">{{ $product->introduction }}</p>
+              <a onclick="location.href='{{route('be_product.index2')}}'" class="next action-button">詳細介紹</a>
             </div>
           </div>
         </div>
-        <div class="col">
-          <div class="card">
-            <img src="bread_test.jpg" class="card-img-top align-self-center" alt="測試麵包圖" style="height: 150px;width: 145px;">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-          </div>
-        </div>
+      @endforeach  
       </div><br>
       
       <h4 id="three" class="text-start" style="margin-left: 5px">星期三</h4>
-
+      <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px">
+      @foreach($Wed as $product)
+        <div class="col">
+          <div class="card">
+            @if($product->pic)
+            <img src="{{ asset('product_images/' . $product->pic )}}" class="card-img-top align-self-center" alt="{{ $product->pic }}" style="height: 150px;width: 145px;">
+            @else
+            <img src="{{ asset('bread_test.jpg')}}" class="card-img-top align-self-center" alt="測試麵包圖" style="height: 150px;width: 145px;">
+            @endif
+            <div class="card-body">
+              <h5 class="card-title">{{ $product->PName }}</h5>
+              <p class="card-text">{{ $product->introduction }}</p>
+              <a onclick="location.href='{{route('be_product.index2')}}'" class="next action-button">詳細介紹</a>
+            </div>
+          </div>
+        </div>
+      @endforeach  
+      </div><br>
 
       <h4 id="four" class="text-start" style="margin-left: 5px">星期四</h4>
       <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px">
+      @foreach($Thu as $product)
         <div class="col">
           <div class="card">
-            <img src="bread_test.jpg" class="card-img-top align-self-center" alt="測試麵包圖" style="height: 150px;width: 145px;">
+            @if($product->pic)
+            <img src="{{ asset('product_images/' . $product->pic )}}" class="card-img-top align-self-center" alt="{{ $product->pic }}" style="height: 150px;width: 145px;">
+            @else
+            <img src="{{ asset('bread_test.jpg')}}" class="card-img-top align-self-center" alt="測試麵包圖" style="height: 150px;width: 145px;">
+            @endif
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <h5 class="card-title">{{ $product->PName }}</h5>
+              <p class="card-text">{{ $product->introduction }}</p>
+              <a onclick="location.href='{{route('be_product.index2')}}'" class="next action-button">詳細介紹</a>
             </div>
           </div>
         </div>
-        <div class="col">
-          <div class="card">
-            <img src="bread_test.jpg" class="card-img-top align-self-center" alt="測試麵包圖" style="height: 150px;width: 145px;">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-          </div>
-        </div>
+      @endforeach  
       </div><br>
 
       <h4 id="five" class="text-start" style="margin-left: 5px">星期五</h4>
-      
+      <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px">
+      @foreach($Fri as $product)
+        <div class="col">
+          <div class="card">
+            @if($product->pic)
+            <img src="{{ asset('product_images/' . $product->pic )}}" class="card-img-top align-self-center" alt="{{ $product->pic }}" style="height: 150px;width: 145px;">
+            @else
+            <img src="{{ asset('bread_test.jpg')}}" class="card-img-top align-self-center" alt="測試麵包圖" style="height: 150px;width: 145px;">
+            @endif
+            <div class="card-body">
+              <h5 class="card-title">{{ $product->PName }}</h5>
+              <p class="card-text">{{ $product->introduction }}</p>
+              <a onclick="location.href='{{route('be_product.index2')}}'" class="next action-button">詳細介紹</a>
+            </div>
+          </div>
+        </div>
+      @endforeach
 
     </div>
   </div>

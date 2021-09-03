@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\shops;
 
 class contact_edit extends Controller
 {
@@ -13,8 +14,9 @@ class contact_edit extends Controller
      */
     public function index()
     {
-        //
-        return view('contact_edit.index');
+        $contact = shops::all();
+        return view('contact_edit.index' , ['contact' => $contact]);
+        //return view('contact_edit.index');
     }
 
     /**
@@ -55,7 +57,7 @@ class contact_edit extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($contact)
     {
         //
     }

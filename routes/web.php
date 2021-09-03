@@ -30,10 +30,6 @@ use \App\Http\Controllers\edit_QA;
 |
 */
 
- //Route::get('/', function () {  //設定首頁，http://127.0.0.1:8000 進去就會看到的頁面
- //    return view('be_homepage.index');
- //});
-
 Route::get('/' , [be_homepage::class , 'index'])->name('homepage.index'); //設定首頁，並給它名字(只要用到root這個路徑，就會來這個頁面)
 
 // Route::resource('homepage', be_homepage::class)->only('index');
@@ -67,7 +63,9 @@ Route::resource('productmanage', productmanage::class)->only('index');
 
 Route::resource('backbuy',backbuy::class)->only('index');
 Route::resource('data',backdata::class)->only('index');
-Route::resource('contact_edit',contact_edit::class)->only('index');
+
+Route::resource('contact_edit', contact_edit::class)->only('index');
+
 Route::resource('edit_homepage',edit_homepage::class)->only('index');
 Route::resource('edit_QA',edit_QA::class)->only('index');
 
