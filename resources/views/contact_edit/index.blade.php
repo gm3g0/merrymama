@@ -20,7 +20,8 @@
 @endsection
 @section('main')
   <h2>聯絡資訊</h2>
-  <form id="msform"  method="POST">
+  <form id="msform" action="{{ route('contact_edit.contact_edit')}}"  method="POST">
+    @csrf
     <div class="container">
       <div class="row justify-content-center">
         <div class="row col-md-8 text-start justify-content-center">

@@ -64,7 +64,8 @@ Route::resource('productmanage', productmanage::class)->only('index');
 Route::resource('backbuy',backbuy::class)->only('index');
 Route::resource('data',backdata::class)->only('index');
 
-Route::resource('contact_edit', contact_edit::class)->only('index');
+Route::resource('contact_edit', contact_edit::class)->only('index','contact_edit');
+Route::post('/contact_edit', [contact_edit::class,'contact_edit'])->name('contact_edit.contact_edit');
 
 Route::resource('edit_homepage',edit_homepage::class)->only('index');
 Route::resource('edit_QA',edit_QA::class)->only('index');

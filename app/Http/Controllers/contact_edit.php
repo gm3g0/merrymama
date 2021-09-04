@@ -24,8 +24,10 @@ class contact_edit extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function contact_edit()
     {
+
+        return back()->with('notice','修改成功!');
         //
     }
 
