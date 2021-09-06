@@ -15,4 +15,6 @@ class shops extends Model
         'Shop_address',
         'Shop_email'
     ];
+    protected $primaryKey = 'Shop_name';
+    protected $keyType = 'string';
 }

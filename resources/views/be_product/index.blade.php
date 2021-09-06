@@ -35,7 +35,7 @@
             <div class="card-body">
               <h5 class="card-title">{{ $product->PName }}</h5>
               <p class="card-text">{{ $product->introduction }}</p>
-              <a onclick="location.href='{{ route('be_product.index2')}}'" class="next action-button">詳細介紹</a>
+              <a onclick="location.href='{{ route('be_product.show' , $product) }}'" class="next action-button">詳細介紹</a>
             </div>
           </div>
         </div>
@@ -55,7 +55,7 @@
             <div class="card-body">
               <h5 class="card-title">{{ $product->PName }}</h5>
               <p class="card-text">{{ $product->introduction }}</p>
-              <a onclick="location.href='{{route('be_product.index2')}}'" class="next action-button">詳細介紹</a>
+              <a onclick="location.href='{{ route('be_product.show' , $product) }}'" class="next action-button">詳細介紹</a>
             </div>
           </div>
         </div>
@@ -75,7 +75,7 @@
             <div class="card-body">
               <h5 class="card-title">{{ $product->PName }}</h5>
               <p class="card-text">{{ $product->introduction }}</p>
-              <a onclick="location.href='{{route('be_product.index2')}}'" class="next action-button">詳細介紹</a>
+              <a onclick="location.href='{{ route('be_product.show' , $product) }}'" class="next action-button">詳細介紹</a>
             </div>
           </div>
         </div>
@@ -95,7 +95,7 @@
             <div class="card-body">
               <h5 class="card-title">{{ $product->PName }}</h5>
               <p class="card-text">{{ $product->introduction }}</p>
-              <a onclick="location.href='{{route('be_product.index2')}}'" class="next action-button">詳細介紹</a>
+              <a onclick="location.href='{{ route('be_product.show' , $product) }}'" class="next action-button">詳細介紹</a>
             </div>
           </div>
         </div>
@@ -115,7 +115,7 @@
             <div class="card-body">
               <h5 class="card-title">{{ $product->PName }}</h5>
               <p class="card-text">{{ $product->introduction }}</p>
-              <a onclick="location.href='{{route('be_product.index2')}}'" class="next action-button">詳細介紹</a>
+              <a onclick="location.href='{{ route('be_product.show' , $product) }}'" class="next action-button">詳細介紹</a>
             </div>
           </div>
         </div>

@@ -14,7 +14,7 @@
   <div class="container justify-content-between">
     <div class="row  justify-content-between">
       <div class="row col-md-6 text-start  justify-content-center">
-        <div class="col-md-10">門市：{{ $contact[1]->Shop_name }}</div>
+        <div class="col-md-10">門市：{{ $contact[1]->Shop_name  }}</div>
         <div class="col-md-10">電話：{{ $contact[1]->Shop_tel }}</div>
         <div class="col-md-10">地址：{{ $contact[1]->Shop_address }}</div>
         <div class="col-md-10">E-mail：{{ $contact[1]->Shop_email }}</div>

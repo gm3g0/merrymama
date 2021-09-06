@@ -15,7 +15,6 @@ class be_product extends Controller
     public function index()
     {
         $Mon = products::where('type','like','%星期一%')->get();
-        //$types = products::where('type','like','%星期一%')->get();
         $Tue = products::where('type','like','%星期二%')->get();
         $Wed = products::where('type','like','%星期三%')->get();
         $Thu = products::where('type','like','%星期四%')->get();

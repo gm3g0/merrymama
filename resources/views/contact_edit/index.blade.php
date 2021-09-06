@@ -20,13 +20,27 @@
 @endsection
 @section('main')
   <h2>聯絡資訊</h2>
-  <form id="msform" action="{{ route('contact_edit.contact_edit')}}"  method="POST">
+  @if($errors->any())
+        <div>
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+  @endif
+  @if(session()->has('notice'))
+        <div>
+            {{ session()->get('notice') }}
+        </div>
+  @endif
+  <form id="msform" action="{{ route('contact_edit.contact_edit')}}"  method="post">
     @csrf
     <div class="container">
       <div class="row justify-content-center">
         <div class="row col-md-8 text-start justify-content-center">
-          <div class="col-md-9">電話：<input type="text" name="nstphone" value="{{ $contact[1]->Shop_tel }}"></div>
-          <div class="col-md-9">E-mail：<input type="email" value="{{ $contact[1]->Shop_email }}" name="nemail"></div>
+          <div class="col-md-9">電話：<input type="text" name="Shop_tel" value="{{ $contact[1]->Shop_tel }}"></div>
+          <div class="col-md-9">E-mail：<input type="email" value="{{ $contact[1]->Shop_email }}" name="Shop_email"></div>
         </div>
       </div>
     </div>
