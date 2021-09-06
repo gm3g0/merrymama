@@ -22,9 +22,10 @@ class backbuy extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function backbuy()
     {
         //
+        return back()->with('notice','更新成功!');
     }
 
     /**

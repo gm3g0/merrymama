@@ -91,7 +91,8 @@
 </style>
 @section('main')
   <h2>商品管理-商品編輯</h2>
-<form action=""  method="" id="msform">  
+<form action=""  method="POST" id="msform"> 
+  @csrf 
   <div class="row col-md-2 align-self-start"style="padding-left: 22px;"><button type="button" class="next action-buttonb" data-bs-toggle="modal" data-bs-target="#new">新增</button></div>
    <section class="table table-hover">
     <div class="col align-self-center table-wrapper"> <!--時間表-->

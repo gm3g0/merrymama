@@ -16,7 +16,8 @@
   </style>
 @section('main')
     <h2>修改資料</h2><hr>
-    <form id="msform" method="POST">
+    <form id="msform" method="POST" action="{{ route('member')}}">
+      @csrf
           <div class="container">
             <div class="row justify-content-center">
               <div class="col-md-4 text-start ">

@@ -20,7 +20,7 @@
 @endsection
 @section('main')
 <h2>會員管理</h2>
-<form id="msform" method="POST">
+<form id="msform" method="GET">
   <div class="container">
     <div class="row">
       <div class="col-md-8 text-start justify-content-center">

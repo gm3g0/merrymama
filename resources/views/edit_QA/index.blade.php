@@ -22,6 +22,7 @@
 @section('main')
   <h2>QA編輯</h2>
   <form id="msform" method="POST">
+    @csrf
     <div class="row col-md-2 align-self-start"style="padding-left: 22px;"><button type="button" class="next action-buttonb" data-bs-toggle="modal" data-bs-target="#new">新增</button></div>
     <div class="container text-start justify-content-center">
       <div class="card">

@@ -22,9 +22,10 @@ class singup extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function singup()
     {
         //
+        return redirect()->route('member.index');
     }
 
     /**

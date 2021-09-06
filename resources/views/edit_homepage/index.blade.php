@@ -22,6 +22,7 @@
 @section('main')
   <h2>首頁編輯</h2>
   <form id="msform" method="POST">
+    @csrf
     <div class="container">
       <div class="row justify-content-center">
         <div class="row col-md-8 text-start justify-content-center">

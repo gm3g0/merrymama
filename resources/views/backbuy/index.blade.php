@@ -20,7 +20,8 @@
 @endsection
 @section('main')
 <h2>我要購買</h2>
-<form action="" id="msform" method="GET">
+<form action="" id="msform" method="POST">
+  @csrf
   <div class="container">
     <div class="row align-items-center">
       <div class="col-auto">

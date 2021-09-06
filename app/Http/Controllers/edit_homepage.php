@@ -22,9 +22,10 @@ class edit_homepage extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function edit_homepage()
     {
         //
+        return back()->with('notice','修改成功!');
     }
 
     /**

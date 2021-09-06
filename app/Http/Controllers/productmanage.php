@@ -22,9 +22,10 @@ class productmanage extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function productmanage()
     {
         //
+        return back()->with('notice','修改成功!');
     }
 
     /**

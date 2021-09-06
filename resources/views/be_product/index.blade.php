@@ -21,7 +21,7 @@
       <a href="#five"  class="col-12" >星期五</a>
     </div>
 
-    <div class="js-scrollspy-content content" id="msform">
+    <div class="js-scrollspy-content content" id="msform" >
       <h4 id="one" class="text-start" style="margin-left: 5px">星期一</h4>
       <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px">
       @foreach($Mon as $product)
@@ -35,7 +35,7 @@
             <div class="card-body">
               <h5 class="card-title">{{ $product->PName }}</h5>
               <p class="card-text">{{ $product->introduction }}</p>
-              <a onclick="location.href='{{ route('be_product.show' , $product) }}'" class="next action-button">詳細介紹</a>
+              <a onclick="location.href='{{ route('be_product.index2' , $product) }}'" class="next action-button">詳細介紹</a>
             </div>
           </div>
         </div>
@@ -55,7 +55,7 @@
             <div class="card-body">
               <h5 class="card-title">{{ $product->PName }}</h5>
               <p class="card-text">{{ $product->introduction }}</p>
-              <a onclick="location.href='{{ route('be_product.show' , $product) }}'" class="next action-button">詳細介紹</a>
+              <a onclick="location.href='{{ route('be_product.index2' , $product) }}'" class="next action-button">詳細介紹</a>
             </div>
           </div>
         </div>
@@ -75,7 +75,7 @@
             <div class="card-body">
               <h5 class="card-title">{{ $product->PName }}</h5>
               <p class="card-text">{{ $product->introduction }}</p>
-              <a onclick="location.href='{{ route('be_product.show' , $product) }}'" class="next action-button">詳細介紹</a>
+              <a onclick="location.href='{{ route('be_product.index2' , $product) }}'" class="next action-button">詳細介紹</a>
             </div>
           </div>
         </div>
@@ -95,7 +95,7 @@
             <div class="card-body">
               <h5 class="card-title">{{ $product->PName }}</h5>
               <p class="card-text">{{ $product->introduction }}</p>
-              <a onclick="location.href='{{ route('be_product.show' , $product) }}'" class="next action-button">詳細介紹</a>
+              <a onclick="location.href='{{ route('be_product.index2' , $product) }}'" class="next action-button">詳細介紹</a>
             </div>
           </div>
         </div>
@@ -115,7 +115,7 @@
             <div class="card-body">
               <h5 class="card-title">{{ $product->PName }}</h5>
               <p class="card-text">{{ $product->introduction }}</p>
-              <a onclick="location.href='{{ route('be_product.show' , $product) }}'" class="next action-button">詳細介紹</a>
+              <a onclick="location.href='{{ route('be_product.index2' , $product) }}'" class="next action-button">詳細介紹</a>
             </div>
           </div>
         </div>

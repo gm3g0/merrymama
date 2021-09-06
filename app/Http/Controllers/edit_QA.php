@@ -22,9 +22,10 @@ class edit_QA extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function edit_QA()
     {
         //
+        return back()->with('notice','修改成功!');
     }
 
     /**

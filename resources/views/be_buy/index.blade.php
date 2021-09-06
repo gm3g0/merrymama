@@ -15,6 +15,7 @@
     <p>&nbsp;&nbsp;adlvnaldkvnsldkb</p>
   </div>
   <form action="{{ route('be_buy.index2')}}" method="GET">
+    @csrf
     <h4 class="text-start">星期：</h4>
     <div class="card mb-3" style="max-width: 1000px;">
       <div class="row g-0">

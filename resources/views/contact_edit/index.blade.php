@@ -21,7 +21,7 @@
 @section('main')
   <h2>聯絡資訊</h2>
   @if($errors->any())
-        <div>
+        <div class="alert alert-danger">
             <ul>
                 @foreach($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -30,7 +30,7 @@
         </div>
   @endif
   @if(session()->has('notice'))
-        <div>
+        <div class="alert alert-warning">
             {{ session()->get('notice') }}
         </div>
   @endif

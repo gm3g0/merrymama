@@ -22,9 +22,10 @@ class login extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function login()
     {
         //
+        return redirect()->route('homepage.index');
     }
 
     /**
