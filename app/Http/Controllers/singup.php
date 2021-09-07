@@ -25,6 +25,18 @@ class singup extends Controller
     public function singup()
     {
         //
+        /*ini_set("display_errors","On");
+        $email = $_POST['macount'];
+        $password = $_POST['mpw'];
+        $name = $_POST['name'];
+        $tel = $_POST['phone'];
+        $birthday = $_POST['birth'];
+        $sex = $_POST['inlineRadioOptions'];
+        require_once "../../method/connect.php";
+        $insert = $connect -> prepare("INSERT INTO member(email,password,name,tel,birthday,sex)
+          VALUES(?,?,?,?,?,?)");
+        $insert -> execute(array($email,$password,$name,$tel,$birthday,$sex));
+       header("location:../?sig_suc=註冊成功");*/
         return redirect()->route('member.index');
     }
 

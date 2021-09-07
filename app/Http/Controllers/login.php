@@ -25,6 +25,8 @@ class login extends Controller
     public function login()
     {
         //
+    
+
         return redirect()->route('homepage.index');
     }
 
