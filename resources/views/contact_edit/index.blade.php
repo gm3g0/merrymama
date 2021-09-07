@@ -22,11 +22,9 @@
   <h2>聯絡資訊</h2>
   @if($errors->any())
         <div class="alert alert-danger">
-            <ul>
                 @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
+                    {{ $error }}
                 @endforeach
-            </ul>
         </div>
   @endif
   @if(session()->has('notice'))
@@ -34,7 +32,7 @@
             {{ session()->get('notice') }}
         </div>
   @endif
-  <form id="msform" action="{{ route('contact_edit.contact_edit')}}"  method="post">
+  <form id="msform" action="{{ route('contact_edit.contact_edit')}}"  method="POST">
     @csrf
     <div class="container">
       <div class="row justify-content-center">

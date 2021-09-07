@@ -58,9 +58,10 @@ class be_product extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        
+        return view('be_product.index2');
     }
 
     /**
