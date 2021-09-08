@@ -31,27 +31,6 @@
     </fieldset>
   </form>
 </div>
-<?php
-    ini_set("display_errors", "On");
-   $account = $_POST['account'];
-   $password = $_POST['password'];
-  $select = $connect -> prepare("SELECT account,password FORM member WHERE account = macount AND password = mpw");
-   $select -> execute(array('macount' => $account,'mpw' => $password));
-   $result = $select -> fetch(PDO::FETCH_ASSOC) ;
-      if ($result['account']==$account&&$result['password']==$password) {
-           session_start();
-           $_SESSION['member'] = $result;
-           header("location:./?error=登入成功");
-      }elseif ($result['password']!=$password||$result['account']!=$account) {
-                  header("location:./?error=帳密錯誤");
-      }elseif ($result['password']!=''||$result['account']!='') {
-                  header("location:./?error=輸入不完全");
-      }
-      
- ?>
-  
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
 

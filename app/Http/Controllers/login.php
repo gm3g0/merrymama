@@ -25,7 +25,21 @@ class login extends Controller
     public function login()
     {
         //
-    
+        ini_set("display_errors", "On");
+       $account = $_POST['macount'];
+       $password = $_POST['mpw'];
+      $select = $connect -> prepare("SELECT email,password FORM member WHERE email = macount AND password = mpw");
+       $select -> execute(array('macount' => $account,'mpw' => $password));
+       $result = $select -> fetch(PDO::FETCH_ASSOC) ;
+          if ($result['account']==$account&&$result['password']==$password) {
+               session_start();
+               $_SESSION['member'] = $result;
+               header("location:./?error=登入成功");
+          }elseif ($result['password']!=$password||$result['account']!=$account) {
+                      header("location:./?error=帳密錯誤");
+          }elseif ($result['password']!=''||$result['account']!='') {
+                      header("location:./?error=輸入不完全");
+          }
 
         return redirect()->route('homepage.index');
     }
