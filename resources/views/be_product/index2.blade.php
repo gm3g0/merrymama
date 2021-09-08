@@ -12,13 +12,13 @@
 <div class="col-12 col-sm-10 col-md-10 col-lg-8  text-center p-0 mt-5 mb-3">
   <div class="row col-md-6 justify-content-between"id="pl">
     <div class="col-md-6">
-      <img src="bread_test.jpg"  alt="測試麵包圖" style="height: 250px;width: 245px;">
+      <img src="{{ asset('product_images/' . $product1->pic )}}"  alt="{{ $product1->pic }}" style="height: 250px;width: 245px;">
     </div>
     <br>
     <div class="row col-md-6 text-start align-items-center justify-content-center">
-      名稱：<br>
-      介紹：<br>
-      售價：<br>&nbsp;&nbsp;
+      名稱：{{ $product1->PName }}<br>
+      介紹：{{ $product1->introduction }}<br>
+      售價：{{ $product1->price }} 元 <br>&nbsp;&nbsp;
     </div>
   </div><br>
   <form id="msform" method="POST" action="{{ route('product')}}">

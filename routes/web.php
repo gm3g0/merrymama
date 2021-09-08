@@ -31,8 +31,10 @@ use \App\Http\Controllers\edit_QA;
 */
 
 Route::get('/' , [be_homepage::class , 'index'])->name('homepage.index'); //設定首頁，並給它名字(只要用到root這個路徑，就會來這個頁面)
-
 // Route::resource('homepage', be_homepage::class)->only('index');
+Route::resource('edit_homepage',edit_homepage::class)->only('index','edit_homepage');
+Route::post('/edit_homepage', [edit_homepage::class,'edit_homepage'])->name('edit_homepage');
+
 Route::resource('login', login::class)->only('index','login');
 Route::post('/login', [login::class,'login'])->name('login');
 
@@ -53,7 +55,7 @@ Route::get('/teamstory',[be_story::class,'create'])->name('story.index2');
 Route::resource('product', be_product::class)->only('index','create','product','show');
 Route::get('/products',[be_product::class,'create'])->name('product');
 Route::post('/product', [be_product::class,'product'])->name('product');
-Route::get('/show',[be_product::class,'show'])->name('be_product.show');
+Route::get('/show/{product_PName}',[be_product::class,'show'])->name('be_product.show');
 
 Route::resource('contact', be_contact::class)->only('index');
 
@@ -79,9 +81,6 @@ Route::resource('data',backdata::class)->only('index');
 
 Route::resource('contact_edit', contact_edit::class)->only('index','contact_edit');
 Route::post('/contact_edit', [contact_edit::class,'contact_edit'])->name('contact_edit.contact_edit');
-
-Route::resource('edit_homepage',edit_homepage::class)->only('index','edit_homepage');
-Route::post('/edit_homepage', [edit_homepage::class,'edit_homepage'])->name('edit_homepage');
 
 Route::resource('edit_QA',edit_QA::class)->only('index','edit_QA');
 Route::post('/edit_QA', [edit_QA::class,'edit_QA'])->name('edit_QA');

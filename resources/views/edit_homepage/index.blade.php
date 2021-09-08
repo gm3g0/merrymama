@@ -21,13 +21,13 @@
 @endsection
 @section('main')
   <h2>首頁編輯</h2>
-  <form id="msform" method="POST">
+  <form id="msform" action="{{ route('edit_homepage')}}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="container">
       <div class="row justify-content-center">
         <div class="row col-md-8 text-start justify-content-center">
           <h4 class="col-md-12">最新消息：</h4>
-          <div class="col-md-9" style="margin-bottom: 20px"><input type="file" class="form-control" name=""/></div>
+          <div class="col-md-9" style="margin-bottom: 20px"><input type="file" class="form-control" name="news1"/></div>
           <div class="col-md-9" style="margin-bottom: 20px"><input type="file" class="form-control" name=""/></div>
           <div class="col-md-9" style="margin-bottom: 40px"><input type="file" class="form-control" name=""/></div>
 
@@ -37,8 +37,8 @@
       </div>
       
     </div><br>
-  <button class="next action-buttonb" type="submit">修改</button>
-</form>
+    <button class="next action-buttonb" type="submit">修改</button>
+  </form>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>

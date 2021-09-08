@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\news;
 
 class edit_homepage extends Controller
 {
@@ -22,10 +23,28 @@ class edit_homepage extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit_homepage()
+    public function edit_homepage(Request $request)
     {
-        //
+        $news =  new news;
+        
+        $path = $request->file('news1')->store('news_images', 'public');
+        $now = date("Y-m-d H:i:s"); 
+        //$news->save();
+        news::insert(
+            ['news_pic' => $path,
+            'news_time' => $now]
+        );
+        //if($request->hasFile('news')){
+            //if ($request->news->isValid()){
+
+                //$news->news_pic = $new_fileName;
+                //$request->file('news')->move($path , $new_fileName);
+                //$news->save();
+            //}
+        //}
         return back()->with('notice','修改成功!');
+       
+        
     }
 
     /**
