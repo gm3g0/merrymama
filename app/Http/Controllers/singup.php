@@ -32,8 +32,8 @@ class singup extends Controller
         $tel = $_POST['phone'];
         $birthday = $_POST['birth'];
         $sex = $_POST['inlineRadioOptions'];
-        require_once "../../method/connect.php";
-        $insert = $connect -> prepare("INSERT INTO member(email,password,name,tel,birthday,sex)
+        require_once "../method/connect.php";
+        $insert = $connect -> prepare("INSERT INTO members(email,password,name,tel,birthday,sex)
           VALUES(?,?,?,?,?,?)");
         $insert -> execute(array($email,$password,$name,$tel,$birthday,$sex));
        header("location:../?sig_suc=註冊成功");
