@@ -10,4 +10,9 @@ class news extends Model
     use HasFactory;
 
     public $timestamps = false;
+
+    protected $fillable = [
+        'news_pic',
+        'news_time'
+    ];
 }

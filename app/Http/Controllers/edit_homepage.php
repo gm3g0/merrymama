@@ -25,26 +25,34 @@ class edit_homepage extends Controller
      */
     public function edit_homepage(Request $request)
     {
-        $news =  new news;
-        
-        $path = $request->file('news1')->store('news_images', 'public');
-        $now = date("Y-m-d H:i:s"); 
-        //$news->save();
-        news::insert(
-            ['news_pic' => $path,
-            'news_time' => $now]
-        );
-        //if($request->hasFile('news')){
-            //if ($request->news->isValid()){
-
-                //$news->news_pic = $new_fileName;
-                //$request->file('news')->move($path , $new_fileName);
-                //$news->save();
-            //}
+        //$news =  new news;
+        $now = date("Y-m-d H:i:s");
+        //if( !empty('news1')){
+            //$path = $request->file('news1')->store('news_images', 'public');
+            //news::insert(
+                //['news_pic' => $path,
+                //'news_time' => $now]
+            //);
+            //return back()->with('notice','修改成功!');
+        //}else{
+            //return back()->with('notice','修改失敗！');
         //}
-        return back()->with('notice','修改成功!');
-       
-        
+        if(!empty($_FILES["files"])){
+            $files = $request->file('files');
+            if($request->hasFile('files')){
+                foreach ($files as $file) {
+                    $path = $file->store('public/news_images');
+                    $file = [
+                        'news_pic'    => $path,
+                        'news_time' => $now
+                    ];
+                $file = news::create($file);
+                }
+            }
+            return back()->with('notice','修改成功!');
+        }else{
+            return back()->with('notice','未選擇檔案！');
+        }
     }
 
     /**
