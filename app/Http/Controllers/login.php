@@ -1,6 +1,8 @@
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use PDO;
+
 
 class login extends Controller
 {
@@ -20,9 +22,10 @@ class login extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function login()
     {
-        
+     
     ini_set("display_errors", "On");
     require_once "../method/connect.php";
 
@@ -36,13 +39,14 @@ class login extends Controller
    $result = $select -> fetch(PDO::FETCH_ASSOC) ;
 
 
-      if ($result['mail']==$account&&$result['password']==$password) {
+      if ($result['email']==$account&&$result['password']==$password) {
            session_start();
            $_SESSION['member'] = $result;
            header("location:../");
-      }elseif ($result['password']!=$password||$result['mail']!=$account) {
+
+      }elseif ($result['password']!=$password||$result['email']!=$account) {
                   header("location:./?error=帳密錯誤");
-      }elseif ($result['password']!=''||$result['mail']!='') {
+      }elseif ($result['password']!=''||$result['email']!='') {
                   header("location:./?error=輸入不完全");
       }
 
