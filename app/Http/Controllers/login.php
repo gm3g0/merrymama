@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use PDO;
 
@@ -22,37 +24,38 @@ class login extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    
+
     public function login()
     {
-     
-    ini_set("display_errors", "On");
-    require_once "../method/connect.php";
 
-   $account = $_POST['macount'];
-   $password = $_POST['mpw'];
+        ini_set("display_errors", "On");
+        require_once "../method/connect.php";
+        
+        
+        $account = $_POST['macount'];
+        $password = $_POST['mpw'];
 
-   $select = $connect -> prepare("SELECT * FROM members WHERE email = :acc AND password = :pw");
-   $select -> execute(array(':acc' => $account,':pw' => $password));
-
-  
-   $result = $select -> fetch(PDO::FETCH_ASSOC) ;
+        $select = $connect->prepare("SELECT * FROM members WHERE email = :acc AND password = :pw");
+        $select->execute(array(':acc' => $account, ':pw' => $password));
 
 
-      if ($result['email']==$account&&$result['password']==$password) {
-           session_start();
-           $_SESSION['member'] = $result;
-           header("location:../");
+        $result = $select->fetch(PDO::FETCH_ASSOC);
 
-      }elseif ($result['password']!=$password||$result['email']!=$account) {
-                  header("location:./?error=帳密錯誤");
-      }elseif ($result['password']!=''||$result['email']!='') {
-                  header("location:./?error=輸入不完全");
-      }
+        /*先測試$result['email'] $result['password']*/
+        if ($result['email'] == $account && $result['password'] == $password) {
+            session_start();
+            $_SESSION['member'] = $result;
+            header("location:../");
+        } elseif ($result['password'] != $password || $result['email'] != $account) {
+            header("location:./?error=帳密錯誤");
+        } elseif ($result['password'] != '' || $result['email'] != '') {
+            header("location:./?error=輸入不完全");
+        }
 
         return redirect()->route('homepage.index');
+        
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *

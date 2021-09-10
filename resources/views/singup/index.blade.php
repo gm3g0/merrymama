@@ -24,11 +24,11 @@
                 電話：<input type="tel" name="phone">
                 生理性別：
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="男">
                   <label class="form-check-label" for="inlineRadio1">男</label>
                 </div>
                 <div class="form-check form-check-inline" style="margin-bottom: 25px">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="女">
                   <label class="form-check-label" for="inlineRadio2">女</label>
                 </div><br>
                 生日：<input type="date" name="birth"><br>
