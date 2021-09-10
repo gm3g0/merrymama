@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\QuestionAnswer;
 
 class be_QA extends Controller
 {
@@ -13,8 +14,8 @@ class be_QA extends Controller
      */
     public function index()
     {
-        //
-        return view('be_QA.index');
+        $QAs = QuestionAnswer::all();
+        return view('be_QA.index', ['QAs' => $QAs]);
     }
 
     /**

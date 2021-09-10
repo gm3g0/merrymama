@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\QuestionAnswer;
 
 class edit_QA extends Controller
 {
@@ -22,7 +23,7 @@ class edit_QA extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit_QA()
+    public function edit_QA(Request $request)
     {
         //
         return back()->with('notice','修改成功!');

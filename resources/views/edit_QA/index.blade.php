@@ -20,17 +20,22 @@
 </style>
 @endsection
 @section('main')
-  <h2>QA編輯</h2>
+  <h2> Q & A 編 輯</h2>
+  @if(session()->has('notice'))
+        <div class="alert alert-warning">
+            {{ session()->get('notice') }}
+        </div>
+  @endif
   <form id="msform" method="POST">
     @csrf
     <div class="row col-md-2 align-self-start"style="padding-left: 22px;"><button type="button" class="next action-buttonb" data-bs-toggle="modal" data-bs-target="#new">新增</button></div>
     <div class="container text-start justify-content-center">
       <div class="card">
         <div class="card-header">
-          Q<textarea name="" >Q</textarea>
+          Q<textarea name="question" >Q</textarea>
         </div>
         <div class="card-body">
-          A<textarea name=""  style="height: 100px">A</textarea>
+          A<textarea name="answer"  style="height: 100px">A</textarea>
         </div>
       </div>
     </div>
