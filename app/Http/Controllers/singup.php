@@ -35,25 +35,26 @@ class singup extends Controller
         $tel = $_POST['phone'];
         $birthday = $_POST['birth'];
         $sex = $_POST['inlineRadioOptions'];
+
         require_once "../method/connect.php";
         $search =members::where('email','=',$email)->pluck('email');
-        echo $search;
-        echo '["'.$email.'"]';
-        if($search== '["'.$email.'"]' )
-        {
-            echo "<script>alert('該電子郵件已被註冊！')</script>";
 
+        if( $email == '' || $password == '' || $name == '' || $tel == '' || $birthday == '' || $sex == ''){
+            return back()->with('notice','輸入資料不完全！');
+        }else{
+            if($search == '["'.$email.'"]' ){
+                return back()->with('notice','該電子郵件已被註冊！');
+            }else{
+                require_once "../method/connect.php";
+                $insert = $connect -> prepare("INSERT INTO members(email,password,name,tel,birthday,sex)
+                VALUES(?,?,?,?,?,?)");
+                $insert -> execute(array($email,$password,$name,$tel,$birthday,$sex));
+                return back()->with('notice','註冊成功！'); 
+            }
         }
-        else 
-        {
-            require_once "../method/connect.php";
-            $insert = $connect -> prepare("INSERT INTO members(email,password,name,tel,birthday,sex)
-            VALUES(?,?,?,?,?,?)");
-             $insert -> execute(array($email,$password,$name,$tel,$birthday,$sex));
-             
-        }
-       header("location:../?sig_suc=註冊成功");
-        return redirect()->route('member.index');
+        
+        //header("location:../?sig_suc=註冊成功");
+        //return redirect()->route('member.index');
     }
 
     /**

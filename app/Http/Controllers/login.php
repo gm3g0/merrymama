@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use PDO;
 use PharIo\Manifest\Email;
+use App\Models\members;
 
 class login extends Controller
 {
@@ -34,28 +35,29 @@ class login extends Controller
 
         $account = $_POST['macount'];
         $password = $_POST['mpw'];
+        $checkaccount = members::where('email', $account )->pluck('email');
+        $checkpassword = members::where('password', $password )->pluck('password');
+        //$select = $connect->prepare("SELECT * FROM members WHERE email = :acc AND password = :pw");
+        //$select->execute(array(':acc' => $account, ':pw' => $password));
+        
 
-        $select = $connect->prepare("SELECT * FROM members WHERE email = :acc AND password = :pw");
-        $select->execute(array(':acc' => $account, ':pw' => $password));
+        //$result = $select->fetch(PDO::FETCH_ASSOC);
+        
 
-
-        $result = $select->fetch(PDO::FETCH_ASSOC);
-
-        echo $account;
-        echo $password;
-        if ($account != "" && $password != "") {
-            if ($result['email'] == $account && $result['password'] == $password) {
-                session_start();
-                $_SESSION['member'] = $result;
-                header("location:../");
-            } else {
-                header("location:./?error=帳密錯誤");
-            }
+        //if ($result['email'] == $account && $result['password'] == $password) {
+                //session_start();
+                //$_SESSION['member'] = $result;
+                //header("location:../");
+         //}
+        if ($account == "" || $password == "") {
+            return back()->with('notice', '請輸入帳號及密碼！' );
+            
+        }elseif( ('["' . $account . '"]' == $checkaccount ) && ('["' . $password . '"]' == $checkpassword)) {
+            return back()->with('notice', '登入成功！' );
+           
         } else {
-            header("location:./?error=輸入不完全");
+            return back()->with('notice', '帳號或密碼輸入錯誤！' );
         }
-
-        return redirect()->route('homepage.index');
     }
 
     /**
