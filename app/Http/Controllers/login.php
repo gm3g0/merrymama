@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use PDO;
-
+use PharIo\Manifest\Email;
 
 class login extends Controller
 {
@@ -30,8 +30,8 @@ class login extends Controller
 
         ini_set("display_errors", "On");
         require_once "../method/connect.php";
-        
-        
+
+
         $account = $_POST['macount'];
         $password = $_POST['mpw'];
 
@@ -41,21 +41,23 @@ class login extends Controller
 
         $result = $select->fetch(PDO::FETCH_ASSOC);
 
-        /*先測試$result['email'] $result['password']*/
-        if ($result['email'] == $account && $result['password'] == $password) {
-            session_start();
-            $_SESSION['member'] = $result;
-            header("location:../");
-        } elseif ($result['password'] != $password || $result['email'] != $account) {
-            header("location:./?error=帳密錯誤");
-        } elseif ($result['password'] != '' || $result['email'] != '') {
+        echo $account;
+        echo $password;
+        if ($account != "" && $password != "") {
+            if ($result['email'] == $account && $result['password'] == $password) {
+                session_start();
+                $_SESSION['member'] = $result;
+                header("location:../");
+            } else {
+                header("location:./?error=帳密錯誤");
+            }
+        } else {
             header("location:./?error=輸入不完全");
         }
 
         return redirect()->route('homepage.index');
-        
     }
-    
+
     /**
      * Store a newly created resource in storage.
      *
