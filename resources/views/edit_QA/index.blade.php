@@ -27,13 +27,14 @@
     <div class="container text-start justify-content-center">
       <div class="card">
         <div class="card-header">
-          Q<textarea name="question" >Q</textarea>
+          <textarea name="question" >Q</textarea>
         </div>
         <div class="card-body">
-          A<textarea name="answer"  style="height: 100px">A</textarea>
+          <textarea name="answer"  style="height: 100px">A</textarea>
         </div>
       </div>
     </div>
+
     <div class="modal fade" id="new" data-bs-backdrop="static"  aria-labelledby="new" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
           <div class="modal-content">
@@ -61,7 +62,7 @@
         
       </div>
       </div>
-  </div>
+    </div>
 <br>
   <button class="next action-buttonb" type="submit">修改</button>
 </form>

@@ -17,6 +17,7 @@ class login extends Controller
     public function index()
     {
         //
+        
         return view('login.index');
     }
 
@@ -53,13 +54,16 @@ class login extends Controller
             return back()->with('notice', '請輸入帳號及密碼！' );
             
         }elseif( ('["' . $account . '"]' == $checkaccount ) && ('["' . $password . '"]' == $checkpassword)) {
-            return back()->with('notice', '登入成功！' );
+            return redirect('/')->with('notice', '登入成功！');
            
         } else {
             return back()->with('notice', '帳號或密碼輸入錯誤！' );
         }
     }
-
+    public function logout(){
+        session()->forget('account');
+        return redirect('/logout');
+    }
     /**
      * Store a newly created resource in storage.
      *

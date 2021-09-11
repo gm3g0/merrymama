@@ -142,7 +142,7 @@
                         <span class="menu-collapsed" >數據統計</span>   
                     </div>
                 </button>
-                <button onclick="location.href='{{route('data.index')}}'"  class="bg-transparent list-group-item list-group-item-action flex-column align-items-start">
+                <button onclick="location.href='{{route('logout')}}'"  class="bg-transparent list-group-item list-group-item-action flex-column align-items-start">
                   <div class="d-flex w-100 justify-content-start align-items-center" style="color: black">
                       <span class="fas fa-sign-out-alt fa-fw mr-3"aria-hidden="true"></span>
                       <span class="menu-collapsed" >登出</span>   

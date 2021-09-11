@@ -35,8 +35,9 @@ Route::get('/' , [be_homepage::class , 'index'])->name('homepage.index'); //шинх
 Route::resource('edit_homepage',edit_homepage::class)->only('index','edit_homepage');
 Route::post('/edit_homepage', [edit_homepage::class,'edit_homepage'])->name('edit_homepage');
 
-Route::resource('login', login::class)->only('index','login');
+Route::resource('login', login::class)->only('index','login','logout');
 Route::post('/login', [login::class,'login'])->name('login');
+Route::get('/logout', [login::class,'logout'])->name('logout');
 
 Route::resource('singup', singup::class)->only('index','singup');
 Route::post('/singup', [singup::class,'singup'])->name('singup');

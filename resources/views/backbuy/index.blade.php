@@ -173,35 +173,35 @@
       $(function() {
   $("#buyweek").change(function() {
     switch ($(this).val()) {
-      case "1":
+      case "星期一":
         $("#week1").show();
         $("#week2").hide();
         $("#week3").hide();
         $("#week4").hide();
         $("#week5").hide();
         break;
-      case "2":
+      case "星期二":
         $("#week1").hide();
         $("#week2").show();
         $("#week3").hide();
         $("#week4").hide();
         $("#week5").hide();
         break;
-      case "3":
+      case "星期三":
         $("#week1").hide();
         $("#week2").hide();
         $("#week3").show();
         $("#week4").hide();
         $("#week5").hide();
       break;
-      case "4":
+      case "星期四":
         $("#week1").hide();
         $("#week2").hide();
         $("#week3").hide();
         $("#week4").show();
         $("#week5").hide();
       break;
-      case "5":
+      case "星期五":
         $("#week1").hide();
         $("#week2").hide();
         $("#week3").hide();

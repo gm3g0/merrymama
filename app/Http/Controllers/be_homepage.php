@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 
 class be_homepage extends Controller
@@ -15,7 +16,8 @@ class be_homepage extends Controller
     public function index()
     {
         //
-        return view('be_homepage.index');
+        $email = session('email');
+        return view('be_homepage.index', ['email' => $email]);
     }
 
     /**

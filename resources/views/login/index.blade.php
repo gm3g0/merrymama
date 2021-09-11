@@ -1,5 +1,5 @@
-
-@extends('layouts.guest')
+@extends(((isset($email)) ? 'layouts.login' : 'layouts.guest' ))
+{{-- @extends('layouts.guest') --}}
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/all.css')}}"/>
 @endsection

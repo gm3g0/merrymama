@@ -66,7 +66,7 @@
                 <button id="myb" class="nav-link" onclick="location.href='{{route('member.index')}}'">會員專區</button>
               </li>
               <li class="nav-item">
-                <button id="myb" class="nav-link" >登出</button>
+                <button id="myb" class="nav-link" onclick="location.href='{{route('logout')}}'">登出</button>
               </li>        
               </ul>
               <ul class="navbar-nav">                           
