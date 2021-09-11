@@ -21,11 +21,6 @@
 @endsection
 @section('main')
   <h2> Q & A 編 輯</h2>
-  @if(session()->has('notice'))
-        <div class="alert alert-warning">
-            {{ session()->get('notice') }}
-        </div>
-  @endif
   <form id="msform" method="POST">
     @csrf
     <div class="row col-md-2 align-self-start"style="padding-left: 22px;"><button type="button" class="next action-buttonb" data-bs-toggle="modal" data-bs-target="#new">新增</button></div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\takedate;
 
 class backbuy extends Controller
 {
@@ -24,8 +25,13 @@ class backbuy extends Controller
      */
     public function backbuy()
     {
-        //
-        return back()->with('notice','更新成功!');
+        $week = $_POST["buyweek"];
+        $date = $_POST["date"];
+        $takedate = new takedate;
+        $takedate->tekedate_time = $date;
+        $takedate->week = $week;
+        $takedate->save();
+        return back()->with('notice','設定成功！');
     }
 
     /**

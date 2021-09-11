@@ -21,11 +21,11 @@
 @section('main')
   <h2>聯絡資訊</h2>
   @if($errors->any())
-        <div class="alert alert-danger">
-                @foreach($errors->all() as $error)
-                    {{ $error }}
-                @endforeach
-        </div>
+    <div class="alert alert-danger">
+        @foreach($errors->all() as $error)
+            {{ $error }}
+        @endforeach
+    </div>
   @endif
   @if(session()->has('notice'))
         <div class="alert alert-warning">
@@ -37,8 +37,8 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="row col-md-8 text-start justify-content-center">
-          <div class="col-md-9">電話：<input type="text" name="Shop_tel" value="{{ $contact[1]->Shop_tel }}"></div>
-          <div class="col-md-9">E-mail：<input type="email" value="{{ $contact[1]->Shop_email }}" name="Shop_email"></div>
+          <div class="col-md-9">電話：<input type="text" name="tel" value="{{ $contact[1]->Shop_tel }}"></div>
+          <div class="col-md-9">E-mail：<input type="email" value="{{ $contact[1]->Shop_email }}" name="email"></div>
         </div>
       </div>
     </div>

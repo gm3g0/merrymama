@@ -75,7 +75,7 @@ Route::resource('productmanage', productmanage::class)->only('index','productman
 Route::post('/productmanage', [productmanage::class,'productmanage'])->name('productmanage');
 
 Route::resource('backbuy',backbuy::class)->only('index','backbuy');
-Route::post('/backbuy', [backbuy::class,'backbuy'])->name('backbuy');
+Route::post('/backbuy', [backbuy::class,'backbuy'])->name('backbuy.backbuy');
 
 Route::resource('data',backdata::class)->only('index');
 

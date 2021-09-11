@@ -20,7 +20,12 @@
 @endsection
 @section('main')
 <h2>我要購買</h2>
-<form action="" id="msform" method="POST">
+@if(session()->has('notice'))
+  <div class="alert alert-warning">
+    {{ session()->get('notice') }}
+  </div>
+@endif
+<form action="{{ route('backbuy.backbuy') }}" id="msform" method="POST">
   @csrf
   <div class="container">
     <div class="row align-items-center">
@@ -30,15 +35,15 @@
       <div class="col-md-3">
         <select name="buyweek" class="form-select" aria-label="Default select example" id="buyweek">
           <option selected></option>
-          <option value="1">星期一</option>
-          <option value="2">星期二</option>
-          <option value="3">星期三</option>
-          <option value="4">星期四</option>
-          <option value="5">星期五</option>
+          <option value="星期一">星期一</option>
+          <option value="星期二">星期二</option>
+          <option value="星期三">星期三</option>
+          <option value="星期四">星期四</option>
+          <option value="星期五">星期五</option>
         </select> 
       </div>
       <div class="col-md-3 text-start">
-          取貨日期：<input type="date" name="" value="" id="dateto2"   min="">
+          取貨日期：<input type="date" name="date" value="" id="dateto2"   min="">
       </div>
       <div class="col-md-2"  style="margin: 0px">
         <button type="submit" class="next action-buttonb" style="outline: none;">確定</button>

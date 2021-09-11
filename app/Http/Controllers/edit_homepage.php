@@ -25,19 +25,14 @@ class edit_homepage extends Controller
      */
     public function edit_homepage(Request $request)
     {
-        //$news =  new news;
         $now = date("Y-m-d H:i:s");
-        //if( !empty('news1')){
-            //$path = $request->file('news1')->store('news_images', 'public');
-            //news::insert(
-                //['news_pic' => $path,
-                //'news_time' => $now]
-            //);
-            //return back()->with('notice','修改成功!');
-        //}else{
-            //return back()->with('notice','修改失敗！');
-        //}
-        if(!empty($_FILES["files"])){
+        $cnt = 0 ;
+        for($i = 0 ; $i < 3 ; $i++ ){
+            if(!empty($_FILES['files']['name'][$i])){
+                $cnt = $cnt + 1;
+            }
+        }
+        if($cnt != 0 ){
             $files = $request->file('files');
             if($request->hasFile('files')){
                 foreach ($files as $file) {
@@ -49,7 +44,7 @@ class edit_homepage extends Controller
                 $file = news::create($file);
                 }
             }
-            return back()->with('notice','修改成功!');
+                return back()->with('notice','修改成功!');
         }else{
             return back()->with('notice','未選擇檔案！');
         }

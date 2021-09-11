@@ -17,12 +17,22 @@ class contact_edit extends Controller
     public function contact_edit(Request $request)
     {
         $shop = shops::where('Shop_name','臺中科技大學')->first();
-        
-        $content = $request->validate([
-            'Shop_tel' => 'required',
-            'Shop_email' => 'required'
+        $oldtel = shops::where('Shop_name','臺中科技大學')->pluck('Shop_tel');
+        $oldemail = shops::where('Shop_name','臺中科技大學')->pluck('Shop_email');
+        $tel = $_POST['tel'];
+        $email = $_POST['email'];
+        $content = $request->validate([  //驗證  
+            'tel' => 'required',
+            'email' => 'required'
         ]);
-        $shop->update($content);
-        return back()->with('notice','修改成功!');
+        if(($oldtel != '["' . $tel . '"]') || ($oldemail != '["' . $email . '"]')){
+            $shop->Shop_tel = $tel;
+            $shop->Shop_email = $email;
+            $shop->save();
+            return back()->with('notice','修改成功！');
+        }else{
+            return back()->with('notice','請對資料做變動！');
+        }
+        
     }
 }
