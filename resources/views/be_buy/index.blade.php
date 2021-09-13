@@ -11,12 +11,14 @@
 <div class="col-12 col-sm-10 col-md-10 col-lg-8  text-center p-0 mt-5 mb-3">
   <h2><i class="fas fa-shopping-cart"></i>&nbsp;我要購買</h2><hr>
   <h3 class="text-start">注意事項</h3>
+
   <div class="row col-md-12 text-start">
-    <p>&nbsp;&nbsp;adlvnaldkvnsldkb</p>
+    <p>&nbsp;&nbsp;本次取貨日期：{{ $takedate }}</p>
   </div>
   <form action="{{ route('be_buy.index2')}}" method="GET">
     @csrf
-    <h4 class="text-start">星期：</h4>
+    <h4 class="text-start">本次訂購星期：{{ $week }}</h4>
+    @foreach($Fri as $product)
     <div class="card mb-3" style="max-width: 1000px;">
       <div class="row g-0">
         <div class="col-md-3">
@@ -34,6 +36,7 @@
           </div>
       </div>
     </div>
+    @endforeach
     <div class="card mb-3" style="max-width: 1000px;">
       <div class="row g-0">
         <div class="col-md-3">

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\takedate;
+use App\Models\products;
 
 class be_buy extends Controller
 {
@@ -13,8 +15,13 @@ class be_buy extends Controller
      */
     public function index()
     {
-        //
-        return view('be_buy.index');
+        $takedate = takedate::max('tekedate_time');
+        //$week = takedate::where('tekedate_time' , $takedate)->pluck('week');
+        //if( $week == '["星期五"]' ){
+            //$Mon = products::where('type','like','%星期一%')->get();
+            //return view('be_buy.index', ['takedate' => $takedate , 'week' => $week , 'Fri' => $Fri]);
+        //}
+        return view('be_buy.index', ['takedate' => $takedate , 'week' => $week]);
     }
 
     /**
