@@ -36,11 +36,13 @@
           <textarea name="question" >{{ $allqa->question }}</textarea>
         </div>
         <div class="card-body">
-          <textarea name="answer"  style="height: 100px">{{ $allqa->answer }}</textarea>
+          <textarea name="answer" style="height: 100px">{{ $allqa->answer }}</textarea>
         </div>
       </div>
-    </div>
+    </div><br>
     @endforeach
+    <button class="next action-buttonb" type="submit">修改</button>
+
     <div class="modal fade" id="new" data-bs-backdrop="static"  aria-labelledby="new" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
           <div class="modal-content">
@@ -69,12 +71,14 @@
       </div>
       </div>
     </div>
-<br>
-  <button class="next action-buttonb" type="submit">修改</button>
+  
 </form>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-
+{{-- <script>
+  String question=request.getParameter("texts");
+  response.setCharacterEncoding("utf-8");
+</script> --}}
 
 @endsection
