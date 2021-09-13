@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\takedate;
+use App\Models\products;
 
 class backbuy extends Controller
 {
@@ -14,8 +15,18 @@ class backbuy extends Controller
      */
     public function index()
     {
-        //
-        return view('backbuy.index');
+        $Mon = products::where('type','like','%星期一%')->get();
+        $Tue = products::where('type','like','%星期二%')->get();
+        $Wed = products::where('type','like','%星期三%')->get();
+        $Thu = products::where('type','like','%星期四%')->get();
+        $Fri = products::where('type','like','%星期五%')->get();
+        return view('backbuy.index' , [
+            'Mon' => $Mon,
+            'Tue' => $Tue,
+            'Wed' => $Wed,
+            'Thu' => $Thu,
+            'Fri' => $Fri
+        ]);
     }
 
     /**

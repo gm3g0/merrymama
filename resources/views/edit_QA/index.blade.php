@@ -21,20 +21,26 @@
 @endsection
 @section('main')
   <h2> Q & A 編 輯</h2>
-  <form id="msform" method="POST">
+  @if(session()->has('notice'))
+        <div class="alert alert-warning">
+            {{ session()->get('notice') }}
+        </div>
+  @endif
+  <form id="msform" action="{{ route('edit_QA.edit_QA' )}}" method="POST">
     @csrf
     <div class="row col-md-2 align-self-start"style="padding-left: 22px;"><button type="button" class="next action-buttonb" data-bs-toggle="modal" data-bs-target="#new">新增</button></div>
+    @foreach( $allqas as $allqa)
     <div class="container text-start justify-content-center">
       <div class="card">
         <div class="card-header">
-          <textarea name="question" >Q</textarea>
+          <textarea name="question" >{{ $allqa->question }}</textarea>
         </div>
         <div class="card-body">
-          <textarea name="answer"  style="height: 100px">A</textarea>
+          <textarea name="answer"  style="height: 100px">{{ $allqa->answer }}</textarea>
         </div>
       </div>
     </div>
-
+    @endforeach
     <div class="modal fade" id="new" data-bs-backdrop="static"  aria-labelledby="new" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
           <div class="modal-content">

@@ -14,8 +14,8 @@ class edit_QA extends Controller
      */
     public function index()
     {
-        //
-        return view('edit_QA.index');
+        $allqas = QuestionAnswer::all();
+        return view('edit_QA.index' , [ 'allqas' => $allqas]);
     }
 
     /**
@@ -25,8 +25,8 @@ class edit_QA extends Controller
      */
     public function edit_QA(Request $request)
     {
-        //
-        return back()->with('notice','修改成功!');
+        
+        return back()->with('notice', '修改不了拉幹');
     }
 
     /**

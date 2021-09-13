@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\members;
+use App\Models\order;
 
 class membermanage extends Controller
 {
@@ -13,8 +15,9 @@ class membermanage extends Controller
      */
     public function index()
     {
-        //
-        return view('membermanage.list');
+        $members = members::all();
+        $cnt = order::count();
+        return view('membermanage.list' , ['members' => $members , 'cnt' => $cnt]);
     }
 
     /**

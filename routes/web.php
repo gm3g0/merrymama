@@ -84,6 +84,6 @@ Route::resource('contact_edit', contact_edit::class)->only('index','contact_edit
 Route::post('/contact_edit', [contact_edit::class,'contact_edit'])->name('contact_edit.contact_edit');
 
 Route::resource('edit_QA',edit_QA::class)->only('index','edit_QA');
-Route::post('/edit_QA', [edit_QA::class,'edit_QA'])->name('edit_QA');
+Route::post('/edit_QA', [edit_QA::class,'edit_QA'])->name('edit_QA.edit_QA');
 
 

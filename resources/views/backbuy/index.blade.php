@@ -52,102 +52,99 @@
   </div>
 </form>
 
-  <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px;display: none;"id="week1">
+  <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px;display: none;" id="week1">
+  @foreach($Mon as $product)
     <div class="col">
       <div class="card">
-        <img src="bread_test.jpg" class="card-img-top align-self-center" alt="測試麵包圖" style="height: 150px;width: 145px;">
+      @if($product->pic)
+        <img src="{{ asset('product_images/' . $product->pic )}}" class="card-img-top align-self-center" alt="{{ $product->pic }}" style="height: 150px;width: 145px;">
+      @else
+        <img src="{{ asset('bread_test.jpg')}}" class="card-img-top align-self-center" alt="測試麵包圖" style="height: 150px;width: 145px;">
+      @endif
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <h5 class="card-title">{{ $product->PName }}</h5>
+          <p class="card-text">{{ $product->introduction }}</p>
           
         </div>
       </div>
     </div>
-    <div class="col">
-      <div class="card">
-        <img src="bread_test.jpg" class="card-img-top align-self-center" alt="測試麵包圖" style="height: 150px;width: 145px;">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-        </div>
-      </div>
-    </div>
+  @endforeach
   </div>
 
   <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px;display: none;" id="week2">
+  @foreach($Tue as $product)
     <div class="col">
       <div class="card">
-        <img src="bread_test.jpg" class="card-img-top align-self-center" alt="測試麵包圖" style="height: 150px;width: 145px;">
+      @if($product->pic)
+        <img src="{{ asset('product_images/' . $product->pic )}}" class="card-img-top align-self-center" alt="{{ $product->pic }}" style="height: 150px;width: 145px;">
+      @else
+        <img src="{{ asset('bread_test.jpg')}}" class="card-img-top align-self-center" alt="測試麵包圖" style="height: 150px;width: 145px;">
+      @endif
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <h5 class="card-title">{{ $product->PName }}</h5>
+          <p class="card-text">{{ $product->introduction }}</p>
           
         </div>
       </div>
     </div>
-    <div class="col">
-      <div class="card">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-        </div>
-      </div>
-    </div>
+  @endforeach
   </div>
 
   <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px;display: none;" id="week3">
+  @foreach($Wed as $product)
     <div class="col">
       <div class="card">
-        <img src="bread_test.jpg" class="card-img-top align-self-center" alt="測試麵包圖" style="height: 150px;width: 145px;">
+      @if($product->pic)
+        <img src="{{ asset('product_images/' . $product->pic )}}" class="card-img-top align-self-center" alt="{{ $product->pic }}" style="height: 150px;width: 145px;">
+      @else
+        <img src="{{ asset('bread_test.jpg')}}" class="card-img-top align-self-center" alt="測試麵包圖" style="height: 150px;width: 145px;">
+      @endif
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <h5 class="card-title">{{ $product->PName }}</h5>
+          <p class="card-text">{{ $product->introduction }}</p>
+          
         </div>
       </div>
     </div>
+  @endforeach
   </div>
 
   <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px;display: none;"id="week4">
+  @foreach($Thu as $product)
     <div class="col">
       <div class="card">
-        <img src="..." class="card-img-top" alt="...">
+      @if($product->pic)
+        <img src="{{ asset('product_images/' . $product->pic )}}" class="card-img-top align-self-center" alt="{{ $product->pic }}" style="height: 150px;width: 145px;">
+      @else
+        <img src="{{ asset('bread_test.jpg')}}" class="card-img-top align-self-center" alt="測試麵包圖" style="height: 150px;width: 145px;">
+      @endif
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+          <h5 class="card-title">{{ $product->PName }}</h5>
+          <p class="card-text">{{ $product->introduction }}</p>
+          
         </div>
       </div>
     </div>
+  @endforeach
   </div>
 
   <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px;display: none;"id="week5">
+  @foreach($Fri as $product)
     <div class="col">
       <div class="card">
-        <img src="bread_test.jpg" class="card-img-top align-self-center" alt="測試麵包圖" style="height: 150px;width: 145px;">
+      @if($product->pic)
+        <img src="{{ asset('product_images/' . $product->pic )}}" class="card-img-top align-self-center" alt="{{ $product->pic }}" style="height: 150px;width: 145px;">
+      @else
+        <img src="{{ asset('bread_test.jpg')}}" class="card-img-top align-self-center" alt="測試麵包圖" style="height: 150px;width: 145px;">
+      @endif
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <h5 class="card-title">{{ $product->PName }}</h5>
+          <p class="card-text">{{ $product->introduction }}</p>
+          
         </div>
       </div>
     </div>
-    <div class="col">
-      <div class="card">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-        </div>
-      </div>
-    </div>
+  @endforeach
   </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
