@@ -51,10 +51,10 @@
     <div class="tbl-content">
         <tbody >
                 <tr>
-                    <td><a style="cursor: pointer; text-decoration:underline;color:#FEC601;font-size:16px"onclick="location.href='{{route('memberrmanage.order')}}'">名稱</a></td>
-                    <td>02</td>  
-                    <td>02</td>
-                    <td>02</td>
+                    <td>{{ $members->name }<a style="cursor: pointer; text-decoration:underline;color:#FEC601;font-size:16px"onclick="location.href='{{route('memberrmanage.order')}}'">名稱</a></td>
+                    <td>{ $members->email }</td>  
+                    <td>{{ $members->tel }</td>
+                    <td>{{ $members->times }</td>
                 </tr>
         </tbody>
       </table>
