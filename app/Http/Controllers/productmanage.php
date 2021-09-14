@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\products;
 
 class productmanage extends Controller
 {
@@ -14,7 +15,8 @@ class productmanage extends Controller
     public function index()
     {
         //
-        return view('productmanage.edit');
+        $products = products::all();
+        return view('productmanage.edit', ['products' => $products ]);
     }
 
     /**

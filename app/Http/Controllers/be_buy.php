@@ -16,11 +16,12 @@ class be_buy extends Controller
     public function index()
     {
         $takedate = takedate::max('tekedate_time');
-        //$week = takedate::where('tekedate_time' , $takedate)->pluck('week');
-        //if( $week == '["星期五"]' ){
-            //$Mon = products::where('type','like','%星期一%')->get();
-            //return view('be_buy.index', ['takedate' => $takedate , 'week' => $week , 'Fri' => $Fri]);
-        //}
+        $week = takedate::where('tekedate_time' , $takedate)->pluck('week');
+        $fri = takedate::where('tekedate_time' , $takedate)->pluck('week');
+        if( $week == '["星期五"]' ){
+            $Mon = products::where('type','like','%星期一%')->get();
+            return view('be_buy.index', ['takedate' => $takedate , 'week' => $week , 'Fri' => $fri]);
+        }
         return view('be_buy.index', ['takedate' => $takedate , 'week' => $week]);
     }
 
