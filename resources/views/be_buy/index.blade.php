@@ -17,7 +17,7 @@
   </div>
   <form action="{{ route('be_buy.index2')}}" method="GET">
     @csrf
-    <h4 class="text-start">本次訂購星期：{{  $week  }}</h4>
+    <h4 class="text-start">本次訂購星期：{{ json_decode($week)[0]    }}</h4>
     @foreach( $week as $product)
     <div class="card mb-3" style="max-width: 1000px;">
       <div class="row g-0">

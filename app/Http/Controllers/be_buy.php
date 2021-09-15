@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\takedate;
 use App\Models\products;
 
+
 class be_buy extends Controller
 {
     /**
