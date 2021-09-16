@@ -16,14 +16,30 @@ class be_buy extends Controller
      */
     public function index()
     {
-        $takedate = takedate::max('tekedate_time');
-        $week = takedate::where('tekedate_time' , $takedate)->pluck('week');
-        $fri = takedate::where('tekedate_time' , $takedate)->pluck('week');
-        if( $week == '["星期五"]' ){
-            $Mon = products::where('type','like','%星期一%')->get();
-            return view('be_buy.index', ['takedate' => $takedate , 'week' => $week , 'Fri' => $fri]);
+         
+        $choosetime = takedate::max('choose_time');  //取得最新設定時間
+        $takedates = takedate::where('choose_time',$choosetime)->pluck('tekedate_time'); //取得當次取貨日期
+        $takedate = str_replace('["','',$takedates); //str_replace取代字串中a字元為b('a','b','字串') 在此為刪除不必要符號
+        $takedate = str_replace('"]','',$takedate);
+        $weeks = takedate::where('choose_time',$choosetime)->pluck('week'); //取得當次取貨星期 
+        $week = json_decode($weeks)[0]; //將亂碼轉為jason陣列或物件
+        
+        if( trim($week) == "星期一" ){ //trim()刪除字串前的空白
+            $Ptype = products::where('type','like','%星期一%')->get();
+            return view('be_buy.index', ['takedate' => $takedate , 'week' => $week , 'Ptype' => $Ptype]);
+        }elseif(trim($week) == "星期二"){
+            $Ptype = products::where('type','like','%星期二%')->get();
+            return view('be_buy.index', ['takedate' => $takedate , 'week' => $week , 'Ptype' => $Ptype]);
+        }elseif(trim($week) == "星期三"){
+            $Ptype = products::where('type','like','%星期三%')->get();
+            return view('be_buy.index', ['takedate' => $takedate , 'week' => $week , 'Ptype' => $Ptype]);
+        }elseif(trim($week) == "星期四"){
+            $Ptype = products::where('type','like','%星期四%')->get();
+            return view('be_buy.index', ['takedate' => $takedate , 'week' => $week , 'Ptype' => $Ptype]);
+        }else{
+            $Ptype = products::where('type','like','%星期五%')->get();
+            return view('be_buy.index', ['takedate' => $takedate , 'week' => $week , 'Ptype' => $Ptype]);
         }
-        return view('be_buy.index', ['takedate' => $takedate , 'week' => $week]);
     }
 
     /**

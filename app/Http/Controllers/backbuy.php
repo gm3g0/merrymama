@@ -38,11 +38,23 @@ class backbuy extends Controller
     {
         $week = $_POST["buyweek"];
         $date = $_POST["date"];
-        $takedate = new takedate;
-        $takedate->tekedate_time = $date;
-        $takedate->week = $week;
-        $takedate->save();
-        return back()->with('notice','設定成功！');
+
+        $checkweek = takedate::where('tekedate_time',$date)->get();
+        $now = date("Y-m-d H:i:s");
+
+        if($week == '' || $date == ''){
+            return back()->with('notice','資訊設定不完整！');
+        }elseif ( $checkweek->first()){
+            return back()->with('notice','此日期重複設定！');
+        }else{
+            $takedate = new takedate;
+            $takedate->tekedate_time = $date;
+            $takedate->week = $week;
+            $takedate->choose_time = $now;
+            $takedate->save();
+            return back()->with('notice','設定成功！');
+        }
+        
     }
 
     /**

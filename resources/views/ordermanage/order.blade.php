@@ -27,7 +27,7 @@
       <h4>取貨日期：</h4>
     </div>
     <div class="col-md-2 text-start ">
-      <strong >0</strong>
+      <strong >{{ $takedate }}</strong>
     </div>
     <div class="col-md-3 text-start ">
       

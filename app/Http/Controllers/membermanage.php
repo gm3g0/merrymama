@@ -16,8 +16,18 @@ class membermanage extends Controller
     public function index()
     {
         $members = members::all();
-        $cnt = order::count();
-        return view('membermanage.list' , ['members' => $members , 'cnt' => $cnt]);
+        $savecnt = array();
+        foreach($members as $member){
+            $count = order::where('email' , $member->email)->count();
+            $savecnt[] = $count;
+            //echo var_dump($count);
+            
+        }
+        //for( $i=0 ; $i<count($savecnt);$i++){
+            //print $savecnt[$i];
+        //}
+        //$cnt = order::count();
+        return view('membermanage.list' , ['members' => $members , 'savecnt' => $savecnt ]);
     }
 
     /**

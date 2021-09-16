@@ -50,14 +50,15 @@
     </div>
     <div class="tbl-content">
         <tbody >
-          @foreach($members as $member)
-                <tr>
-                    <td><a style="cursor: pointer; text-decoration:underline;color:#FEC601;font-size:16px"onclick="location.href='{{route('memberrmanage.order')}}'">{{ $member->name }}</a></td>
-                    <td>{{ $member->email }}</td>  
-                    <td>{{ $member->tel }}</td>
-                    <td>{{ $cnt }}</td>
-                </tr>
-          @endforeach
+          
+        @foreach($members as $member)
+          <tr>      
+              <td><a style="cursor: pointer; text-decoration:underline;color:#FEC601;font-size:16px"onclick="location.href='{{route('memberrmanage.order')}}'">{{ $member->name }}</a></td>
+              <td>{{ $member->email }}</td>  
+              <td>{{ $member->tel }}</td>
+              <td>0</td>
+          </tr>      
+        @endforeach
         </tbody>
       </table>
     </div>
