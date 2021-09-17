@@ -16,7 +16,7 @@ class productmanage extends Controller
     {
         //
         $products = products::all();
-        return view('productmanage.edit', ['products' => $products ]);
+        return view('productmanage.edit', ['products' => $products]);
     }
 
     /**
@@ -27,7 +27,35 @@ class productmanage extends Controller
     public function productmanage()
     {
         //
-        return back()->with('notice','修改成功!');
+        ini_set("display_errors", "On");
+
+        $Pname = $_POST['Pname'];
+        echo $Pname;
+        $price = $_POST['price'];
+        echo $price;
+        $savetype = $_POST['day'];
+        $savetype = implode('、', $savetype);
+        echo $savetype;
+        $introduction = $_POST['introduction'];
+        $pic = $_POST['pic'];
+        echo $pic;
+        require_once "../method/connect.php";
+        $search = products::where('Pname', '=', $Pname)->pluck('Pname');
+
+        if ($Pname == '' || $price == '' || $savetype == '' || $introduction == '' || $pic == '') {
+            return back()->with('notice', '輸入資料不完全！');
+        } else {
+            if ($search == '["' . $Pname . '"]') {
+                return back()->with('notice', '已有相同品項！');
+            } else {
+                require_once "../method/connect.php";
+                $insert = $connect->prepare("INSERT INTO product(Pname,price,day,introduction,pic)
+                VALUES(?,?,?,?,?)");
+                $insert->execute(array($Pname, $price, $savetype, $introduction, $pic));
+                return back()->with('notice', '新增成功！');
+            }
+        }
+        return back()->with('notice', '修改成功!');
     }
 
     /**
@@ -61,6 +89,7 @@ class productmanage extends Controller
     public function edit($id)
     {
         //
+
     }
 
     /**

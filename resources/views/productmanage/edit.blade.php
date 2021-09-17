@@ -115,87 +115,6 @@
 <form action="" method="POST" id="msform">
   @csrf
   <div class="row col-md-2 align-self-start" style="padding-left: 22px;"><button type="button" class="next action-buttonb" data-bs-toggle="modal" data-bs-target="#new">新增</button></div>
-  <section class="table table-hover">
-    <div class="col align-self-center table-wrapper">
-      <!--時間表-->
-      <table cellpadding="0" cellspacing="0" class="fl-table">
-        <thead>
-          <tr class="tbl-header">
-            <th>
-              <h6><b> 麵包名稱
-            </th>
-            <th>
-              <h6><b> 介紹
-            </th>
-            <th>
-              <h6><b> 分類
-            </th>
-            <th>
-              <h6><b> 價格
-            </th>
-            <th>
-              <h6><b> 圖片
-            </th>
-            <th>
-              <h6><b> 刪除
-            </th>
-            <th>
-              <h6><b> 修改
-            </th>
-          </tr>
-        </thead>
-    </div>
-    <div class="tbl-content">
-      <tbody>
-        <tr>
-          <td>02</td>
-          <td>02</td>
-          <td>02</td>
-          <td>02</td>
-          <td>02</td>
-          <td>
-            <div class="text-center"><input type="checkbox" id="checkboxNoLabel" style="height: 15px;width:15px"></div>
-          </td>
-          <td>
-            <div>
-              <button type="button" class="btn  next action-buttonb" data-bs-toggle="modal" data-bs-target="#edit">修改</button>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>02</td>
-          <td>02</td>
-          <td>02</td>
-          <td>02</td>
-          <td>02</td>
-          <td>
-            <div class="text-center"><input type="checkbox" id="checkboxNoLabel" style="height: 15px;width:15px"></div>
-          </td>
-          <td>
-            <div>
-              <button type="button" class="btn next action-buttonb" data-bs-toggle="modal" data-bs-target="#edit">修改</button>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>02</td>
-          <td>02</td>
-          <td>02</td>
-          <td>02</td>
-          <td>02</td>
-          <td>
-            <div class="text-center"><input type="checkbox" id="checkboxNoLabel" style="height: 15px;width:15px"></div>
-          </td>
-          <td>
-            <div>
-              <button type="button" class="btn next action-buttonb" data-bs-toggle="modal" data-bs-target="#edit">修改</button>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-      </table>
-    </div>
-  </section>
 
   <section class="table table-hover">
     <div class="col align-self-center">
@@ -289,32 +208,32 @@
             <div class="container">
               <div class="row justify-content-center">
                 <div class="row col-md-12 text-start justify-content-center">
-                  <div class="col-md-10">名稱：<input type="text" name=""></div>
-                  <div class="col-md-10">價格：<input type="text" name=""></div>
+                  <div class="col-md-10">名稱：<input type="text" name="Pname"></div>
+                  <div class="col-md-10">價格：<input type="text" name="price"></div>
                   <div class="col-md-10" style="margin-bottom: 25px;">分類：<br>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                      <input class="form-check-input" type="checkbox" name="day[]" id="inlineCheckbox1" value="星期一">
                       <label class="form-check-label" for="inlineCheckbox1">星期一</label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                      <input class="form-check-input" type="checkbox" name="day[]" id="inlineCheckbox2" value="星期二">
                       <label class="form-check-label" for="inlineCheckbox2">星期二</label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option1">
-                      <label class="form-check-label" for="inlineCheckbox1">星期三</label>
+                      <input class="form-check-input" type="checkbox" name="day[]" id="inlineCheckbox3" value="星期三">
+                      <label class="form-check-label" for="inlineCheckbox3">星期三</label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option2">
-                      <label class="form-check-label" for="inlineCheckbox2">星期四</label>
+                      <input class="form-check-input" type="checkbox" name="day[]" id="inlineCheckbox4" value="星期四">
+                      <label class="form-check-label" for="inlineCheckbox4">星期四</label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option2">
-                      <label class="form-check-label" for="inlineCheckbox2">星期五</label>
+                      <input class="form-check-input" type="checkbox" name="day[]" id="inlineCheckbox5" value="星期五">
+                      <label class="form-check-label" for="inlineCheckbox5">星期五</label>
                     </div>
                   </div>
-                  <div class="col-md-10" style="margin-bottom: 25px;">圖片：<input type="file" class="form-control" name="" /></div>
-                  <div class="col-md-10">介紹：<textarea name="" style="height: 100px"></textarea>
+                  <div class="col-md-10" style="margin-bottom: 25px;">圖片：<input type="file" class="form-control" name="pic" /></div>
+                  <div class="col-md-10">介紹：<textarea name="introduction" style="height: 100px"></textarea>
                   </div>
                 </div>
               </div>
@@ -367,7 +286,7 @@
                       <label class="form-check-label" for="inlineCheckbox2">星期五</label>
                     </div>
                   </div>
-                  <div class="col-md-10" style="margin-bottom: 25px;">圖片：<input type="file" class="form-control" name="" /></div>
+                  <div class="col-md-10" style="margin-bottom: 25px;">圖片：<input type="file" class="form-control" name="pic" /></div>
                   <div class="col-md-10">介紹：<textarea name="" style="height: 100px"></textarea>
                   </div>
                 </div>
