@@ -51,7 +51,7 @@
     @endforeach
 
     <div class="row text-end" >
-      <div class="col-md-10 align-self-center">總金額：元</div>
+      <div class="col-md-10 align-self-center">總金額：<input class="tot"/>元</div>
       <div class="col-md-2" id="msform" style="margin: 0px"><button type="submit" class="next action-button" style="outline: none;">下一步</button></div>
     </div>
 
@@ -96,6 +96,12 @@
           $('input[id=' + fieldName + ']').val(0);
         }
       });
+
+      $(".tot"){
+        fieldName = $(this).attr('field');
+        // Get its current value
+        var currentVal = parseInt($('input[id=' + fieldName + ']').val());
+      }
     });
   </script>
 
