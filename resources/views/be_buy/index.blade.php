@@ -18,8 +18,15 @@
   <form action="{{ route('be_buy.index2')}}" method="GET">
     @csrf
     <h4 class="text-start">本次訂購星期：{{ $week  }}</h4>
+    @php
+      $cnt = 0;
+    @endphp
 
     @foreach($Ptype as $product)
+    @php
+      $cnt += 1;
+      $cntt=strval($cnt);
+    @endphp
     <div class="card mb-3" style="max-width: 1000px;">
       <div class="row g-0">
         <div class="col-md-3">
@@ -32,11 +39,11 @@
           <div class="card-body row col-md-9" id="mat" >
             <h5 class="card-title col-md-4">{{ $product->PName }}</h5>
             <div class="card-text col-md-4">
-              <input style="width:30px;" type='button' value='-' class='qtyminus' field='ticket' />
-              <input type='text' readonly="readonly" name='ticket' value="0" class='qty' id='ticket' style="width: 50px;"/>
-              <input style="width:30px;" type='button' value='+' class='qtyplus' field='ticket' />
+              <input style="width:30px;" type='button' value='-' class='qtyminus' field='ticket{{$cntt}}' />
+              <input type='text' readonly="readonly" name='ticket' value="0" class='qty' id='ticket{{$cntt}}' style="width: 50px;"/>
+              <input style="width:30px;" type='button' value='+' class='qtyplus' field='ticket{{$cntt}}' />
             </div>
-            <div class="card-text col-md-2"><strong>{{ $product->price }}</strong></div>
+            <div class="card-text col-md-2"><strong>{{ $product->price }}</strong>元</div>
             <div class="card-text col-md-2"><input type="checkbox"  id="checkboxNoLabel" style="height: 15px;width:15px">切</div>
           </div>
       </div>

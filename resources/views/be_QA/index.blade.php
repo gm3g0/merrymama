@@ -12,7 +12,7 @@
 <div class="col-12 col-sm-10 col-md-10 col-lg-8  text-center p-0 mt-5 mb-3">
   <h2>常見 Q & A </h2><hr><br>
   @php
-  $cnt = 0;
+    $cnt = 0;
   @endphp
   @foreach($QAs as $QA)
   @php
