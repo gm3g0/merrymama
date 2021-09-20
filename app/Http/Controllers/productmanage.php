@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\products;
+use App\Models\news;
 
 class productmanage extends Controller
 {
@@ -30,28 +31,51 @@ class productmanage extends Controller
         ini_set("display_errors", "On");
 
         $Pname = $_POST['Pname'];
-        echo $Pname;
+
         $price = $_POST['price'];
-        echo $price;
+
         $savetype = $_POST['day'];
         $savetype = implode('、', $savetype);
-        echo $savetype;
-        $introduction = $_POST['introduction'];
-        $pic = $_POST['pic'];
-        echo $pic;
-        require_once "../method/connect.php";
-        $search = products::where('Pname', '=', $Pname)->pluck('Pname');
 
-        if ($Pname == '' || $price == '' || $savetype == '' || $introduction == '' || $pic == '') {
+        $introduction = $_POST['introduction'];
+        $files = $_POST['pic'];
+
+        require_once "../method/connect.php";
+        
+        if ($Pname == '' || $price == '' || $savetype == '' || $introduction == '' || $files == '') {
             return back()->with('notice', '輸入資料不完全！');
         } else {
             if ($search == '["' . $Pname . '"]') {
                 return back()->with('notice', '已有相同品項！');
             } else {
                 require_once "../method/connect.php";
-                $insert = $connect->prepare("INSERT INTO product(Pname,price,day,introduction,pic)
-                VALUES(?,?,?,?,?)");
-                $insert->execute(array($Pname, $price, $savetype, $introduction, $pic));
+                $cnt = 0;
+                for ($i = 0; $i < 1; $i++) {
+                    if (!empty($_FILES['files']['name'][$i])) {
+                        $cnt = $cnt + 1;
+                    }
+                }
+                if ($cnt != 0) {
+                    $files = $request->file('files');
+                    if ($request->hasFile('files')) {
+                        foreach ($files as $file) {
+                            $path = $file->store('public/news_images');
+                            $file = [
+                                'news_pic'    => $path,
+                                'news_time' => $now
+                            ];
+                            $file = news::create($file);
+                        }
+                    }
+                    $insert = $connect->prepare("INSERT INTO product(Pname,price,day,introduction)
+                    VALUES(?,?,?,?)");
+                    $insert->execute(array($Pname, $price, $savetype, $introduction));
+                    echo '新增成功！';
+                    return back()->with('notice', '修改成功!');
+                } else {
+                    return back()->with('notice', '未選擇檔案！');
+                }
+               
                 return back()->with('notice', '新增成功！');
             }
         }

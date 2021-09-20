@@ -38,6 +38,7 @@ class membermanage extends Controller
     public function create()
     {
         //
+        
         return view('membermanage.order');
     }
 

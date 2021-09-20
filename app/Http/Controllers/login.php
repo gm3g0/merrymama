@@ -55,7 +55,7 @@ class login extends Controller
             
         }elseif( ('["' . $account . '"]' == $checkaccount ) && ('["' . $password . '"]' == $checkpassword)) {
             return redirect('/')->with('notice', '登入成功！');
-           
+                      
         } else {
             return back()->with('notice', '帳號或密碼輸入錯誤！' );
         }
