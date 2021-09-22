@@ -35,9 +35,11 @@ class edit_QA extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function new_QA(Request $request)
     {
         //
+        return redirect(route('edit_QA.index'));
+        //return back();
     }
 
     /**
