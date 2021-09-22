@@ -43,7 +43,7 @@
               <input type='text' readonly="readonly" name='ticket' value="0" class='qty' id='ticket{{$cntt}}' style="width: 50px;"/>
               <input style="width:30px;" type='button' value='+' class='qtyplus' field='ticket{{$cntt}}' />
             </div>
-            <div class="card-text col-md-2"><strong>{{ $product->price }}</strong>元</div>
+            <div class="card-text col-md-2"><span class="price"><strong>{{ $product->price }}</strong></span>元</div>
             <div class="card-text col-md-2"><input type="checkbox"  id="checkboxNoLabel" style="height: 15px;width:15px">切</div>
           </div>
       </div>
@@ -51,7 +51,7 @@
     @endforeach
 
     <div class="row text-end" >
-      <div class="col-md-10 align-self-center">總金額：<input class="tot"/>元</div>
+      <div class="col-md-10 align-self-center">總金額：<label id="total"></label>元</div>
       <div class="col-md-2" id="msform" style="margin: 0px"><button type="submit" class="next action-button" style="outline: none;">下一步</button></div>
     </div>
 
@@ -61,48 +61,66 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script>      
-      $(function() {
-      // This button will increment the value.
-      $('.qtyplus').click(function(e) {
-        // Stop acting like a button
-        e.preventDefault();
-        // Get the field name
-        fieldName = $(this).attr('field');
-        // Get its current value
-        var currentVal = parseInt($('input[id=' + fieldName + ']').val());
-        // If is not undefined
-        if (!isNaN(currentVal)) {
-          // Increment
-          $('input[id=' + fieldName + ']').val(currentVal + 1);
-        } else {
-          // Otherwise put a 0 there
-          $('input[id=' + fieldName + ']').val(0);
-        }
-      });
-      // This button will decrement the value till 0
-      $(".qtyminus").click(function(e) {
-        // Stop acting like a button
-        e.preventDefault();
-        // Get the field name
-        fieldName = $(this).attr('field');
-        // Get its current value
-        var currentVal = parseInt($('input[id=' + fieldName + ']').val());
-        // If it isn't undefined or its greater than 0
-        if (!isNaN(currentVal) && currentVal > 0) {
-          // Decrement one
-          $('input[id=' + fieldName + ']').val(currentVal - 1);
-        } else {
-          // Otherwise put a 0 there
-          $('input[id=' + fieldName + ']').val(0);
-        }
-      });
-
-      $(".tot"){
-        fieldName = $(this).attr('field');
-        // Get its current value
-        var currentVal = parseInt($('input[id=' + fieldName + ']').val());
-      }
-    });
+    //   $(function() {
+    //   // This button will increment the value.
+    //   $('.qtyplus').click(function(e) {
+    //     // Stop acting like a button
+    //     e.preventDefault();
+    //     // Get the field name
+    //     fieldName = $(this).attr('field');
+    //     // Get its current value
+    //     var currentVal = parseInt($('input[id=' + fieldName + ']').val());
+    //     // If is not undefined
+    //     if (!isNaN(currentVal)) {
+    //       // Increment
+    //       $('input[id=' + fieldName + ']').val(currentVal + 1);
+    //     } else {
+    //       // Otherwise put a 0 there
+    //       $('input[id=' + fieldName + ']').val(0);
+    //     }
+    //   });
+    //   // This button will decrement the value till 0
+    //   $(".qtyminus").click(function(e) {
+    //     // Stop acting like a button
+    //     e.preventDefault();
+    //     // Get the field name
+    //     fieldName = $(this).attr('field');
+    //     // Get its current value
+    //     var currentVal = parseInt($('input[id=' + fieldName + ']').val());
+    //     // If it isn't undefined or its greater than 0
+    //     if (!isNaN(currentVal) && currentVal > 0) {
+    //       // Decrement one
+    //       $('input[id=' + fieldName + ']').val(currentVal - 1);
+    //     } else {
+    //       // Otherwise put a 0 there
+    //       $('input[id=' + fieldName + ']').val(0);
+    //     }
+    //   });
+    // });
+    $(function(){ 
+          $(".qtyplus").click(function(){ 
+            var t=$(this).parent().find('input[name*=ticket]'); 
+            t.val(parseInt(t.val())+1) 
+            setTotal(); 
+          }) 
+          $(".qtyminus").click(function(){ 
+            var t=$(this).parent().find('input[name*=ticket]'); 
+            t.val(parseInt(t.val())-1) 
+            if(parseInt(t.val())<0){ 
+              t.val(0); 
+            } 
+            setTotal(); 
+          }) 
+          function setTotal(){ 
+            var s=0; 
+            $(".card ").each(function(){ 
+              s+=parseInt($(this).find('input[name*=ticket]').val())
+           *parseFloat($(this).find('span[class*=price]').text()); 
+            }); 
+            $("#total").html(s.toFixed()); 
+          } 
+          setTotal();
+        }) 
   </script>
 
 @endsection
