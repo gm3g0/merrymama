@@ -42,7 +42,9 @@
     </div><br>
     @endforeach
     <button class="next action-buttonb" type="submit">修改</button>
-
+  </form>
+  <form id="msform" action="{{ route('new_QA.new_QA' )}}" method="POST">
+    @csrf
     <div class="modal fade" id="new" data-bs-backdrop="static"  aria-labelledby="new" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
           <div class="modal-content">
