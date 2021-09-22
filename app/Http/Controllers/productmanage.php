@@ -31,17 +31,18 @@ class productmanage extends Controller
         ini_set("display_errors", "On");
 
         $Pname = $_POST['Pname'];
-
+        echo $Pname;
         $price = $_POST['price'];
-
+        echo $price;
         $savetype = $_POST['day'];
         $savetype = implode('、', $savetype);
-
+        echo $savetype;
         $introduction = $_POST['introduction'];
-        $files = $_POST['pic'];
-
+        echo $introduction;
+        $pic = $_POST['pic'];
+        echo $_FILES[$pic]["name"];
         require_once "../method/connect.php";
-        
+        /*
         if ($Pname == '' || $price == '' || $savetype == '' || $introduction == '' || $files == '') {
             return back()->with('notice', '輸入資料不完全！');
         } else {
@@ -79,7 +80,7 @@ class productmanage extends Controller
                 return back()->with('notice', '新增成功！');
             }
         }
-        return back()->with('notice', '修改成功!');
+        return back()->with('notice', '修改成功!');*/
     }
 
     /**

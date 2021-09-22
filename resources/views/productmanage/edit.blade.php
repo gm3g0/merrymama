@@ -114,6 +114,11 @@
 <h2>商品管理-商品編輯</h2>
 <form action="" method="POST" id="msform">
   @csrf
+  @if(session()->has('notice'))
+        <div class="alert alert-warning">
+            {{ session()->get('notice') }}
+        </div>
+  @endif
   <div class="row col-md-2 align-self-start" style="padding-left: 22px;"><button type="button" class="next action-buttonb" data-bs-toggle="modal" data-bs-target="#new">新增</button></div>
 
   <section class="table table-hover">
@@ -232,7 +237,7 @@
                       <label class="form-check-label" for="inlineCheckbox5">星期五</label>
                     </div>
                   </div>
-                  <div class="col-md-10" style="margin-bottom: 25px;">圖片：<input type="file" class="form-control" name="pic" /></div>
+                  <div class="col-md-10" style="margin-bottom: 25px;">圖片：<input type="file" class="form-control" name="pic[]" /></div>
                   <div class="col-md-10">介紹：<textarea name="introduction" style="height: 100px"></textarea>
                   </div>
                 </div>
