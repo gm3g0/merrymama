@@ -25,7 +25,7 @@ class productmanage extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function productmanage()
+    public function productmanage(Request $request)
     {
         //
         ini_set("display_errors", "On");
@@ -39,8 +39,19 @@ class productmanage extends Controller
         echo $savetype;
         $introduction = $_POST['introduction'];
         echo $introduction;
-        $pic = $_POST['pic'];
-        echo $_FILES[$pic]["name"];
+        //$pic = $_POST['pic'];
+    
+        //if (isset($_FILES["file"])){
+            //echo $_FILES["file"]["name"];
+        //}else {
+            //echo "失敗";
+        //}
+        //if($request->hasFile('file')){
+            //echo '有東西';
+        //}else {
+            //echo "沒東西";
+        //}
+        //echo $_FILES[$pic]["name"];
         require_once "../method/connect.php";
         /*
         if ($Pname == '' || $price == '' || $savetype == '' || $introduction == '' || $files == '') {

@@ -24,12 +24,17 @@
 <form action="" method="POST" id="msform">
     {{-- @method('GET') --}}
     @csrf
+  @if(session()->has('notice'))
+    <div class="alert alert-warning">
+      {{ session()->get('notice') }}
+    </div>
+  @endif
   <div class="row g-3 align-items-center float-right" style="padding: 0px;">
     <div class="col-auto">
         <label for="inputPassword6" class="col-form-label">名稱：</label>
     </div>
     <div class="col-auto">
-        <input type="text" value="" name="" class="form-control"id="" >
+        <input type="text" value="" name="search" class="form-control"id="" >
     </div>
     <div class="col-auto">
         <button type="submit" class="next action-buttonb" style="outline: none;">搜尋</button>
@@ -50,13 +55,16 @@
     </div>
     <div class="tbl-content">
         <tbody >
-          
-        @foreach($members as $member)
+        @foreach($showdata as $show)
           <tr>      
-              <td><a style="cursor: pointer; text-decoration:underline;color:#FEC601;font-size:16px"onclick="location.href='{{route('memberrmanage.order')}}'">{{ $member->name }}</a></td>
-              <td>{{ $member->email }}</td>  
-              <td>{{ $member->tel }}</td>
-              <td>0</td>
+              <td><a style="cursor: pointer; text-decoration:underline;color:#FEC601;font-size:16px"onclick="location.href='{{ route('memberrmanage.order' ,  $show->name )}}'">{{ $show->name }}</a></td>
+              <td>{{ $show->email }}</td>  
+              <td>{{ $show->tel }}</td>
+              @if($show->count == NULL)
+                <td>0</td>
+              @else
+                <td>{{ $show->count }}</td>
+              @endif
           </tr>      
         @endforeach
         </tbody>

@@ -69,7 +69,7 @@ Route::resource('ordermanage', ordermanage::class)->only('index','create');
 Route::get('/or_history',[ordermanage::class,'create'])->name('ordermanage.history');
 
 Route::resource('membermanage', membermanage::class)->only('index','create','membermanage');
-Route::get('/me_order',[membermanage::class,'create'])->name('memberrmanage.order');
+Route::get('/me_order/{member_name}',[membermanage::class,'create'])->name('memberrmanage.order');
 Route::post('/membermanage', [membermanage::class,'membermanage'])->name('membermanage');
 
 Route::resource('productmanage', productmanage::class)->only('index','productmanage');

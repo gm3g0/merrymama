@@ -237,7 +237,7 @@
                       <label class="form-check-label" for="inlineCheckbox5">星期五</label>
                     </div>
                   </div>
-                  <div class="col-md-10" style="margin-bottom: 25px;">圖片：<input type="file" class="form-control" name="pic[]" /></div>
+                  <div class="col-md-10" style="margin-bottom: 25px;">圖片：<input type="file" class="form-control" name="file" /></div>
                   <div class="col-md-10">介紹：<textarea name="introduction" style="height: 100px"></textarea>
                   </div>
                 </div>
