@@ -6,18 +6,14 @@ use Illuminate\Http\Request;
 use App\Models\members;
 use App\Models\order;
 use App\Models\member_order;
+use App\Models\detail_order;
 
 class membermanage extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function index()  //會員管理首頁
     {
         $orders = order::all();
-        foreach($orders as $order){
+        foreach($orders as $order){ 
             $checkemail = member_order::where('email', $order->email)->first(); //跟order資料表做對比，找到email
             $countorder = order::where('email', $order->email)->count(); //計算有幾筆
             $counttotal = order::where('email', $order->email)->sum('total'); //計算總金額
@@ -27,32 +23,21 @@ class membermanage extends Controller
                 $flight->count = $countorder;
                 $flight->totle = $counttotal;
                 $flight->save();
-                
-                //echo "新增資料";
-                //echo $countorder;
-                //echo $counttotal;
             }else{    //如果member_order已有此email資料，則抓那筆資料更新
                 $flight = member_order::where('email', $order->email)->first(); 
                 $flight->count = $countorder;
                 $flight->totle = $counttotal;
                 $flight->save();
-                //echo $checkemail;
-                //echo $countorder;
-                //echo $counttotal;
-                //echo "更新資料";
             }
-
-            $showdata = members::leftjoin('member_orders', 'members.email' , '=' , 'member_orders.email')
+        }
+        
+        $showdata = members::leftjoin('member_orders', 'members.email' , '=' , 'member_orders.email')
                             ->select('members.email','members.name','members.tel','member_orders.count')
                             ->get();
-            return view('membermanage.list' , ['showdata' => $showdata ]);
-            //$count = order::where('email' , $member->email)->count();
-            //$savecnt[] = $count;
-            //echo $checkemail;
-        }
+        return view('membermanage.list' , ['showdata' => $showdata ]);
     }
 
-    public function membermanage(Request $request)
+    public function membermanage(Request $request) //會員管理搜尋
     {
         $search = $_POST['search'];
         $showdata = members::leftjoin('member_orders', 'members.email' , '=' , 'member_orders.email')
@@ -66,7 +51,7 @@ class membermanage extends Controller
         }
     }
 
-    public function create($name)
+    public function create($name) //查看某會員資料
     {
         $member = members::where('name', $name)->first();
         $countorder = order::where('email', $member->email)->count(); //計算有幾筆
@@ -75,56 +60,15 @@ class membermanage extends Controller
                             ->select('detail_orders.PName','detail_orders.num')
                             ->where('orders.email', $member->email )
                             ->get();
-        foreach($orders as $order){
-            $print[] = json_decode($order);
-        }
-        /*foreach($print as $test){
-            print_r($test);
-        }*/
+
+        $test = detail_order::all();
+
         $orders = order::where('email', $member->email)->get();
         return view('membermanage.order' , ['member' => $member ,
                                             'countorder' => $countorder , 
                                             'counttotal' => $counttotal , 
                                             'orders' => $orders ,
-                                            'print' => $print ]);
+                                            'test' => $test ]);
     }
 
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

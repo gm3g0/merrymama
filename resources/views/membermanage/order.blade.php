@@ -67,17 +67,20 @@
                             <div class="accordion-body">
 
                                 <div class="row col-md-12 text-start align-self-center" style="margin: 0px;padding:0px">
-                                @foreach($print as $test)
-                                  <div class="col-md-8">
-                                      {{ $test->PName }}
-                                  </div>
-                                  <div class="col-md-4">
-                                      x {{ $test->num }}
-                                  </div>
-                                  <hr style="margin: 10px;width: 180px">
-                                  @endforeach
+                                @foreach($test as $te)
+                                  @if( $te->order_id == $order->order_id )
+                                  
+                                    <div class="col-md-8">
+                                        {{ $te->PName }}
+                                    </div>
+                                    <div class="col-md-4">
+                                        x {{ $te->num }}
+                                    </div>
+                                    
+                                    <hr style="margin: 10px;width: 180px">
+                                  @endif
+                                @endforeach
                                 </div><br>
-                                
                             </div>
                           </div>
                       </div>
