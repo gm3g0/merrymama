@@ -40,7 +40,7 @@ class ordermanage extends Controller
         $takedates = takedate::all();  //取得取貨日期
         foreach( $takedates as $takedate ){
             $checkdate = takedate_order::where('tekedate_time', $takedate->tekedate_time)->first(); //跟takedate做對比，找到日期
-            echo $takedate->tekedate_time . " ";
+            //echo $takedate->tekedate_time . " ";
             $checktotal = order::where('tekedate_time', $takedate->tekedate_time)->sum('total');
             $countorder = order::where('tekedate_time', $takedate->tekedate_time)->count();
             if ($checkdate == ''){ //如果此日期不在takedate_order資料表裡面，則加入此資料

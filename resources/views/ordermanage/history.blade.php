@@ -28,9 +28,7 @@
 @foreach($takedates as $takedate)
   @php
     $cnt += 1;
-    $nn+=1;
     $cntt=strval($cnt);
-    $cnn=strval($nn);
   @endphp
 
   <div class="accordion-item">
@@ -38,22 +36,27 @@
       <button class="accordion-button  collapsed" type="button" data-toggle="collapse".$cntt data-target="#collapseOnee{{$cntt}}" aria-expanded="false" aria-controls="collapseOnee" >
         <div class="row">
           <div class="fs" style="font-size: 16px">取貨日期：{{ $takedate->tekedate_time }}&nbsp;&nbsp;
-          @foreach( $takedate_orders as $takedate_order )
-            @if( $takedate->tekedate_time == $takedate_order->tekedate_time )
-            總金額：{{ $takedate_order->totle }}
-            @endif
-          @endforeach</div>
+            @foreach( $takedate_orders as $takedate_order )
+              @if( $takedate->tekedate_time == $takedate_order->tekedate_time )
+                總金額：{{ $takedate_order->totle }}
+              @endif
+            @endforeach
+          </div>
         </div>
       </button>
     </h2>
       <div id="collapseOnee{{$cntt}}".$cntt class="accordion-collapse collapse" aria-labelledby="headingOnee" data-bs-parent="#accordionExample">
         <div class="accordion-body">
         @foreach( $orders as $order )
+        @php
+          $nn+=1;
+          $cnn=strval($nn);
+        @endphp
           @if( $takedate->tekedate_time == $order->tekedate_time )
           <div class="accordion" id="accordionExample"><!--手風琴-->
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button  collapsed" type="button" data-toggle="collapse".$cntt.cnn data-target="#collapseOne{{$cntt}}{{$cnn}}" aria-expanded="false" aria-controls="collapseOne" >
+                <button class="accordion-button  collapsed" type="button" data-toggle="collapse".$cntt.$cnn data-target="#collapseOne{{$cntt}}{{$cnn}}" aria-expanded="false" aria-controls="collapseOne" >
                   <div class="row">
                     <div class="fs" style="font-size: 16px">訂單編號：{{ $order->order_id }}&nbsp;&nbsp;金額：{{ $order->total }}&nbsp;&nbsp;會員：{{ $order->email }}</div>
                   </div>
