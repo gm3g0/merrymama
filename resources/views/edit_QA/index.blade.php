@@ -33,16 +33,17 @@
     <div class="container text-start justify-content-center">
       <div class="card">
         <div class="card-header">
-          <textarea name="question" >{{ $allqa->question }}</textarea>
+          <textarea name="questions[]" >{{ $allqa->question }}</textarea>
         </div>
         <div class="card-body">
-          <textarea name="answer" style="height: 100px">{{ $allqa->answer }}</textarea>
+          <textarea name="answers[]" style="height: 100px">{{ $allqa->answer }}</textarea>
         </div>
       </div>
     </div><br>
     @endforeach
     <button class="next action-buttonb" type="submit">修改</button>
   </form>
+
   <form id="msform" action="{{ route('new_QA.new_QA' )}}" method="POST">
     @csrf
     <div class="modal fade" id="new" data-bs-backdrop="static"  aria-labelledby="new" aria-hidden="true">
@@ -58,8 +59,8 @@
                 <div class="container">
                   <div class="row justify-content-center">
                     <div class="row col-md-12 text-start justify-content-center">
-                      <div class="col-md-10">Q：<textarea name="" style="height: 100px"></textarea></div>
-                      <div class="col-md-10">A：<textarea name="" style="height: 100px"></textarea></div>
+                      <div class="col-md-10">Q：<textarea name="question" style="height: 100px"></textarea></div>
+                      <div class="col-md-10">A：<textarea name="answer" style="height: 100px"></textarea></div>
                   </div>
                 </div>
               </div>

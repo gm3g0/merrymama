@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class comments extends Model
 {
     use HasFactory;
+    public $timestamps = false;
+    protected $fillable = [
+        'PName',
+        'email',
+        'context',
+        'com_time'
+    ];
 }

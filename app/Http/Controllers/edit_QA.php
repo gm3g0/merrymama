@@ -7,83 +7,59 @@ use App\Models\QuestionAnswer;
 
 class edit_QA extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function index()
     {
         $allqas = QuestionAnswer::all();
         return view('edit_QA.index' , [ 'allqas' => $allqas]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function edit_QA(Request $request)
     {
-        
-        return back()->with('notice', '修改不了拉幹');
+        $questions = $_POST['questions'];
+        $answers = $_POST['answers'];
+        $checkqa = QuestionAnswer::all();
+        $cnt = 0 ;  //用於計算有無被更動過
+        for($i = 0 ; $i < count($checkqa) ; $i++){
+            if($checkqa[$i]->question == $questions[$i]){
+                //沒被修改不做任何事
+            }else { 
+                $cnt += 1; //被修改 > 計數器+1
+                $saveqa = QuestionAnswer::where('question',$checkqa[$i]->question)->first();
+                $saveqa->question = $questions[$i] ;
+                $saveqa->save();
+            }
+            
+            if($checkqa[$i]->answer == $answers[$i]){
+                //沒被修改不做任何事
+            }else { 
+                $cnt += 1;  //被修改 > 計數器+1
+                $saveqa = QuestionAnswer::where('answer',$checkqa[$i]->answer)->first();
+                $saveqa->answer = $answers[$i];
+                $saveqa->save();
+            }
+        }
+        if($cnt == 0){  //計數器 = 0 表示沒被改過 ; 計數器 > 0 表示有被改過
+            return back()->with('notice', '未修改任何欄位！');
+        }else {
+            return back()->with('notice', '修改成功！');
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function new_QA(Request $request)
     {
-        //
-        return redirect(route('edit_QA.index'));
-        //return back();
+
+        $question = $_POST['question'];
+        $answer = $_POST['answer'];
+        if($question == '' || $answer == ''){
+            return back()->with('notice',"問題或回答欄位不可空白！");
+        }else {
+            $saveqa = new QuestionAnswer;
+            $saveqa->question = "Q：" . $question;
+            $saveqa->answer = "A：" . $answer ;
+            $saveqa->save();
+            return back()->with('notice',"新增成功！");
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

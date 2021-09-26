@@ -35,13 +35,7 @@
     <h2 class="accordion-header" id="headingOnee">
       <button class="accordion-button  collapsed" type="button" data-toggle="collapse".$cntt data-target="#collapseOnee{{$cntt}}" aria-expanded="false" aria-controls="collapseOnee" >
         <div class="row">
-          <div class="fs" style="font-size: 16px">取貨日期：{{ $takedate->tekedate_time }}&nbsp;&nbsp;
-            @foreach( $takedate_orders as $takedate_order )
-              @if( $takedate->tekedate_time == $takedate_order->tekedate_time )
-                總金額：{{ $takedate_order->totle }}
-              @endif
-            @endforeach
-          </div>
+          <div class="fs" style="font-size: 16px">取貨日期：{{ $takedate->tekedate_time }}&nbsp;&nbsp;</div>
         </div>
       </button>
     </h2>

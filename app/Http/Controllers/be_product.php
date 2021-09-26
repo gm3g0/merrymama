@@ -4,15 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\products;
+use App\Models\comments;
 
 class be_product extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+    public function index()  //商品介紹首頁
     {
         $Mon = products::where('type','like','%星期一%')->get();
         $Tue = products::where('type','like','%星期二%')->get();
@@ -29,39 +26,21 @@ class be_product extends Controller
         
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-        return view('be_product.index2');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function product(Request $request)
     {
         //
         return back();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($PName)
+    public function show($PName)  //詳細介紹頁面
     {
         $product1 = products::where('PName', $PName )->first();
-        return view('be_product.index2' , ['product1' => $product1]);
+        $comments = comments::where('PName', $PName )
+                            ->join('members','comments.email','=','members.email')
+                            ->select('comments.context','comments.com_time','members.name')
+                            ->get();
+
+        return view('be_product.index2' , ['product1' => $product1 , 'comments' => $comments]);
     }
 
     /**

@@ -21,6 +21,7 @@
       售價：{{ $product1->price }} 元 <br>
     </div>
   </div><br>
+
   <form id="msform" method="POST" action="{{ route('product')}}">
     @csrf
   <div class="row col-md-6 justify-content-center text-start" id="pl">
@@ -34,19 +35,27 @@
     <div class="col-md-12 text-start">
       <h4>留言板</h4>
       <div class="card">
+      @if($comments == '[]')
         <div class="card-header">
-          使用者名字
+          尚未有人留言！
+        </div>
+      @endif
+      @foreach($comments as $comment)
+        <div class="card-header">
+          {{ $comment->name }}
         </div>
         <div class="card-body">
           <blockquote class="blockquote mb-0">
-            <p>內容A well-known quote, contained in a blockquote element.</p>
-            <footer class="blockquote-footer text-end">時間標記 </footer>
+            <p>{{ $comment->context }}</p>
+            <footer class="blockquote-footer text-end">{{ $comment->com_time }}</footer>
           </blockquote>
         </div>
+      @endforeach
       </div>
     </div>
   </div>
   </form>
+
 </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
