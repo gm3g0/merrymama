@@ -93,7 +93,16 @@ class productmanage extends Controller
         }
         return back()->with('notice', '修改成功!');*/
     }
-
+    public function new_product()
+    {
+        //
+        return redirect(route('productmanage.index'));
+    }
+    public function edit_product()
+    {
+        //
+        return redirect(route('productmanage.index'));
+    }
     /**
      * Store a newly created resource in storage.
      *

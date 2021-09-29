@@ -72,8 +72,10 @@ Route::resource('membermanage', membermanage::class)->only('index','create','mem
 Route::get('/me_order/{member_name}',[membermanage::class,'create'])->name('memberrmanage.order');
 Route::post('/membermanage', [membermanage::class,'membermanage'])->name('membermanage');
 
-Route::resource('productmanage', productmanage::class)->only('index','productmanage');
+Route::resource('productmanage', productmanage::class)->only('index','productmanage','new_product','edit_product');
 Route::post('/productmanage', [productmanage::class,'productmanage'])->name('productmanage');
+Route::post('/new_product', [productmanage::class,'new_product'])->name('new_product');
+Route::post('/edit_product', [productmanage::class,'edit_product'])->name('edit_product');
 
 Route::resource('backbuy',backbuy::class)->only('index','backbuy');
 Route::post('/backbuy', [backbuy::class,'backbuy'])->name('backbuy.backbuy');

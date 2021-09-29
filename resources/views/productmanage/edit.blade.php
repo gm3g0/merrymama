@@ -26,90 +26,7 @@
   }
 </style>
 @endsection
-<style>
-  /* Responsive */
 
-  @media (max-width: 767px) {
-    .fl-table {
-      display: block;
-      width: 100%;
-    }
-
-    .table-wrapper:before {
-      content: "Scroll horizontally >";
-      display: block;
-      text-align: right;
-      font-size: 11px;
-      color: white;
-      padding: 0 0 10px;
-    }
-
-    .fl-table thead,
-    .fl-table tbody,
-    .fl-table thead th {
-      display: block;
-    }
-
-    .fl-table thead th:last-child {
-      border-bottom: none;
-    }
-
-    .fl-table thead {
-      float: left;
-      text-align: center
-    }
-
-    .fl-table tbody {
-      width: auto;
-      position: relative;
-      overflow-x: auto;
-    }
-
-    .fl-table td,
-    .fl-table th {
-      padding: 20px .625em .625em .625em;
-      height: 60px;
-      vertical-align: middle;
-      box-sizing: border-box;
-      overflow-x: hidden;
-      overflow-y: auto;
-      width: 120px;
-      font-size: 13px;
-      text-overflow: ellipsis;
-    }
-
-    .fl-table thead th {
-      text-align: left;
-      border-bottom: 1px solid #f7f7f9;
-    }
-
-    .fl-table tbody tr {
-      display: table-cell;
-    }
-
-    .fl-table tbody tr:nth-child(odd) {
-      background: none;
-    }
-
-    .fl-table tr:nth-child(even) {
-      background: transparent;
-    }
-
-    .fl-table tr td:nth-child(odd) {
-      background: #F8F8F8;
-      border-right: 1px solid #E6E4E4;
-    }
-
-    .fl-table tr td:nth-child(even) {
-      border-right: 1px solid #E6E4E4;
-    }
-
-    .fl-table tbody td {
-      display: block;
-      text-align: center;
-    }
-  }
-</style>
 @section('main')
 <h2>商品管理-商品編輯</h2>
 <form action="" method="POST" id="msform">
@@ -198,8 +115,11 @@
       </div>
     </div>
   </div>
+</form>
 
   {{-- 新增 --}}
+<form action="{{ route('new_product' )}}" method="POST" id="msform">
+  @csrf
   <div class="modal fade" id="new" data-bs-backdrop="static" aria-labelledby="new" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
@@ -253,8 +173,11 @@
       </div>
     </div>
   </div>
+</form>
 
   {{-- 修改 --}}
+<form action="{{ route('edit_product')}}" method="POST" id="msform">
+  @csrf
   <div class="modal fade" id="edit" data-bs-backdrop="static" aria-labelledby="edit" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
