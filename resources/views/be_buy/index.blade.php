@@ -40,11 +40,11 @@
             <h5 class="card-title col-md-4">{{ $product->PName }}</h5>
             <div class="card-text col-md-4">
               <input style="width:30px;" type='button' value='-' class='qtyminus' field='ticket{{$cntt}}' />
-              <input type='text' readonly="readonly" name='ticket' value="0" class='qty' id='ticket{{$cntt}}' style="width: 50px;"/>
+              <input type='text' readonly="readonly" name='ticket[]' value="0" class='qty' id='ticket{{$cntt}}' style="width: 50px;"/>
               <input style="width:30px;" type='button' value='+' class='qtyplus' field='ticket{{$cntt}}' />
             </div>
             <div class="card-text col-md-2"><span class="price"><strong>{{ $product->price }}</strong></span>元</div>
-            <div class="card-text col-md-2"><input type="checkbox"  id="checkboxNoLabel" style="height: 15px;width:15px">切</div>
+            <div class="card-text col-md-2"><input type="checkbox" name="cut[]" value="切" id="checkboxNoLabel" style="height: 15px;width:15px">切</div>
           </div>
       </div>
     </div>

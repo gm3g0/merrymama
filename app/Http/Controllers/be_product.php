@@ -28,7 +28,8 @@ class be_product extends Controller
 
     public function product(Request $request)
     {
-        //
+        $content = $_POST['content'];
+        
         return back();
     }
 

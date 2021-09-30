@@ -16,14 +16,19 @@
   </style>
 @section('main')
     <h2>修改資料</h2><hr>
+    @if(session()->has('notice'))
+        <div class="alert alert-warning">
+            {{ session()->get('notice') }}
+        </div>
+    @endif
     <form id="msform" method="POST" action="{{ route('member')}}">
       @csrf
           <div class="container">
             <div class="row justify-content-center">
               <div class="col-md-4 text-start ">
-                密碼：<input type="password" name="npw" value=""><br>
-                名稱：<input type="text" name="nname" value=""><br>
-                電話：<input type="tel" name="nphone" value="">
+                密碼：<input type="password" name="pw" value="{{ $datamember->password }}"><br>
+                名稱：<input type="text" name="name" value="{{ $datamember->name }}"><br>
+                電話：<input type="tel" name="tel" value="{{ $datamember->tel }}">
               </div>
             </div>
             

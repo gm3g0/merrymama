@@ -3,86 +3,53 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\members;
+use App\Models\order;
+use App\Models\member_order;
+use App\Models\detail_order;
 
 class be_member extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    
+    public function index()  //會員專區的訂單查看頁面
     {
-        //
-        return view('be_member.check');
+        $test_member = "test01@yahoo.com.tw" ;  //測試用，等session、能抓到使用者後，再做更改
+        $dataorder = order::where('email' , $test_member)->get();
+        $datadetail_order = detail_order::all();
+        return view('be_member.check', [ 'dataorder' => $dataorder , 'datadetail_order' => $datadetail_order ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function create() //會員專區的修改資料頁面
     {
-        //
-        return view('be_member.edit');
+        $test_member = "test01@yahoo.com.tw" ;  //測試用，等session、能抓到使用者後，再做更改
+        $datamember = members::where('email' , $test_member)->first();
+        return view('be_member.edit' , ['datamember' => $datamember]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function member(Request $request)
+    public function member(Request $request) //會員專區的修改資料表單處理部分
     {
-        //
-        return back()->with('notice','修改成功!');
+        $test_member = "test01@yahoo.com.tw" ;  //測試用，等session、能抓到使用者後，再做更改
+        $mem = members::where('email' , $test_member)->first();
+        $memname = members::where('email' , $test_member)->pluck('name');
+        $memname = json_decode($memname)[0];
+        $memtel = members::where('email' , $test_member)->pluck('tel');
+        $mempw = members::where('email' , $test_member)->pluck('password');
+        $name = $_POST['name'];
+        $tel = $_POST['tel'];
+        $pw = $_POST['pw'];
+
+        if( ($pw == '') || ($tel == '') || ($name == '') ){
+            return back()->with('notice','請勿有空白欄位！');
+        }elseif( ($mempw != '["' . $pw . '"]') || ($memtel != '["' . $tel . '"]') || ( trim($memname) !=  $name ) ){
+            $mem->password = $pw;
+            $mem->tel = $tel;
+            $mem->name = $name;
+            $mem->save();
+            return back()->with('notice','修改成功！');
+        }else{
+            return back()->with('notice','請對資料做變動！');
+        }
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

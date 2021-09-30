@@ -19,17 +19,14 @@
       <button id="bu" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>&nbsp;
     </div>
     <div class="carousel-inner">
-    
       <div class="carousel-item active">
         <img src="色票2.png" class="d-block w-100" alt="...">
       </div>
+      @foreach($shownews as $shownew)
       <div class="carousel-item">
-        <img src="amystory.jpg" class="d-block w-100" alt="...">
+        <img src="{{ asset('storage/' . $shownew)}}" class="d-block w-100" alt="...">
       </div>
-      <div class="carousel-item">
-        <img src="色票2.png" class="d-block w-100" alt="...">
-      </div>
-   
+    @endforeach
     </div>
     <button id="myb" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>

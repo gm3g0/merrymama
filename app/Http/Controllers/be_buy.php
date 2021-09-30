@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\takedate;
 use App\Models\products;
-
+use App\Models\order;
+use App\Models\detail_order;
 
 class be_buy extends Controller
 {
@@ -47,9 +48,9 @@ class be_buy extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+       
         return view('be_buy.index2');
     }
 
@@ -61,7 +62,7 @@ class be_buy extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
         return view('be_buy.finish');
     }
 

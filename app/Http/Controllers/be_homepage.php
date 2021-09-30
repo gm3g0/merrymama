@@ -14,14 +14,10 @@ class be_homepage extends Controller
         $email = session('email');
         $news = news::orderBy('news_time','desc')->limit(3)->get();
         
-        /*foreach($news as $new){
-            //$news=str_replace('public/news_images/','',$new->news_pic);
-            $shownews[] = str_replace('public/news_images/','',$new->news_pic);
+        foreach($news as $new){
+            $shownews[] = str_replace('public/','',$new->news_pic);
         }
-        foreach($shownews as $shownew){
-            echo $shownew . "</br>";
-        }*/
-        return view('be_homepage.index', ['email' => $email]);
+        return view('be_homepage.index', ['email' => $email , 'shownews' => $shownews]);
     }
 
     public function store(Request $request)
