@@ -15,7 +15,7 @@
   <div class="row col-md-12 text-start">
     <p>&nbsp;&nbsp;本次取貨日期：{{ $takedate }}</p>
   </div>
-  <form action="{{ route('be_buy.index2')}}" method="GET">
+  <form action="{{ route('be_buy.index2')}}" method="POST">
     @csrf
     <h4 class="text-start">本次訂購星期：{{ $week  }}</h4>
     @php

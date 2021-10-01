@@ -50,8 +50,11 @@ class be_buy extends Controller
      */
     public function create(Request $request)
     {
-       
-        return view('be_buy.index2');
+        $savecut = $_POST['cut'];
+        foreach($savecut as $cut){
+            echo $cut . "</br>";
+        }
+        //return view('be_buy.index2');
     }
 
     /**

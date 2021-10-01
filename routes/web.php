@@ -45,7 +45,7 @@ Route::post('/singup', [singup::class,'singup'])->name('singup');
 Route::resource('QA', be_QA::class)->only('index');
 
 Route::resource('buy',be_buy::class)->only('index','create','store');
-Route::get('/buycheck',[be_buy::class,'create'])->name('be_buy.index2');
+Route::post('/buycheck',[be_buy::class,'create'])->name('be_buy.index2');
 Route::get('/finish',[be_buy::class,'store'])->name('be_buy.finish');
 
 
