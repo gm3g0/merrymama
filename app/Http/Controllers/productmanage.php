@@ -93,10 +93,42 @@ class productmanage extends Controller
         }
         return back()->with('notice', '修改成功!');*/
     }
-    public function new_product()
+    public function new_product(Request $request)
     {
-        //
-        return redirect(route('productmanage.index'));
+        $PName = $_POST['PName'];
+        $price = $_POST['price'];
+        $type = $_POST['day'];
+        $type = implode('、', $type);  //對checkbox做整理
+        $introduction = $_POST['introduction'];
+        $checkpname = products::where('PName' , $PName)->first();  //查資料表內相同的名稱產品
+        if( request()->hasFile('file') ){  //照片處理
+            $file = $request->file('file');
+            $path = $file->store('public/product_images');   //只能放在public下
+
+            if($checkpname != '' ){       //查看有無相同名稱產品
+                return back()->with('notice', '已有相同名稱品項！');
+            }else{           //沒有的話有兩種可能：1.名稱空白 2.新產品
+
+                if($PName == '' || $price == '' || $introduction == ''){  //此為1.名稱空白，順便檢查其他欄位有無空白
+                    return back()->with('notice', '填寫資訊不全！');
+                }else{      //此為2.新產品且欄位都有填寫
+                    $savedata = new products;
+                    $savedata->PName = $PName;
+                    $savedata->price = $price;
+                    $savedata->type = $type;
+                    $savedata->introduction = $introduction;
+                    $path = str_replace('public/','',$path);   //存入資料庫前對路徑做處理
+                    $savedata->pic = $path;
+                    $savedata->save();
+                    return back()->with('notice', '新增成功！');
+                }
+                
+            }
+            
+        }else{
+            return back()->with('notice', '請放置圖片！');
+        }
+
     }
     public function edit_product()
     {

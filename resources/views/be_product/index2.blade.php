@@ -12,7 +12,7 @@
 <div class="col-12 col-sm-10 col-md-10 col-lg-8  text-center p-0 mt-5 mb-3">
   <div class="row col-md-8 justify-content-between"id="pl"style="margin-left: 150px;">
     <div class="col-md-5">
-      <img src="{{ asset('product_images/' . $product1->pic )}}"  alt="{{ $product1->pic }}" style="height: 250px;width: 245px;">
+      <img src="{{ asset('storage/' . $product1->pic )}}"  alt="{{ $product1->pic }}" style="height: 250px;width: 245px;">
     </div>
     <br>
     <div class="row col-md-7 text-start align-items-center justify-content-center">

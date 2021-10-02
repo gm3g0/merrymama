@@ -117,8 +117,8 @@
   </div>
 </form>
 
-  {{-- 新增 --}}
-<form action="{{ route('new_product' )}}" method="POST" id="msform">
+{{-- 新增 --}}
+<form action="{{ route('new_product' )}}" method="POST" id="msform" enctype="multipart/form-data">
   @csrf
   <div class="modal fade" id="new" data-bs-backdrop="static" aria-labelledby="new" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -133,11 +133,11 @@
             <div class="container">
               <div class="row justify-content-center">
                 <div class="row col-md-12 text-start justify-content-center">
-                  <div class="col-md-10">名稱：<input type="text" name="Pname"></div>
+                  <div class="col-md-10">名稱：<input type="text" name="PName"></div>
                   <div class="col-md-10">價格：<input type="text" name="price"></div>
                   <div class="col-md-10" style="margin-bottom: 25px;">分類：<br>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" name="day[]" id="inlineCheckbox1" value="星期一">
+                      <input class="form-check-input" type="checkbox" name="day[]" id="inlineCheckbox1" value="星期一" checked="True">
                       <label class="form-check-label" for="inlineCheckbox1">星期一</label>
                     </div>
                     <div class="form-check form-check-inline">
@@ -175,7 +175,7 @@
   </div>
 </form>
 
-  {{-- 修改 --}}
+{{-- 修改 --}}
 <form action="{{ route('edit_product')}}" method="POST" id="msform">
   @csrf
   <div class="modal fade" id="edit" data-bs-backdrop="static" aria-labelledby="edit" aria-hidden="true">
