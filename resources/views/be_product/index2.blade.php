@@ -22,7 +22,7 @@
     </div>
   </div><br>
 
-  <form id="msform" method="POST" action="{{ route('product') }}">
+  <form id="msform" method="POST" action="{{ route('mesproduct') }}">
     @csrf
   <div class="row col-md-6 justify-content-center text-start" id="pl">
     <div class="col-md-12">

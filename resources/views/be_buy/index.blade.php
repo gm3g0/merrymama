@@ -13,11 +13,11 @@
   <h3 class="text-start">注意事項：</h3>
 
   <div class="row col-md-12 text-start">
-    <p>&nbsp;&nbsp;本次取貨日期：{{ $takedate }}</p>
+    <p>&nbsp;&nbsp;不知道</p>
   </div>
   <form action="{{ route('be_buy.index2')}}" method="POST">
     @csrf
-    <h4 class="text-start">本次訂購星期：{{ $week  }}</h4>
+    <h4 class="text-start">本次訂購星期：{{ $week  }}&nbsp;&nbsp;&nbsp;&nbsp;本次取貨日期：{{ $takedate }}</h4>
     @php
       $cnt = 0;
     @endphp

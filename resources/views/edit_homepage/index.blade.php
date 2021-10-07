@@ -35,9 +35,6 @@
           <div class="col-md-9" style="margin-bottom: 20px"><input type="file" class="form-control" name="files[]"/></div>
           <div class="col-md-9" style="margin-bottom: 20px"><input type="file" class="form-control" name="files[]"/></div>
           <div class="col-md-9" style="margin-bottom: 40px"><input type="file" class="form-control" name="files[]"/></div>
-
-          <h4 class="col-md-12">必買推薦：</h4>
-          這邊等後端的判斷要用哪一個
         </div>
       </div>
       

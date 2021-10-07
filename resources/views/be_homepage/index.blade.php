@@ -17,14 +17,15 @@
       <button id="bu" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>&nbsp;
       <button id="bu" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>&nbsp;
       <button id="bu" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>&nbsp;
+      <button id="bu" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>&nbsp;
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="色票2.png" class="d-block w-100" alt="...">
+        <img src="色票2.png" class="d-block w-100" height="500px" width="450px" alt="...">
       </div>
       @foreach($shownews as $shownew)
       <div class="carousel-item">
-        <img src="{{ asset('storage/' . $shownew)}}" class="d-block w-100" alt="...">
+        <img src="{{ asset('storage/' . $shownew)}}" class="d-block w-100" height="500px" width="450px" alt="...">
       </div>
     @endforeach
     </div>
@@ -38,7 +39,7 @@
     </button>
   </div> {{-- 輪播END --}}
 <br><br>
-<h2 class="fas fa-crown">&nbsp;必買推薦</h2>
+<h2 class="fas fa-crown">&nbsp;小編推薦</h2>
 <div class="row justify-content-between">
 
   <div class="col-md-4">

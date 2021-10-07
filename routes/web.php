@@ -55,7 +55,7 @@ Route::get('/teamstory',[be_story::class,'create'])->name('story.index2');
 
 Route::resource('product', be_product::class)->only('index','create','product','show');
 Route::get('/products',[be_product::class,'create'])->name('product');
-Route::post('/product', [be_product::class,'product'])->name('product');
+Route::post('/mesproduct', [be_product::class,'product'])->name('mesproduct');
 Route::get('/show/{product_PName}',[be_product::class,'show'])->name('be_product.show');
 
 Route::resource('contact', be_contact::class)->only('index');
