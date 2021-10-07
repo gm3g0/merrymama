@@ -13,7 +13,7 @@ class backbuy extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()  //後台我要購買設定首頁
+    public function index()  //後台我要購買設定首頁 //測試
     {
         $Mon = products::where('type','like','%星期一%')->get();
         $Tue = products::where('type','like','%星期二%')->get();
