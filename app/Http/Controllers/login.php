@@ -17,7 +17,7 @@ class login extends Controller
     public function index()
     {
         //
-        
+
         return view('login.index');
     }
 
@@ -29,7 +29,6 @@ class login extends Controller
 
     public function login()
     {
-
         ini_set("display_errors", "On");
         require_once "../method/connect.php";
 

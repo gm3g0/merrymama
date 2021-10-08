@@ -18,7 +18,7 @@ use \App\Http\Controllers\backdata;
 use \App\Http\Controllers\contact_edit;
 use \App\Http\Controllers\edit_homepage;
 use \App\Http\Controllers\edit_QA;
-
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -89,4 +89,7 @@ Route::resource('edit_QA',edit_QA::class)->only('index','edit_QA','new_QA');
 Route::post('/edit_QA', [edit_QA::class,'edit_QA'])->name('edit_QA.edit_QA');
 Route::post('/new_QA', [edit_QA::class,'new_QA'])->name('new_QA.new_QA');
 
-
+Route::get('/PageController', [PageController::class,'PageController'])->middleware('userAuth');
+Route::post('login.php', 'UserController@login');
+Route::get('login.php', 'UserController@showLoginPage');
+Route::get('logout.php', 'UserController@logout');
