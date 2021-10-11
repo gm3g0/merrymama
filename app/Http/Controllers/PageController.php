@@ -7,7 +7,7 @@ class PageController extends Controller
 {
     public function index()
     {
-        $username = session('username');
-        return view('index', ['username' => $username]);
+        $email = session('email');
+        return view('index', ['email' => $email]);
     }
 }

@@ -9,21 +9,21 @@ class UserController extends Controller
 {
     public function showLoginPage()
     {
-        return view('login');
+        return view('login.php');
     }
 
     public function login(Request $request)
     {
         DB::connection('marrymama');
-        $userData = DB::select("SELECT * FROM UserTable WHERE username=?", [$request->UserName]);
+        $userData = DB::select("SELECT * FROM members WHERE email=?", [$request->email]);
 
-        if(!isset($userData[0]->UserName)){
+        if(!isset($userData[0]->email)){
 
             return view('login', ['err'=>"使用不存在"]);
 
-        }elseif(password_verify($request->PassWord, $userData[0]->PassWord)){
+        }elseif(password_verify($request->password, $userData[0]->password)){
 
-            session(['username' => $userData[0]->UserName]);
+            session(['email' => $userData[0]->email]);
             return redirect('/');
 
         }else{
@@ -35,7 +35,7 @@ class UserController extends Controller
 
     public function logout()
     {
-        session()->forget('username');
+        session()->forget('email');
         return redirect('/');
     }
 }

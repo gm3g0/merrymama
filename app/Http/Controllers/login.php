@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use PDO;
 use PharIo\Manifest\Email;
 use App\Models\members;
+use Illuminate\Contracts\Session\Session;
+use session_register;
 
 class login extends Controller
 {
@@ -27,8 +30,25 @@ class login extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function login()
+    public function login(Request $request)
     {
+        /*DB::connection('marrymama');
+        $userData = DB::select("SELECT * FROM members WHERE email=?", [$request->email]);
+
+        if(!isset($userData[0]->email)){
+
+            return view('login', ['err'=>"使用不存在"]);
+
+        }elseif(password_verify($request->password, $userData[0]->password)){
+
+            session(['email' => $userData[0]->email]);
+            return redirect('/');
+
+        }else{
+
+            return view('login', ['err'=>"密碼錯誤"]);
+
+        }*/
         ini_set("display_errors", "On");
         require_once "../method/connect.php";
 
@@ -37,23 +57,13 @@ class login extends Controller
         $password = $_POST['mpw'];
         $checkaccount = members::where('email', $account )->pluck('email');
         $checkpassword = members::where('password', $password )->pluck('password');
-        //$select = $connect->prepare("SELECT * FROM members WHERE email = :acc AND password = :pw");
-        //$select->execute(array(':acc' => $account, ':pw' => $password));
         
-
-        //$result = $select->fetch(PDO::FETCH_ASSOC);
-        
-
-        //if ($result['email'] == $account && $result['password'] == $password) {
-                //session_start();
-                //$_SESSION['member'] = $result;
-                //header("location:../");
-         //}
         if ($account == "" || $password == "") {
             return back()->with('notice', '請輸入帳號及密碼！' );
             
         }elseif( ('["' . $account . '"]' == $checkaccount ) && ('["' . $password . '"]' == $checkpassword)) {
             return redirect('/')->with('notice', '登入成功！');
+            
                       
         } else {
             return back()->with('notice', '帳號或密碼輸入錯誤！' );

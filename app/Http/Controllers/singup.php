@@ -53,8 +53,7 @@ class singup extends Controller
             }
         }
         
-        //header("location:../?sig_suc=註冊成功");
-        //return redirect()->route('member.index');
+        
     }
 
     /**
