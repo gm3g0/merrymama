@@ -20,8 +20,8 @@ class login extends Controller
     public function index()
     {
         //
-
-        return view('login.index');
+        $email = session('email');
+        return view('login.index', ['email' => $email]);
     }
 
     /**
@@ -63,7 +63,8 @@ class login extends Controller
             
         }elseif( ('["' . $account . '"]' == $checkaccount ) && ('["' . $password . '"]' == $checkpassword)) {
             return redirect('/')->with('notice', '登入成功！');
-            
+            session_start();
+             return view('login.index', ['email' => $email]);
                       
         } else {
             return back()->with('notice', '帳號或密碼輸入錯誤！' );

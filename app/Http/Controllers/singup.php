@@ -15,8 +15,9 @@ class singup extends Controller
      */
     public function index()
     {
-        //
-        return view('singup.index');
+        $email = session('email');
+        return view('singup.index', ['email' => $email]);
+        
     }
 
     /**

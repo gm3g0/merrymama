@@ -12,6 +12,7 @@ class membermanage extends Controller
 {
     public function index()  //會員管理首頁
     {
+        
         $orders = order::all();
         foreach($orders as $order){ 
             $checkemail = member_order::where('email', $order->email)->first(); //跟order資料表做對比，找到email

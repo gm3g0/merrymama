@@ -13,27 +13,31 @@ class be_member extends Controller
     
     public function index()  //會員專區的訂單查看頁面
     {
-        $test_member = "test01@yahoo.com.tw" ;  //測試用，等session、能抓到使用者後，再做更改
-        $dataorder = order::where('email' , $test_member)->get();
+        $email = session('email');
+        //return view('index', ['email' => $email]);
+        //$test_member = "test01@yahoo.com.tw" ;  //測試用，等session、能抓到使用者後，再做更改
+        $dataorder = order::where('email' , $email)->get();
         $datadetail_order = detail_order::all();
         return view('be_member.check', [ 'dataorder' => $dataorder , 'datadetail_order' => $datadetail_order ]);
     }
 
     public function create() //會員專區的修改資料頁面
     {
-        $test_member = "test01@yahoo.com.tw" ;  //測試用，等session、能抓到使用者後，再做更改
-        $datamember = members::where('email' , $test_member)->first();
+        $email = session('email');
+        //$test_member = "test01@yahoo.com.tw" ;  //測試用，等session、能抓到使用者後，再做更改
+        $datamember = members::where('email' , $email)->first();
         return view('be_member.edit' , ['datamember' => $datamember]);
     }
 
     public function member(Request $request) //會員專區的修改資料表單處理部分
     {
-        $test_member = "test01@yahoo.com.tw" ;  //測試用，等session、能抓到使用者後，再做更改
-        $mem = members::where('email' , $test_member)->first();
-        $memname = members::where('email' , $test_member)->pluck('name');
+        $email = session('email');
+        //$test_member = "test01@yahoo.com.tw" ;  //測試用，等session、能抓到使用者後，再做更改
+        $mem = members::where('email' , $email)->first();
+        $memname = members::where('email' , $email)->pluck('name');
         $memname = json_decode($memname)[0];
-        $memtel = members::where('email' , $test_member)->pluck('tel');
-        $mempw = members::where('email' , $test_member)->pluck('password');
+        $memtel = members::where('email' , $email)->pluck('tel');
+        $mempw = members::where('email' , $email)->pluck('password');
         $name = $_POST['name'];
         $tel = $_POST['tel'];
         $pw = $_POST['pw'];
