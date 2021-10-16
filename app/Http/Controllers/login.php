@@ -32,7 +32,7 @@ class login extends Controller
 
     public function login(Request $request)
     {
-        DB::connection('merrymama');
+        /*DB::connection('merrymama');
         $userData = DB::select("SELECT * FROM members WHERE email=?", [$request->email]);
 
         if(!isset($userData[0]->email)){
@@ -48,8 +48,8 @@ class login extends Controller
 
             return view('login', ['err'=>"密碼錯誤"]);
 
-        }
-        /*ini_set("display_errors", "On");
+        }*/
+        ini_set("display_errors", "On");
         require_once "../method/connect.php";
 
 
@@ -63,16 +63,16 @@ class login extends Controller
             
         }elseif( ('["' . $account . '"]' == $checkaccount ) && ('["' . $password . '"]' == $checkpassword)) {
             return redirect('/')->with('notice', '登入成功！');
-            session_start();
-            return view('login.index', ['email' => $email]);
+            session(['email' => $email]);
+            
                       
         } else {
             return back()->with('notice', '帳號或密碼輸入錯誤！' );
-        }*/
+        }
     }
     public function logout(){
-        session()->forget('account');
-        return redirect('/logout');
+        session()->forget('email');
+        return redirect('/');
     }
     /**
      * Store a newly created resource in storage.

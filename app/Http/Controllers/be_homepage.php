@@ -12,17 +12,16 @@ class be_homepage extends Controller
     public function index(Request $request)
     {
         $email = session('email');
-        if($request->session()->has('email')){
-            echo "成功";
-        }else{
-            echo "失敗";
-        }
+        print_r($request->session()->all());
         $news = news::orderBy('news_time','desc')->limit(3)->get();
         
         foreach($news as $new){
             $shownews[] = str_replace('public/','',$new->news_pic);
         }
         return view('be_homepage.index', ['email' => $email , 'shownews' => $shownews]);
+        
+        session()->forget('email');
+        return redirect('/');
     }
 
     public function store(Request $request)

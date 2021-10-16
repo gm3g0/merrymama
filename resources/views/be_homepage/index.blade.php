@@ -1,4 +1,5 @@
 @extends(((isset($email)) ? 'layouts.login' : 'layouts.guest' ))
+
 {{-- @extends('layouts.guest')  --}}
 
 @section('css')
