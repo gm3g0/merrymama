@@ -1,5 +1,6 @@
 @extends(((isset($email)) ? 'layouts.login' : 'layouts.guest' ))
 {{-- @extends('layouts.guest')  --}}
+
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/all.css')}}"/>
 @endsection
@@ -43,16 +44,16 @@
 <div class="row justify-content-between">
 
   <div class="col-md-4">
-    <img src="bread_test.jpg" class="card-img-top align-self-center" alt="測試麵包圖" style="height: 200px;width: 205px;"><br>
-    1235
+    <img src="{{ asset('storage/product_images/蔓越莓乳酪.png')}}" class="card-img-top align-self-center" alt="測試麵包圖" style="height: 200px;width: 205px;"><br>
+    蔓越莓乳酪
   </div>
   <div class="col-md-4">
-    <img src="bread_test.jpg" class="card-img-top align-self-center" alt="測試麵包圖" style="height: 200px;width: 205px;"><br>
-    135
+    <img src="{{ asset('storage/product_images/瑪利媽媽經典麵包.png')}}" class="card-img-top align-self-center" alt="測試麵包圖" style="height: 200px;width: 205px;"><br>
+    瑪利媽媽經典麵包
   </div>
   <div class="col-md-4">
-    <img src="bread_test.jpg" class="card-img-top align-self-center" alt="測試麵包圖" style="height: 200px;width: 205px;"><br>
-    3216
+    <img src="{{ asset('storage/product_images/核桃麵包.png')}}" class="card-img-top align-self-center" alt="測試麵包圖" style="height: 200px;width: 205px;"><br>
+    核桃麵包
   </div>
 </div>
 

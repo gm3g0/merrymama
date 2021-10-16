@@ -15,8 +15,8 @@ class be_member extends Controller
     {
         $email = session('email');
         //return view('index', ['email' => $email]);
-        //$test_member = "test01@yahoo.com.tw" ;  //測試用，等session、能抓到使用者後，再做更改
-        $dataorder = order::where('email' , $email)->get();
+        $test_member = "test01@yahoo.com.tw" ;  //測試用，等session、能抓到使用者後，再做更改
+        $dataorder = order::where('email' , $test_member)->get();
         $datadetail_order = detail_order::all();
         return view('be_member.check', [ 'dataorder' => $dataorder , 'datadetail_order' => $datadetail_order ]);
     }

@@ -9,9 +9,14 @@ use App\Models\news;
 class be_homepage extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
         $email = session('email');
+        if($request->session()->has('email')){
+            echo "成功";
+        }else{
+            echo "失敗";
+        }
         $news = news::orderBy('news_time','desc')->limit(3)->get();
         
         foreach($news as $new){
