@@ -10,12 +10,8 @@ use App\Models\detail_order;
 
 class be_buy extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+    public function index()   //前台我要購買頁面
     {
          
         $choosetime = takedate::max('choose_time');  //取得最新設定時間
@@ -43,18 +39,29 @@ class be_buy extends Controller
         }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create(Request $request)
-    {
-        $savecut = $_POST['cut'];
-        foreach($savecut as $cut){
-            echo $cut . "</br>";
+    public function create(Request $request)  //前台我要購買訂單送出處理部分
+    {   
+        $takedate = $_POST['takedate'];
+        $savePName = $_POST['PName'];
+        $savenum = $_POST['ticket'];
+        $saveprice = $_POST['price'];
+        //$savecut = $_POST['cut'];
+        /*foreach($savePName as $PName){
+            echo $PName . "</br>";
         }
-        //return view('be_buy.index2');
+        foreach($saveprice as $price){
+            echo $price . "</br>";
+        }
+        foreach($savenum as $num){
+            echo $num . "</br>";
+        }
+        for($i = 0 ; $i < count($savePName) ; $i++){
+            echo $savePName[$i] . '、' . $savenum[$i] . '、' . $saveprice[$i] . "</br>";
+        }
+        /*foreach($savecut as $cut){
+            echo $cut . "</br>";
+        }*/
+        return view('be_buy.index2');
     }
 
     /**

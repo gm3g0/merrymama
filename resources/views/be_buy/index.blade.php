@@ -18,6 +18,7 @@
   <form action="{{ route('be_buy.index2')}}" method="POST">
     @csrf
     <h4 class="text-start">本次訂購星期：{{ $week  }}&nbsp;&nbsp;&nbsp;&nbsp;本次取貨日期：{{ $takedate }}</h4>
+    <input type="text" name="takedate" value="{{ $takedate }}" style="display:none"/>
     @php
       $cnt = 0;
     @endphp
@@ -31,20 +32,22 @@
       <div class="row g-0">
         <div class="col-md-3">
           @if($product->pic)
-            <img src="{{ asset('product_images/' . $product->pic )}}" alt="{{ $product->pic }}" style="height: 150px;width: 145px;">
+            <img src="{{ asset('storage/' . $product->pic )}}" alt="{{ $product->pic }}" style="height: 150px;width: 145px;">
             @else
             <img src="{{ asset('bread_test.jpg')}}" alt="測試麵包圖" style="height: 150px;width: 145px;">
           @endif
         </div>
           <div class="card-body row col-md-9" id="mat" >
             <h5 class="card-title col-md-4">{{ $product->PName }}</h5>
+            <input type="text" name="PName[]" value="{{ $product->PName }}" style="display:none"/>
             <div class="card-text col-md-4">
               <input style="width:30px;" type='button' value='-' class='qtyminus' field='ticket{{$cntt}}' />
               <input type='text' readonly="readonly" name='ticket[]' value="0" class='qty' id='ticket{{$cntt}}' style="width: 50px;"/>
               <input style="width:30px;" type='button' value='+' class='qtyplus' field='ticket{{$cntt}}' />
             </div>
             <div class="card-text col-md-2"><span class="price"><strong>{{ $product->price }}</strong></span>元</div>
-            <div class="card-text col-md-2"><input type="checkbox" name="cut[]" value="切" id="checkboxNoLabel" style="height: 15px;width:15px">切</div>
+            <input type="text" name="price[]" value="{{ $product->price }}" style="display:none"/>
+            <div class="card-text col-md-2"><input type="checkbox" name="cut[]" value="1" id="checkboxNoLabel" style="height: 15px;width:15px">切</div>
           </div>
       </div>
     </div>
@@ -121,6 +124,17 @@
           } 
           setTotal();
         }) 
-  </script>
+      $(function () {
+        $('#checkbox_3').on('change', function () {
+            if ($('#checkbox_3').is(':checked')) {
+                alert("框框3 yes");
+            }
+            else{
+                alert("框框3 no");
+            }
+        })
+      })
 
+
+  </script>
 @endsection
