@@ -11,9 +11,14 @@
 <div class="col-12 col-sm-10 col-md-10 col-lg-8  text-center p-0 mt-5 mb-3">
   <h2><i class="fas fa-shopping-cart"></i>&nbsp;我要購買</h2><hr>
   <h3 class="text-start">注意事項：</h3>
-
   <div class="row col-md-12 text-start">
-    <p>&nbsp;&nbsp;不知道</p>
+    <ol style="padding-left: 5%">
+      <li>每次預購需達外送標準金額，若未達金額會於預購結單日的隔天，通知您取消此次訂購服務。
+      <li>因本預購為自發服務性, 若有服務不周先行致歉。
+      <li>麵包需要協助「切」、「分裝袋」、「統一編號」，請至備註欄進行說明。
+      <li>若訂購有任何疑慮，歡迎詢問訂購人員，加入LINE官方帳號「@667rltsg」
+      <li>謝謝您的訂購，每一次的訂購都實質協助到「瑪利MAMA·手作麵包坊」！
+      </ol>
   </div>
   <form action="{{ route('be_buy.index2')}}" method="POST">
     @csrf
@@ -47,7 +52,12 @@
             </div>
             <div class="card-text col-md-2"><span class="price"><strong>{{ $product->price }}</strong></span>元</div>
             <input type="text" name="price[]" value="{{ $product->price }}" style="display:none"/>
-            <div class="card-text col-md-2"><input type="checkbox" name="cut[]" value="1" id="checkboxNoLabel" style="height: 15px;width:15px">切</div>
+            {{-- <div class="card-text col-md-2"><input type="checkbox" value="1" name="cut[]"  id="checkboxNoLabel" style="height: 15px;width:15px">切</div> --}}
+            <div class="card-text col-md-2">
+            <select name="cut[]" class="form-select" aria-label="Default select example" id="cut">
+              <option selected value="1">切</option>
+              <option value="0">不切</option>
+            </select> </div>
           </div>
       </div>
     </div>
@@ -55,7 +65,7 @@
 
     <div class="row text-end" >
       <div class="col-md-10 align-self-center">總金額：<label id="total"></label>元</div>
-      <div class="col-md-2" id="msform" style="margin: 0px"><button type="submit" class="next action-button" style="outline: none;">下一步</button></div>
+      <div class="col-md-2" id="msform" style="margin: 0px"><button type="submit" class="next action-button" style="outline: none;" >下一步</button></div>
     </div>
 
 
@@ -64,42 +74,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script>      
-    //   $(function() {
-    //   // This button will increment the value.
-    //   $('.qtyplus').click(function(e) {
-    //     // Stop acting like a button
-    //     e.preventDefault();
-    //     // Get the field name
-    //     fieldName = $(this).attr('field');
-    //     // Get its current value
-    //     var currentVal = parseInt($('input[id=' + fieldName + ']').val());
-    //     // If is not undefined
-    //     if (!isNaN(currentVal)) {
-    //       // Increment
-    //       $('input[id=' + fieldName + ']').val(currentVal + 1);
-    //     } else {
-    //       // Otherwise put a 0 there
-    //       $('input[id=' + fieldName + ']').val(0);
-    //     }
-    //   });
-    //   // This button will decrement the value till 0
-    //   $(".qtyminus").click(function(e) {
-    //     // Stop acting like a button
-    //     e.preventDefault();
-    //     // Get the field name
-    //     fieldName = $(this).attr('field');
-    //     // Get its current value
-    //     var currentVal = parseInt($('input[id=' + fieldName + ']').val());
-    //     // If it isn't undefined or its greater than 0
-    //     if (!isNaN(currentVal) && currentVal > 0) {
-    //       // Decrement one
-    //       $('input[id=' + fieldName + ']').val(currentVal - 1);
-    //     } else {
-    //       // Otherwise put a 0 there
-    //       $('input[id=' + fieldName + ']').val(0);
-    //     }
-    //   });
-    // });
     $(function(){ 
           $(".qtyplus").click(function(){ 
             var t=$(this).parent().find('input[name*=ticket]'); 
@@ -124,17 +98,32 @@
           } 
           setTotal();
         }) 
-      $(function () {
-        $('#checkbox_3').on('change', function () {
-            if ($('#checkbox_3').is(':checked')) {
-                alert("框框3 yes");
-            }
-            else{
-                alert("框框3 no");
-            }
-        })
-      })
-
-
+      // $(function () {
+      //   $('#checkbox_3').on('change', function () {
+      //       if ($('#checkbox_3').is(':checked')) {
+      //           alert("框框3 yes");
+      //       }
+      //       else{
+      //           alert("框框3 no");
+      //       }
+      //   })
+      // })
   </script>
+  {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script>
+      function changeCheckBoxs() {
+        var checkboxs = document.getElementsById("checkboxNoLabel");
+        for (var i = 0; i < checkboxs.length; i  ) {
+          if (checkboxs[i].checked == false) {
+          checkboxs[i].checked = true;
+          checkboxs[i].value = 0;
+          }
+        }
+      }
+      if($("#checkboxNoLabel")[0].checked){
+        $("#checkboxNoLabel").val(1);
+      }else{
+        $("#checkboxNoLabel").val(0) ;
+        }
+  </script> --}}
 @endsection

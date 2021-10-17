@@ -82,7 +82,7 @@
     type: 'pie'
   },
   title: {
-    text: 'Browser market shares in January, 2018'
+    text: '每麵包銷售量 '
   },
   tooltip: {
     pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -189,12 +189,12 @@ Highcharts.chart('container2', {
       data: [
         {
           name: "Chrome",
-          y: 62.74,
+          y: 52.74,
           drilldown: "Chrome"
         },
         {
           name: "Firefox",
-          y: 10.57,
+          y: 20.57,
           drilldown: "Firefox"
         },
         {
