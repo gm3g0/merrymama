@@ -29,7 +29,7 @@
 
 @section('main')
 <h2>商品管理-商品編輯</h2>
-<form action="" method="POST" id="msform">
+<form action="{{ route('edit_product' )}}" method="POST" id="msform">
   @csrf
   @if(session()->has('notice'))
         <div class="alert alert-warning">
