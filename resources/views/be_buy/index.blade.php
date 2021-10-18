@@ -35,6 +35,7 @@
     @endphp
 
     @foreach($Ptype as $product)
+    @if($product->status == 1)
     @php
       $cnt += 1;
       $cntt=strval($cnt);
@@ -67,6 +68,7 @@
           </div>
       </div>
     </div>
+    @endif
     @endforeach
 
     <div class="row text-end" >

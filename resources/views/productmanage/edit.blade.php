@@ -71,14 +71,15 @@
     <div class="tbl-content">
       <tbody>
         @foreach($products as $product)
+        @if($product->status == 1)
         <tr>
           <td>{{ $product->PName }}</td>
           <td>{{ $product->introduction }}</td>
           <td>{{ $product->type }}</td>
           <td>{{ $product->price }}</td>
-          <td>{{ $product->pic }}</a></td>
+          <td>{{ $product->pic }}</td>
           <td>
-            <div class="text-center"><input type="checkbox[]" value="{{$product->PName}}" id="checkboxNoLabel" style="height: 15px;width:15px"></div>
+            <div class="text-center"><input type="checkbox" name="checkbox[]" value="{{ $product->PName }}" id="checkboxNoLabel" style="height: 15px;width:15px"></div>
           </td>
           <td>
             <div>
@@ -86,6 +87,7 @@
             </div>
           </td>
         </tr>
+        @endif
         @endforeach
       </tbody>
       </table>

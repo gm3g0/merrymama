@@ -132,8 +132,14 @@ class productmanage extends Controller
     }
     public function edit_product()
     {
-        //
-        return redirect(route('productmanage.index'));
+        $deletPName = $_POST['checkbox'];
+        foreach($deletPName as $PName){
+            $delet = products::where('PName' , $PName)->first();
+            $delet->status = "0";
+            $delet->save();
+        }
+        
+        return back()->with('notice', '已刪除所選商品！');;
     }
     /**
      * Store a newly created resource in storage.

@@ -54,6 +54,7 @@
 
   <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px;display: none;" id="week1">
   @foreach($Mon as $product)
+    @if($product->status == 1)
     <div class="col">
       <div class="card">
       @if($product->pic)
@@ -68,11 +69,13 @@
         </div>
       </div>
     </div>
+    @endif
   @endforeach
   </div>
 
   <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px;display: none;" id="week2">
   @foreach($Tue as $product)
+    @if($product->status == 1)
     <div class="col">
       <div class="card">
       @if($product->pic)
@@ -87,11 +90,13 @@
         </div>
       </div>
     </div>
+    @endif
   @endforeach
   </div>
 
   <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px;display: none;" id="week3">
   @foreach($Wed as $product)
+    @if($product->status == 1)
     <div class="col">
       <div class="card">
       @if($product->pic)
@@ -106,11 +111,13 @@
         </div>
       </div>
     </div>
+    @endif
   @endforeach
   </div>
 
   <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px;display: none;"id="week4">
   @foreach($Thu as $product)
+    @if($product->status == 1)
     <div class="col">
       <div class="card">
       @if($product->pic)
@@ -125,11 +132,13 @@
         </div>
       </div>
     </div>
+    @endif
   @endforeach
   </div>
 
   <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px;display: none;"id="week5">
   @foreach($Fri as $product)
+    @if($product->status == 1)
     <div class="col">
       <div class="card">
       @if($product->pic)
@@ -144,6 +153,7 @@
         </div>
       </div>
     </div>
+    @endif
   @endforeach
   </div>
 

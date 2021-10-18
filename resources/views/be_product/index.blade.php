@@ -25,7 +25,8 @@
       <h4 id="one" class="text-start" style="margin-left: 5px">星期一</h4>
       <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px">
       @foreach($Mon as $product)
-      <div class="col">
+        @if($product->status == 1)
+        <div class="col">
           <div class="card">
             @if($product->pic)
             <img src="{{ asset('storage/' . $product->pic )}}" class="card-img-top align-self-center" alt="{{ $product->pic }}" style="height: 150px;width: 145px;">
@@ -39,13 +40,15 @@
             </div>
           </div>
         </div>
+        @endif
       @endforeach
       </div><br>
 
       <h4 id="two" class="text-start" style="margin-left: 5px">星期二</h4>
       <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px">
       @foreach($Tue as $product)
-      <div class="col">
+        @if($product->status == 1)
+        <div class="col">
           <div class="card">
             @if($product->pic)
             <img src="{{ asset('storage/' . $product->pic )}}" class="card-img-top align-self-center" alt="{{ $product->pic }}" style="height: 150px;width: 145px;">
@@ -59,12 +62,14 @@
             </div>
           </div>
         </div>
+        @endif
       @endforeach  
       </div><br>
       
       <h4 id="three" class="text-start" style="margin-left: 5px">星期三</h4>
       <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px">
       @foreach($Wed as $product)
+        @if($product->status == 1)
         <div class="col">
           <div class="card">
             @if($product->pic)
@@ -79,12 +84,14 @@
             </div>
           </div>
         </div>
+        @endif
       @endforeach  
       </div><br>
 
       <h4 id="four" class="text-start" style="margin-left: 5px">星期四</h4>
       <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px">
       @foreach($Thu as $product)
+        @if($product->status == 1)
         <div class="col">
           <div class="card">
             @if($product->pic)
@@ -99,12 +106,14 @@
             </div>
           </div>
         </div>
+        @endif
       @endforeach  
       </div><br>
 
       <h4 id="five" class="text-start" style="margin-left: 5px">星期五</h4>
       <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px">
       @foreach($Fri as $product)
+        @if($product->status == 1)
         <div class="col">
           <div class="card">
             @if($product->pic)
@@ -119,6 +128,7 @@
             </div>
           </div>
         </div>
+        @endif
       @endforeach
 
     </div>
