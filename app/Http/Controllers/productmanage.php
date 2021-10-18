@@ -141,6 +141,12 @@ class productmanage extends Controller
         
         return back()->with('notice', '已刪除所選商品！');;
     }
+    public function productedit(){
+        $products = products::all();
+        return view('productmanage.productedit', ['products' => $products]);
+ 
+    }
+
     /**
      * Store a newly created resource in storage.
      *
