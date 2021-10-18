@@ -78,7 +78,7 @@
           <td>{{ $product->price }}</td>
           <td>{{ $product->pic }}</a></td>
           <td>
-            <div class="text-center"><input type="checkbox" id="checkboxNoLabel" style="height: 15px;width:15px"></div>
+            <div class="text-center"><input type="checkbox[]" value="{{$product->PName}}" id="checkboxNoLabel" style="height: 15px;width:15px"></div>
           </td>
           <td>
             <div>

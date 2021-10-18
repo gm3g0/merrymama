@@ -10,27 +10,43 @@
 @section('main')
 <div class="col-12 col-sm-10 col-md-10 col-lg-8  text-center p-0 mt-5 mb-3">
   <h2>填寫資料</h2><hr><br>
-  <form action="{{ route('be_buy.finish')}}" method="GET" id="msform">
+  <form action="{{ route('be_buy.finish')}}" method="POST" id="msform">
     @csrf
   <div class="container" style="padding-left: 50px;">
     <div class="row col-md-12 text-start justify-content-center">
       <div class="col-md-3"> 
-          姓名：<input type="text" name="cname" value=""></div>
+          姓名：<input type="text" name="cname" value="{{ $datamember->name }}"></div>
       <div class="col-md-3">
-          電話：<input type="tel" name="cphone" value=""></div>
-      <div class="col-md-3">
-          E-mail：<input type="email" name="cemail" value=""></div>
+          電話：<input type="tel" name="cphone" value="{{ $datamember->tel }}"></div>
+      <div class="col-md-4">
+          E-mail：<input type="email" name="cemail" value="{{ $datamember->email }}"></div>
       <div class="col-md-7">
-          總數量：</div>
+          本次取貨日期：{{ $takedate }}</div>
+      <input type="text" name="takedate" value="{{ $takedate }}" style="display:none"/>
+      <div class="col-md-7">
+          總數量：{{ $count }} 個</div>
       <div class="col-md-7">
           明細：</div>
-      <div class="col-md-7">&nbsp;
-        &nbsp;&nbsp;瑪利媽媽經典麵包
-      </div>
-      <div class="col-md-7"> 
-        備註：<textarea name="" value=""style="height: 80px" Wrap="Virtual"></textarea></div>
       <div class="col-md-7">
-        總金額：<strong>1111</strong>元</div>
+      <?php 
+      for($i = 0 ; $i < count($testPName) ; $i++){ 
+        echo "&nbsp;&nbsp;&nbsp;&nbsp;" . $testPName[$i] . "&nbsp;&nbsp; x " . $testnum[$i] . "&nbsp;&nbsp;  " . $testcut[$i] . "</br>";
+      } ?>
+      </div>
+      @foreach($testPName as $PName)
+      <input type="text" name="testPName[]" value="{{ $PName }}" style="display:none"/>
+      @endforeach
+      @foreach($testnum as $num)
+      <input type="text" name="testnum[]" value="{{ $num }}" style="display:none"/>
+      @endforeach
+      @foreach($testcut as $cut)
+      <input type="text" name="testcut[]" value="{{ $cut }}" style="display:none"/>
+      @endforeach
+      <div class="col-md-7"> <br>
+        備註：<textarea name="remark" style="height: 80px" Wrap="Virtual" placeholder="例：分裝袋、統一編號..."></textarea></div>
+      <div class="col-md-7">
+        總金額：<strong>{{ $savetotal }}</strong>元</div>
+        <input type="text" name="savetotal" value="{{ $savetotal }}" style="display:none"/>
       </div>
         <br>
     <div class="row col-md-12 justify-content-between">

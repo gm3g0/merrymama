@@ -46,7 +46,7 @@ Route::resource('QA', be_QA::class)->only('index');
 
 Route::resource('buy',be_buy::class)->only('index','create','store');
 Route::post('/buycheck',[be_buy::class,'create'])->name('be_buy.index2');
-Route::get('/finish',[be_buy::class,'store'])->name('be_buy.finish');
+Route::post('/finish',[be_buy::class,'store'])->name('be_buy.finish');
 
 
 Route::resource('story', be_story::class)->only('index','create');

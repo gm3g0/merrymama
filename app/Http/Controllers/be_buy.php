@@ -7,6 +7,7 @@ use App\Models\takedate;
 use App\Models\products;
 use App\Models\order;
 use App\Models\detail_order;
+use App\Models\members;
 
 class be_buy extends Controller
 {
@@ -39,85 +40,72 @@ class be_buy extends Controller
         }
     }
 
-    public function create(Request $request)  //前台我要購買訂單送出處理部分
+    public function create(Request $request)  //前台我要購買填寫資料部分
     {   
-        /*$takedate = $_POST['takedate'];
-        $savePName = $_POST['PName'];
-        $savenum = $_POST['ticket'];
-        $saveprice = $_POST['price'];*/
-        $savecut = $_POST['cut'];
-        /*foreach($savePName as $PName){
-            echo $PName . "</br>";
+        $test_member = "test01@yahoo.com.tw" ;  //測試用，等session、能抓到使用者後，再做更改
+        $takedate = $_POST['takedate'];   //抓到取貨日期
+        $savePName = $_POST['PName'];     //抓到所有商品名稱
+        $savenum = $_POST['ticket'];      //抓到所有數量
+        $saveprice = $_POST['price'];     //抓到所有麵包價格
+        $savecut = $_POST['cut'];         //抓到所有要不要切
+        $savetotal = $_POST['tt'];        //抓到總金額
+        $count = 0;         //計算所訂購麵包數量
+        if($savetotal == 0 ){
+            return back()->with('notice','請點選數量！');
+        }else{
+            for($i = 0 ; $i < count($savePName) ; $i++){     //將所訂購麵包另存別的陣列
+                if($savenum[$i] > 0){     //如果數量大於0，就另存
+                    $testPName[] = $savePName[$i];     //把所選的麵包存到testPName陣列
+                    $testnum[] = $savenum[$i];         //把所選麵包數量存到testnum陣列
+                    $testcut[] = $savecut[$i];         //把所選麵包切不切存到testnum陣列
+                    $count += $savenum[$i];            //計算麵包總數量
+                }
+            }
+    
+            $datamember = members::where('email' , $test_member)->first();
+            return view('be_buy.index2' , ['datamember' => $datamember , 
+                                            'savetotal' => $savetotal ,
+                                            'testPName' => $testPName ,
+                                            'testnum' => $testnum ,
+                                            'testcut' => $testcut ,
+                                            'count' => $count ,
+                                            'takedate' => $takedate]);
         }
-        foreach($saveprice as $price){
-            echo $price . "</br>";
-        }
-        foreach($savenum as $num){
-            echo $num . "</br>";
-        }
-        for($i = 0 ; $i < count($savePName) ; $i++){
-            echo $savePName[$i] . '、' . $savenum[$i] . '、' . $saveprice[$i] . "</br>";
-        }*/
-        foreach($savecut as $cut){
-            echo $cut . "</br>";
-        }
-        //return view('be_buy.index2');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
         
-        return view('be_buy.finish');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function store(Request $request)    //前台我要購買訂單送出處理部分
     {
-        //
+        $email = $_POST['cemail'];
+        $takedate = $_POST['takedate']; 
+        $savePName = $_POST['testPName']; 
+        $savenum = $_POST['testnum']; 
+        $savecut = $_POST['testcut'];
+        $savetotal = $_POST['savetotal'];
+        $remark = $_POST['remark'];  
+
+        $saveorder = new order;    //此為訂單儲存
+        $saveorder->email = $email;
+        $saveorder->tekedate_time = $takedate; 
+        $saveorder->total = $savetotal;
+        $saveorder->save();
+
+        $order_id = order::where('email' , $email)->where('tekedate_time' , $takedate)->pluck('order_id');
+        $order_id = str_replace('[','',$order_id);
+        $order_id = str_replace(']','',$order_id);
+        for($j= 0 ; $j < count($savePName) ; $j++ ){   //此為詳細訂單儲存
+            if($savenum[$j] > 0) {
+                $savedetail_order = new detail_order;
+                $savedetail_order->PName = $savePName[$j];
+                $savedetail_order->num = $savenum[$j];
+                $savedetail_order->cut = $savecut[$j];
+                $savedetail_order->remark = $remark;
+                $savedetail_order->order_id = $order_id;
+                $savedetail_order->save();
+            }
+        }
+        
+        return view('be_buy.finish' , ['takedate' => $takedate , 'order_id' => $order_id] );
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
