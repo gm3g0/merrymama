@@ -83,7 +83,7 @@
           </td>
           <td>
             <div>
-              <button type="button" class="btn next action-buttonb"onclick="location.href='{{route('productedit')}}'">修改</button>
+              <button type="button" class="btn next action-buttonb"onclick="location.href='{{route('productedit' , $product->PName)}}'">修改</button>
             </div>
           </td>
         </tr>

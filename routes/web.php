@@ -76,7 +76,7 @@ Route::resource('productmanage', productmanage::class)->only('index','productman
 Route::post('/productmanage', [productmanage::class,'productmanage'])->name('productmanage');
 Route::post('/new_product', [productmanage::class,'new_product'])->name('new_product');
 Route::post('/edit_product', [productmanage::class,'edit_product'])->name('edit_product');
-Route::get('/productedit', [productmanage::class,'productedit'])->name('productedit');
+Route::get('/productedit/{product_PName?}', [productmanage::class,'productedit'])->name('productedit');
 
 Route::resource('backbuy',backbuy::class)->only('index','backbuy');
 Route::post('/backbuy', [backbuy::class,'backbuy'])->name('backbuy.backbuy');

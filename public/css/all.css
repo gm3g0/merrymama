@@ -8,6 +8,20 @@
     position: fixed;
     border-radius: 50px;
     right: 10px;
+    bottom: 150px;
+    padding: 10px 16px;
+    font-size: 25px;
+    background: rgba(228, 211, 211, 0.36);
+    color: #6c4438;
+    cursor: pointer;
+    z-index: 1000;
+}
+#down {
+    position: fixed;
+    float: right;
+    position: fixed;
+    border-radius: 50px;
+    right: 10px;
     bottom: 70px;
     padding: 10px 16px;
     font-size: 25px;

@@ -62,8 +62,8 @@
             {{-- <div class="card-text col-md-2"><input type="checkbox" value="1" name="cut[]"  id="checkboxNoLabel" style="height: 15px;width:15px">切</div> --}}
             <div class="card-text col-md-2">
             <select name="cut[]" class="form-select" aria-label="Default select example" id="cut">
-              <option selected value="切">切</option>
-              <option value="不切">不切</option>
+              <option  value="切">切</option>
+              <option selected value="不切">不切</option>
             </select> </div>
           </div>
       </div>
