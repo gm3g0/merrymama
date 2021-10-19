@@ -22,7 +22,7 @@
 @section('main')
 <h2>數據統計</h2>
 <div class="text-left">
-  <h4>2021/09/13</h4>
+  <h4>2021/09/13<input type="date" name="buydate" value="" id="dateto2"  min=""></h4>
 </div>
 <div class="row row-cols-1 row-cols-md-2 g-4">
   <div class="col">
