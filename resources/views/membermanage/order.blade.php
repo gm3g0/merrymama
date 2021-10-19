@@ -34,7 +34,8 @@
 
   <h5 class="row justify-content-between">
     <div class="col-md-4 text-start">訂購次數：<strong>{{ $countorder }}</strong> 次</div>
-    <div class="col-md-4 text-end">累計金額：<strong>{{ $counttotal }}</strong> 元</div>
+    <div class="col-md-4 text-middle">累計金額：<strong>{{ $counttotal }}</strong> 元</div>
+    <div class="col-md-4 text-end">留言次數：<strong>{{ $com_cnt }}</strong> 次</div>
   </h5>
 </div>
 <section class="table table-hover">

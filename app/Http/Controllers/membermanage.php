@@ -7,6 +7,7 @@ use App\Models\members;
 use App\Models\order;
 use App\Models\member_order;
 use App\Models\detail_order;
+use App\Models\comments;
 
 class membermanage extends Controller
 {
@@ -65,11 +66,15 @@ class membermanage extends Controller
         $test = detail_order::all();
 
         $orders = order::where('email', $member->email)->get();
+
+        $com_cnt = comments::where('email' , $member->email)->get();
+        $com_cnt = count($com_cnt);
         return view('membermanage.order' , ['member' => $member ,
                                             'countorder' => $countorder , 
                                             'counttotal' => $counttotal , 
                                             'orders' => $orders ,
-                                            'test' => $test ]);
+                                            'test' => $test ,
+                                            'com_cnt' => $com_cnt]);
     }
 
 }

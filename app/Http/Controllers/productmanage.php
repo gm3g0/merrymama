@@ -116,6 +116,7 @@ class productmanage extends Controller
                     $savedata->PName = $PName;
                     $savedata->price = $price;
                     $savedata->type = $type;
+                    $savedata->status = "1";
                     $savedata->introduction = $introduction;
                     $path = str_replace('public/','',$path);   //存入資料庫前對路徑做處理
                     $savedata->pic = $path;
