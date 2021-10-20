@@ -35,43 +35,77 @@
             {{ session()->get('notice') }}
         </div>
   @endif
-<form action="{{ route('productedit')}}" method="GETS" id="msform">
+<form action="{{ route('edit')}}" method="POST" id="msform" enctype="multipart/form-data">
   @csrf
   <div class="container">
     <div class="row justify-content-center">
       <div class="row col-md-12 text-start justify-content-center">
-        <div class="col-md-10">名稱：<input type="text" value="{{ $product->PName }}" name=""></div>
-        <div class="col-md-10">價格：<input type="text"  value="{{ $product->price }}" name=""></div>
+        <div class="col-md-10">名稱：{{ $product->PName }}</div>
+        <input type="text" name="PName" value="{{ $product->PName }}" style="display:none"/>
+        <div class="col-md-10">價格：<input type="text"  value="{{ $product->price }}" name="price"></div>
         <div class="col-md-10" style="margin-bottom: 25px;">分類：<br>
+        
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-            <label class="form-check-label" for="inlineCheckbox1">星期一</label>
+          @if($week1 == 1)
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="checkbox[]" value="星期一" checked="True">
+              <label class="form-check-label" for="inlineCheckbox1">星期一</label>
+          @else
+              <input class="form-check-input" type="checkbox" name="checkbox[]" id="inlineCheckbox1"   value="星期一">
+              <label class="form-check-label" for="inlineCheckbox1">星期一</label>
+          @endif
           </div>
+        
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-            <label class="form-check-label" for="inlineCheckbox2">星期二</label>
+          @if($week2 == 1)
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="checkbox[]" value="星期二" checked="True">
+              <label class="form-check-label" for="inlineCheckbox2">星期二</label>
+          @else
+              <input class="form-check-input" type="checkbox" name="checkbox[]" id="inlineCheckbox2" value="星期二">
+              <label class="form-check-label" for="inlineCheckbox2">星期二</label>
+          @endif
           </div>
+        
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option1">
-            <label class="form-check-label" for="inlineCheckbox1">星期三</label>
+          @if($week3 == 1)
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="checkbox[]" value="星期三" checked="True">
+              <label class="form-check-label" for="inlineCheckbox1">星期三</label>
+          @else
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="checkbox[]" value="星期三">
+              <label class="form-check-label" for="inlineCheckbox1">星期三</label>
+          @endif
           </div>
+      
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option2">
-            <label class="form-check-label" for="inlineCheckbox2">星期四</label>
+          @if($week4 == 1)
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox4" name="checkbox[]" value="星期四" checked="True">
+              <label class="form-check-label" for="inlineCheckbox2">星期四</label>
+          @else
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox4" name="checkbox[]" value="星期四">
+              <label class="form-check-label" for="inlineCheckbox2">星期四</label>
+          @endif
           </div>
+        
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option2">
-            <label class="form-check-label" for="inlineCheckbox2">星期五</label>
+          @if($week5 == 1)
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox5" name="checkbox[]" value="星期五" checked="True">
+              <label class="form-check-label" for="inlineCheckbox2">星期五</label>
+          @else
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox5" name="checkbox[]" value="星期五">
+              <label class="form-check-label" for="inlineCheckbox2">星期五</label>
+          @endif
           </div>
+          
         </div>
-        <div class="col-md-10" style="margin-bottom: 25px;">圖片：<input type="file" class="form-control" name="pic" /></div>
-        <div class="col-md-10">介紹：<textarea name="" style="height: 100px"></textarea></div>
+        
+        <div class="col-md-10" style="margin-bottom: 25px;">圖片：<input type="file" class="form-control" name="file" /></div>
+        <div class="col-md-4">
+        <img src="{{ asset('storage/' . $product->pic )}}" class="card-img-top align-self-center" alt="{{ $product->PName }}" style="height: 200px;width: 205px;"></div>
+        <div class="col-md-10">介紹：<textarea name="introduction" style="height: 100px">{{ $product->introduction }}</textarea></div>
       </div>
     </div>
   </div>
   <button class="next action-buttonb" type="submit">修改</button>
 </form>
-
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 

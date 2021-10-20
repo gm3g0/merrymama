@@ -77,7 +77,8 @@
           <td>{{ $product->introduction }}</td>
           <td>{{ $product->type }}</td>
           <td>{{ $product->price }}</td>
-          <td>{{ $product->pic }}</td>
+          <td><div class="col-md-4">
+          <img src="{{ asset('storage/' . $product->pic )}}" class="card-img-top align-self-center" alt="{{ $product->pic }}" style="height: 50px;width: 150px;"></div></td>
           <td>
             <div class="text-center"><input type="checkbox" name="checkbox[]" value="{{ $product->PName }}" id="checkboxNoLabel" style="height: 15px;width:15px"></div>
           </td>

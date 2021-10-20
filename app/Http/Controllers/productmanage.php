@@ -20,11 +20,6 @@ class productmanage extends Controller
         return view('productmanage.edit', ['products' => $products]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function productmanage(Request $request)
     {
         //
@@ -93,6 +88,7 @@ class productmanage extends Controller
         }
         return back()->with('notice', '修改成功!');*/
     }
+
     public function new_product(Request $request)
     {
         $PName = $_POST['PName'];
@@ -129,8 +125,8 @@ class productmanage extends Controller
         }else{
             return back()->with('notice', '請放置圖片！');
         }
-
     }
+
     public function edit_product()
     {
         $deletPName = $_POST['checkbox'];
@@ -142,67 +138,77 @@ class productmanage extends Controller
         
         return back()->with('notice', '已刪除所選商品！');;
     }
+
     public function productedit($PName){
         $product = products::where('PName' , $PName)->first();
+        $week = explode("、", $product->type);
+        $week1 = 0 ;$week2 = 0 ;$week3 = 0 ;$week4 = 0 ;$week5 = 0 ;
+        foreach($week as $we){
+            if($we == '星期一'){
+                $week1 = 1;
+            }elseif($we == '星期二'){
+                $week2 = 1;
+            }elseif($we == '星期三'){
+                $week3 = 1;
+            }elseif($we == '星期四'){
+                $week4 = 1;
+            }else{
+                $week5 = 1;
+            }
+        }
 
-        return view('productmanage.productedit', ['product' => $product]);
- 
+        return view('productmanage.productedit', ['product' => $product , 
+                                                    'week1' => $week1 ,
+                                                    'week2' => $week2 ,
+                                                    'week3' => $week3 ,
+                                                    'week4' => $week4 ,
+                                                    'week5' => $week5 ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function edit(Request $request)
     {
-        //
+        $PName = $_POST['PName'];
+        $price = $_POST['price'];
+        $type = $_POST['checkbox'];
+        $type = implode('、', $type);
+        $introduction = $_POST['introduction'];
+        
+        echo $PName;
+        echo $price;
+        echo $type;
+        echo $introduction;
+        
+        $theP = products::where('PName' , $PName)->first();   //找到該項商品
+        $checkprice = $theP->price;  //商品原價格
+        $checktype = $theP->type;   //商品原類型
+        $checkins = $theP->introduction;  //商品原介紹
+
+        if( request()->hasFile('file') ){  //照片處理
+            $file = $request->file('file');
+            $path = $file->store('public/product_images');   //只能放在public下
+            if( $price == '' || $introduction == ''){  
+                return back()->with('notice', '填寫資訊不全！');
+            }else{      
+                $theP->price = $price;
+                $theP->type = $type;
+                $theP->introduction = $introduction;
+                $path = str_replace('public/','',$path);   //存入資料庫前對路徑做處理
+                $theP->pic = $path;
+                $theP->save();
+                return back()->with('notice', '修改成功！');
+            }
+                
+        }else{
+          if(($checkprice == $price) && ($checktype == $type) && ($checkins == $introduction)){
+                return back()->with('notice', '請輸入修改資料！');
+            }else{
+                $theP->price = $price;
+                $theP->type = $type;
+                $theP->introduction = $introduction;
+                $theP->save();
+                return back()->with('notice', '修改成功！');
+            }
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
