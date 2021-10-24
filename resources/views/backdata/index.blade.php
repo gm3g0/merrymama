@@ -12,6 +12,11 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+<link rel="stylesheet" href="https://longbill.github.io/jquery-date-range-picker/dist/daterangepicker.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.2.min.js"></script>
+    <script type="text/javascript" src="https://longbill.github.io/jquery-date-range-picker/dist/jquery.daterangepicker.min.js"></script>
 <style>
   #chc2,#chc3, #chc4,#chc5, #chc6,#chc7,#chc8,#chc1 {
     color: black;
@@ -25,10 +30,21 @@
 @endsection
 @section('main')
 <h2>數據統計</h2>
-<div class="text-left">
-  <h4>2021/09/13</h4>
-  <input type="text" name="datefilter" value="" />
+<form action="" method="GET" id="msform">
+  @csrf
+<div class="row align-items-center text-left">
+  <div class="col-md-2">
+  <h4>2021/09/13</h4></div>
+<div class="col-md-1 text-right">
+  <span id="i" class="fa fa-calendar fa-fw fa-lg"> </span></div>
+<div class="col-md-4">
+  <input class="form-control" id='date_input' placeholder='查詢其他日期'  style="font-size: 22px;width:100%"/>
 </div>
+<div class="col-md-2">
+  <button type="submit" class="next action-buttonb" style="outline: none;">搜尋</button>
+</div>
+</div>
+
 <div class="row row-cols-1 row-cols-md-2 g-4">
   <div class="col">
     <div class="card h-100" >
@@ -76,6 +92,15 @@
     </div>
   </div>
 </div>
+</form>
+<script>
+  $('#date_input').dateRangePicker({
+singleMonth: true,
+showShortcuts: false,
+showTopbar: false,
+});
+</script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script type="text/javascript">
   $(function() {
