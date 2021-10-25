@@ -33,27 +33,29 @@
 <form action="{{ route('data.backdata') }}" method="POST" id="msform">
   @csrf
   
-<div class="row align-items-center text-left">
+<div class="row align-items-center text-left ">
   @if($date != '')
-    <div class="col-md-2">
+    <div class="col-md-4">
     <h4>{{ $date }}</h4></div>
   @endif
-<div class="col-md-1 text-right">
-  <span id="i" class="fa fa-calendar fa-fw fa-lg"> </span></div>
-<div class="col-md-4">
-  <input class="form-control" id='date_input' name="date" placeholder='查詢其他日期'  style="font-size: 22px;width:100%"/>
+  <div class="col-md-1 text-right">
+    <span id="i" class="fa fa-calendar fa-fw fa-lg"> </span></div>
+  <div class="col-md-4">
+    <input class="form-control" id='date_input' name="date" placeholder='查詢其他日期'  style="font-size: 22px;width:100%"/>
+  </div>
+  <div class="col-md-2">
+    <button type="submit" class="next action-buttonb" style="outline: none;">搜尋</button>
+  </div>
 </div>
-<div class="col-md-2">
-  <button type="submit" class="next action-buttonb" style="outline: none;">搜尋</button>
+<div>
+  <div id="nn12">61</div>
 </div>
-</div>
-
 <div class="row row-cols-1 row-cols-md-2 g-4">
   <div class="col">
     <div class="card h-100" >
       <div class="card-body">
         <h5 class="card-title">總訂單金額</h5>
-        <strong>{{ $total }}</strong>
+        <strong>0</strong>
       </div>
     </div>
   </div>
@@ -61,7 +63,7 @@
     <div class="card h-100" >
       <div class="card-body">
         <h5 class="card-title">總訂單筆數</h5>
-        <strong>{{ $count }}</strong>
+        <strong>0</strong>
       </div>
     </div>
   </div>
@@ -128,6 +130,7 @@ showTopbar: false,
 
 <script src="http://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
 <script>
+  var a=document.getElementById("nn12").innerHTML;
    Highcharts.chart('container1', {
   chart: {
     plotBackgroundColor: null,
@@ -146,6 +149,9 @@ showTopbar: false,
       valueSuffix: '%'
     }
   },
+  credits: {
+        enabled:false
+      },
   plotOptions: {
     pie: {
       allowPointSelect: true,
@@ -160,8 +166,8 @@ showTopbar: false,
     name: '銷售比',
     colorByPoint: true,
     data: [{
-      name: 'Chrome',
-      y: 61.41,
+      name: '11',
+      y:  document.write(parseInt(a)),
       sliced: true,
       selected: true
     }, {

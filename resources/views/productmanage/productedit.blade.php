@@ -40,9 +40,9 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="row col-md-12 text-start justify-content-center">
-        <div class="col-md-10">名稱：{{ $product->PName }}</div>
+        <div class="col-md-10" style="margin-bottom: 25px">名稱：{{ $product->PName }}</div>
         <input type="text" name="PName" value="{{ $product->PName }}" style="display:none"/>
-        <div class="col-md-10">價格：<input type="text"  value="{{ $product->price }}" name="price"></div>
+        <div class="col-md-10">價格：<input type="text"  value="{{ $product->price }}" name="price" style="width: 20%"></div>
         <div class="col-md-10" style="margin-bottom: 25px;">分類：<br>
         
           <div class="form-check form-check-inline">

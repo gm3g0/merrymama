@@ -24,6 +24,9 @@
     background-color: #fdd977;
     border-bottom-width: 3px
   }
+  #cc{
+    font-size: 16px
+  }
 </style>
 @endsection
 
@@ -56,7 +59,7 @@
             <th>
               <h6><b> 價格
             </th>
-            <th>
+            <th style="width: 200px">
               <h6><b> 圖片
             </th>
             <th>
@@ -69,21 +72,21 @@
         </thead>
     </div>
     <div class="tbl-content">
-      <tbody>
+      <tbody >
         @foreach($products as $product)
         @if($product->status == 1)
         <tr>
-          <td>{{ $product->PName }}</td>
-          <td>{{ $product->introduction }}</td>
-          <td>{{ $product->type }}</td>
-          <td>{{ $product->price }}</td>
-          <td><div class="col-md-4">
-          <img src="{{ asset('storage/' . $product->pic )}}" class="card-img-top align-self-center" alt="{{ $product->pic }}" style="height: 50px;width: 150px;"></div></td>
+          <td id="cc">{{ $product->PName }}</td>
+          <td id="cc">{{ $product->introduction }}</td>
+          <td id="cc">{{ $product->type }}</td>
+          <td id="cc">{{ $product->price }}</td>
+          <td id="cc"><div class="col-md-4">
+          <img src="{{ asset('storage/' . $product->pic )}}" class="card-img-top align-self-center" alt="{{ $product->pic }}" style="height: 150px;width: 145px;"></div></td>
           <td>
             <div class="text-center"><input type="checkbox" name="checkbox[]" value="{{ $product->PName }}" id="checkboxNoLabel" style="height: 15px;width:15px"></div>
           </td>
           <td>
-            <div>
+            <div class="">
               <button type="button" class="btn next action-buttonb"onclick="location.href='{{route('productedit' , $product->PName)}}'">修改</button>
             </div>
           </td>
