@@ -30,15 +30,18 @@
 @endsection
 @section('main')
 <h2>數據統計</h2>
-<form action="" method="GET" id="msform">
+<form action="{{ route('data.backdata') }}" method="POST" id="msform">
   @csrf
+  
 <div class="row align-items-center text-left">
-  <div class="col-md-2">
-  <h4>2021/09/13</h4></div>
+  @if($date != '')
+    <div class="col-md-2">
+    <h4>{{ $date }}</h4></div>
+  @endif
 <div class="col-md-1 text-right">
   <span id="i" class="fa fa-calendar fa-fw fa-lg"> </span></div>
 <div class="col-md-4">
-  <input class="form-control" id='date_input' placeholder='查詢其他日期'  style="font-size: 22px;width:100%"/>
+  <input class="form-control" id='date_input' name="date" placeholder='查詢其他日期'  style="font-size: 22px;width:100%"/>
 </div>
 <div class="col-md-2">
   <button type="submit" class="next action-buttonb" style="outline: none;">搜尋</button>
@@ -50,7 +53,7 @@
     <div class="card h-100" >
       <div class="card-body">
         <h5 class="card-title">總訂單金額</h5>
-        <strong>12200</strong>
+        <strong>{{ $total }}</strong>
       </div>
     </div>
   </div>
@@ -58,7 +61,7 @@
     <div class="card h-100" >
       <div class="card-body">
         <h5 class="card-title">總訂單筆數</h5>
-        <strong>1200</strong>
+        <strong>{{ $count }}</strong>
       </div>
     </div>
   </div>
@@ -133,7 +136,7 @@ showTopbar: false,
     type: 'pie'
   },
   title: {
-    text: '每麵包銷售量 '
+    text: '每麵包銷售量比'
   },
   tooltip: {
     pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -154,7 +157,7 @@ showTopbar: false,
     }
   },
   series: [{
-    name: 'Brands',
+    name: '銷售比',
     colorByPoint: true,
     data: [{
       name: 'Chrome',

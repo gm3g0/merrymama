@@ -12,7 +12,7 @@ class be_homepage extends Controller
     public function index(Request $request)
     {
         $email = session('email');
-        print_r($request->session()->all());
+        
         $news = news::orderBy('news_time','desc')->limit(3)->get();
         
         foreach($news as $new){
