@@ -48,8 +48,15 @@
   </div>
 </div>
 <div>
+  @php
+    $cnt = 0;
+  @endphp
   @foreach($test as $te)
-  <div id="nn12">{{ $te }}</div>
+  @php
+    $cnt += 1;
+    $cntt=strval($cnt);
+  @endphp
+  <div id="nn12{{$cntt}}">{{ $te }}</div>
   @endforeach
 </div>
 <div class="row row-cols-1 row-cols-md-2 g-4">

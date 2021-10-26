@@ -28,10 +28,16 @@
       <div class="col-md-7">
           明細：</div>
       <div class="col-md-7">
-      <?php 
-      for($i = 0 ; $i < count($testPName) ; $i++){ 
-        echo "&nbsp;&nbsp;&nbsp;&nbsp;" . $testPName[$i] . "&nbsp;&nbsp; x " . $testnum[$i] . "&nbsp;&nbsp;  " . $testcut[$i] . "</br>";
-      } ?>
+        <?php
+          echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8">'; //網頁編碼宣告  
+          for($i = 0 ; $i < count($testPName) ; $i++){ 
+            echo "<div class='row'>";
+            echo "&emsp;<div class='col-md-5'>$testPName[$i] </div>";
+            echo "<div class='col-md-2'>x $testnum[$i]</div>";
+            echo "<div class='col-md-4'>$testcut[$i]</div>";
+            echo "</div>";
+          }
+        ?>
       </div>
       @foreach($testPName as $PName)
       <input type="text" name="testPName[]" value="{{ $PName }}" style="display:none"/>
