@@ -15,7 +15,8 @@ class backdata extends Controller
     public function index()
     {
         $date ='';
-        return view('backdata.index' , ['date' => $date]);
+        $test = [1,2,3,4] ;
+        return view('backdata.index' , ['date' => $date , 'test' => $test]);
     }
     public function dataset()
     {
@@ -31,7 +32,8 @@ class backdata extends Controller
             $total += $search->total ;
         }
         $count = count($searchs);
-        return view('backdata.index', [ 'date' => $date , 'searchs' => $searchs , 'total' => $total , 'count' => $count]);
+        $test = [1,2,3,4] ;
+        return view('backdata.index', [ 'date' => $date , 'searchs' => $searchs , 'total' => $total , 'count' => $count , 'test' => $test]);
     }
 
 }
