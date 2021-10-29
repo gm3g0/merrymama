@@ -184,7 +184,7 @@ showTopbar: false,
     colorByPoint: true,
     data: [{
       name: '11',
-      y:  parseInt(a),
+      y:  4.48,
       sliced: true,
       selected: true
     }, {
@@ -253,7 +253,7 @@ showTopbar: false,
     series: [{
         name: 'Population',
         data: [
-            ['Shanghai', parseInt(a[1])],
+            ['Shanghai', 12.5],
             ['Beijing', 20.8],
             ['Karachi', 14.9],
             ['Shenzhen', 13.7],
