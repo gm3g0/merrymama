@@ -56,7 +56,9 @@
     $cnt += 1;
     $cntt=strval($cnt);
   @endphp
+  {{-- <div id="nn12{{$cntt}}">{{ $te }}</div> --}}
   <div id="nn12{{$cntt}}">{{ $te }}</div>
+  <div id="nn11">fhkh</div>
   @endforeach
 </div>
 <div class="row row-cols-1 row-cols-md-2 g-4">
@@ -83,28 +85,7 @@
       </div>
     </div>
   </div>
-  <div class="col">
-    <div class="card h-100">
-      <div class="card-body">
-        <div id="container2"></div>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100">
-      <div class="card-body">
-        <div id="container3"></div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100">
-      <div class="card-body">
-        <div id="container4"></div>
-      </div>
-    </div>
-  </div>
+
 </div>
 </form>
 <script>
@@ -138,93 +119,22 @@ showTopbar: false,
   </script>
 
 <script src="http://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
+
 <script>
-  
-  function percentToValue(value) {
-    var a=document.getElementById("nn12").innerHTML;
-    value = value + '';
-    const pointIndex = value.indexOf('.');
-    if (pointIndex === -1) return (value - 0) / 100;
-    const powIndex = value.length - pointIndex - 1;
-    return (value.replace('.', '') - 0) / Math.pow(10, powIndex + 2);
+  for(var i=0 ;i<4 ; i++){
+    var a=document.getElementById("nn12"+i).innerHTML;
   }
-   Highcharts.chart('container1', {
-  chart: {
-    plotBackgroundColor: null,
-    plotBorderWidth: null,
-    plotShadow: false,
-    type: 'pie'
-  },
-  title: {
-    text: '每麵包銷售量比'
-  },
-  tooltip: {
-    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-  },
-  accessibility: {
-    point: {
-      valueSuffix: '%'
-    }
-  },
-  credits: {
-        enabled:false
-      },
-  plotOptions: {
-    pie: {
-      allowPointSelect: true,
-      cursor: 'pointer',
-      dataLabels: {
-        enabled: true,
-        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-      }
-    }
-  },
-  series: [{
-    name: '銷售比',
-    colorByPoint: true,
-    data: [{
-      name: '11',
-      y:  4.48,
-      sliced: true,
-      selected: true
-    }, {
-      name: '123' ,
-      y: 11.84
-    }, {
-      name: 'Firefox',
-      y: 10.85
-    }, {
-      name: 'Edge',
-      y: 4.67
-    }, {
-      name: 'Safari',
-      y: 4.18
-    }, {
-      name: 'Sogou Explorer',
-      y: 1.64
-    }, {
-      name: 'Opera',
-      y: 1.6
-    }, {
-      name: 'QQ',
-      y: 1.2
-    }, {
-      name: 'Other',
-      y: 2.61
-    }]
-  }]
-});
-</script>
-<script>
-  var a=document.getElementById("nn12").innerHTML;
+  
+  var b=document.getElementById("nn11").innerHTML;
   // Create the chart
-  Highcharts.chart('container2', {
+  Highcharts.chart('container1', {
     chart: {
         type: 'column'
     },
     title: {
         text: 'World\'s largest cities per 2017'
     },
+    
     subtitle: {
         text: 'Source: <a href="http://en.wikipedia.org/wiki/List_of_cities_proper_by_population">Wikipedia</a>'
     },
@@ -250,11 +160,16 @@ showTopbar: false,
     tooltip: {
         pointFormat: 'Population in 2017: <b>{point.y:.1f} millions</b>'
     },
+    credits: {
+        enabled:false
+    },
     series: [{
         name: 'Population',
         data: [
-            ['Shanghai', 12.5],
-            ['Beijing', 20.8],
+          // for(let i=0 ; i<5 ;i++){
+          //   [ i, i+2]
+          // }
+            [b, parseInt(a)],
             ['Karachi', 14.9],
             ['Shenzhen', 13.7],
             ['Guangzhou', 13.1],
@@ -289,139 +204,7 @@ showTopbar: false,
     }]
 });
 </script>
-<script>
-Highcharts.chart('container3', {
 
-chart: {
-  type: 'column'
-},
-
-title: {
-  text: 'Total fruit consumption, grouped by gender'
-},
-
-xAxis: {
-  categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
-},
-
-yAxis: {
-  allowDecimals: false,
-  min: 0,
-  title: {
-    text: 'Number of fruits'
-  }
-},
-
-tooltip: {
-  formatter: function () {
-    return '<b>' + this.x + '</b><br/>' +
-      this.series.name + ': ' + this.y + '<br/>' +
-      'Total: ' + this.point.stackTotal;
-  }
-},
-
-plotOptions: {
-  column: {
-    stacking: 'normal'
-  }
-},
-
-series: [{
-  name: 'John',
-  data: [5],
-  stack: 'male'
-}, {
-  name: 'Joe',
-  data: [3, 4, 4, 2, 5],
-  stack: 'male'
-}, {
-  name: 'Jane',
-  data: [2, 5, 6, 2, 1],
-  stack: 'female'
-}, {
-  name: 'Janet',
-  data: [3, 0, 4, 4, 3],
-  stack: 'female'
-}]
-});
-</script>
-<script>
-  Highcharts.chart('container4', {
-  chart: {
-    zoomType: 'xy'
-  },
-  title: {
-    text: 'Average Monthly Temperature and Rainfall in Tokyo'
-  },
-  subtitle: {
-    text: 'Source: WorldClimate.com'
-  },
-  xAxis: [{
-    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-      'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-    crosshair: true
-  }],
-  yAxis: [{ // Primary yAxis
-    labels: {
-      format: '{value}°C',
-      style: {
-        color: Highcharts.getOptions().colors[1]
-      }
-    },
-    title: {
-      text: 'Temperature',
-      style: {
-        color: Highcharts.getOptions().colors[1]
-      }
-    }
-  }, { // Secondary yAxis
-    title: {
-      text: 'Rainfall',
-      style: {
-        color: Highcharts.getOptions().colors[0]
-      }
-    },
-    labels: {
-      format: '{value} mm',
-      style: {
-        color: Highcharts.getOptions().colors[0]
-      }
-    },
-    opposite: true
-  }],
-  tooltip: {
-    shared: true
-  },
-  legend: {
-    layout: 'vertical',
-    align: 'left',
-    x: 120,
-    verticalAlign: 'top',
-    y: 100,
-    floating: true,
-    backgroundColor:
-      Highcharts.defaultOptions.legend.backgroundColor || // theme
-      'rgba(255,255,255,0.25)'
-  },
-  series: [{
-    name: 'Rainfall',
-    type: 'column',
-    yAxis: 1,
-    data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4],
-    tooltip: {
-      valueSuffix: ' mm'
-    }
-
-  }, {
-    name: 'Temperature',
-    type: 'spline',
-    data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6],
-    tooltip: {
-      valueSuffix: '°C'
-    }
-  }]
-});
-</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
 
