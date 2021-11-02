@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use PDO;
 use PharIo\Manifest\Email;
@@ -55,24 +56,42 @@ class login extends Controller
 
         $account = $_POST['macount'];
         $password = $_POST['mpw'];
+        // $account=$request->input('macount');
+        // $password=$request->input('mpw');
+
         $checkaccount = members::where('email', $account )->pluck('email');
         $checkpassword = members::where('password', $password )->pluck('password');
         
         if ($account == "" || $password == "") {
             return back()->with('notice', '請輸入帳號及密碼！' );
-            
+         
         }elseif( ('["' . $account . '"]' == $checkaccount ) && ('["' . $password . '"]' == $checkpassword)) {
-            return redirect('/')->with('notice', '登入成功！');
             session(['email' => $email]);
-            
-                      
+            return redirect('/')->with('notice', '登入成功！');
+         
+         
+                   
         } else {
             return back()->with('notice', '帳號或密碼輸入錯誤！' );
         }
+
+        // if(('["' . $account . '"]' == $checkaccount ) && ('["' . $password . '"]' == $checkpassword)){
+        //     $minute=5;
+        //     $response=new Response("hello");
+        //     $response->withCookie(cookie('acc',$account,$minute));
+        //     $response->withCookie(cookie('pwd',$password,$minute));
+        //     dump($cookies);
+        //     return back()->with('notice', '登入成功！');
+        // }
+            
+           //
+            
+            //return $response;
+
     }
     public function logout(){
         session()->forget('email');
-        return redirect('/');
+        return ;
     }
     /**
      * Store a newly created resource in storage.
