@@ -99,8 +99,8 @@
         @yield('main')
         
       </div></div>
-      <i class="fas fa-arrow-up text-center" id=top style="display: none"><br>TOP</i>
-      <i class="fas fa-arrow-down text-center" id=down style="display: none"><br>DOWN</i>
+      <i class="fas fa-arrow-up text-center" id=top style="display: none"></i>
+      <i class="fas fa-arrow-down text-center" id=down style="display: none"></i>
       <footer class="footer">
         <label class="col align-self-center"style="margin-top: 15px;">Copyright © 2021 瑪利MAMA 中科大團隊 products. 版權所有</label>
       </footer>

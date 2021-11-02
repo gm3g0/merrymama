@@ -257,34 +257,35 @@
         @yield('main')
         
       </div></div></div>
-      <i class="fas fa-arrow-up text-center" id=top style="display: none"><br>TOP</i>
-      <i class="fas fa-arrow-down text-center" id=down style="display: none"><br>DOWN</i>
+      <i class="fas fa-arrow-up text-center" id=top style="display: none"></i>
+      <i class="fas fa-arrow-down text-center" id=down style="display: none"></i>
       <footer class="backfooter">
         <label class="col align-self-center"style="margin-top: 15px;">Copyright © 2021 瑪利MAMA 中科大團隊 products. 版權所有</label>
       </footer>
 
       <script>
-        // $("#top").click(function(){
-        //   jQuery("html,body").animate({
-        //       scrollTop:0
-        //   },100);
-        // });
-        // var element = document.getElementById('side');
-        // $(window).scroll(function() {
-        //   if ( $(this).scrollTop() > 50){
-        //       element.style.top = "60px"
-        //   } else {
-        //       element.style.top = "140px"
-        //   }
-        // });
-        // $(window).scroll(function() {
-        //   if ( $(this).scrollTop() > 200){
-        //       $('#top').fadeIn("fast");
-        //   } else {
-        //       $('#top').stop().fadeOut("fast");
-        //   }
-        // });
         $("#top").click(function(){
+          jQuery("html,body").animate({
+              scrollTop:0
+          },100);
+        });
+        var element = document.getElementById('side');
+        $(window).scroll(function() {
+          if ( $(this).scrollTop() > 50){
+              element.style.top = "60px"
+          } else {
+              element.style.top = "140px"
+          }
+        });
+        $(window).scroll(function() {
+          if ( $(this).scrollTop() > 200){
+              $('#top').fadeIn("fast");
+          } else {
+              $('#top').stop().fadeOut("fast");
+          }
+        });
+        
+    $("#top").click(function(){
       jQuery("html,body").animate({
           scrollTop:0
       },100);
