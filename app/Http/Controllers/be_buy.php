@@ -42,7 +42,8 @@ class be_buy extends Controller
 
     public function create(Request $request)  //前台我要購買填寫資料部分
     {   
-        $test_member = "test01@yahoo.com.tw" ;  //測試用，等session、能抓到使用者後，再做更改
+        $account = session('account');
+        //$test_member = "test01@yahoo.com.tw" ;  //測試用，等session、能抓到使用者後，再做更改
         $takedate = $_POST['takedate'];   //抓到取貨日期
         $savePName = $_POST['PName'];     //抓到所有商品名稱
         $savenum = $_POST['ticket'];      //抓到所有數量
@@ -62,7 +63,7 @@ class be_buy extends Controller
                 }
             }
     
-            $datamember = members::where('email' , $test_member)->first();
+            $datamember = members::where('email' , $account)->first();
             return view('be_buy.index2' , ['datamember' => $datamember , 
                                             'savetotal' => $savetotal ,
                                             'testPName' => $testPName ,

@@ -14,7 +14,8 @@ class be_story extends Controller
     public function index()
     {
         //
-        return view('be_story.index');
+        $account = session('account');
+        return view('be_story.index',['account' => $account ]);
     }
 
     /**
@@ -25,7 +26,8 @@ class be_story extends Controller
     public function create()
     {
         //
-        return view('be_story.index2');
+        $account = session('account');
+        return view('be_story.index2',['account' => $account ]);
     }
 
     /**

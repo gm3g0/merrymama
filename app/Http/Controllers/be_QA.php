@@ -14,8 +14,9 @@ class be_QA extends Controller
      */
     public function index()
     {
+        $account = session('account');
         $QAs = QuestionAnswer::all();
-        return view('be_QA.index', ['QAs' => $QAs]);
+        return view('be_QA.index', ['account' => $account ,'QAs' => $QAs]);
     }
 
     /**

@@ -46,8 +46,8 @@
   <div class="col-md-2">
     <button type="submit" class="next action-buttonb" style="outline: none;">搜尋</button>
   </div>
-</div>
-<div>
+</div><br>
+{{-- <div>
   @php
     $cnt = 0;
   @endphp
@@ -56,17 +56,17 @@
     $cnt += 1;
     $cntt=strval($cnt);
   @endphp
-  {{-- <div id="nn12{{$cntt}}">{{ $te }}</div> --}}
+  {{-- <div id="nn12{{$cntt}}">{{ $te }}</div> 
   <div id="nn12{{$cntt}}">{{ $te }}</div>
   <div id="nn11">fhkh</div>
   @endforeach
-</div>
+</div> --}}
 <div class="row row-cols-1 row-cols-md-2 g-4">
   <div class="col">
     <div class="card h-100" >
       <div class="card-body">
         <h5 class="card-title">總訂單金額</h5>
-        <strong>0</strong>
+        <strong>{{ $total }}</strong>
       </div>
     </div>
   </div>
@@ -74,17 +74,17 @@
     <div class="card h-100" >
       <div class="card-body">
         <h5 class="card-title">總訂單筆數</h5>
-        <strong>0</strong>
+        <strong>{{ $count }}</strong>
       </div>
     </div>
   </div>
-  <div class="col">
+  {{-- <div class="col">
     <div class="card h-100" >
       <div class="card-body">
         <div id="container1"></div>
       </div>
     </div>
-  </div>
+  </div> --}}
 
 </div>
 </form>

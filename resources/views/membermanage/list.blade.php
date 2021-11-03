@@ -56,6 +56,7 @@
     <div class="tbl-content">
         <tbody >
         @foreach($showdata as $show)
+          @if($show->proof == 0)
           <tr>      
               <td><a style="cursor: pointer; text-decoration:underline;color:#FEC601;font-size:16px"onclick="location.href='{{ route('memberrmanage.order' ,  $show->name )}}'">{{ $show->name }}</a></td>
               <td>{{ $show->email }}</td>  
@@ -65,7 +66,8 @@
               @else
                 <td>{{ $show->count }}</td>
               @endif
-          </tr>      
+          </tr>
+          @endif      
         @endforeach
         </tbody>
       </table>

@@ -1,4 +1,4 @@
-@extends('layouts.guest')
+@extends(((isset($account)) ? 'layouts.login' : 'layouts.guest' ))
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/all.css')}}"/>
 @endsection

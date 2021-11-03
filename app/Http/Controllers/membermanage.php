@@ -34,7 +34,7 @@ class membermanage extends Controller
         }
         
         $showdata = members::leftjoin('member_orders', 'members.email' , '=' , 'member_orders.email')
-                            ->select('members.email','members.name','members.tel','member_orders.count')
+                            ->select('members.email','members.proof','members.name','members.tel','member_orders.count')
                             ->get();
         return view('membermanage.list' , ['showdata' => $showdata ]);
     }

@@ -11,17 +11,17 @@ class be_homepage extends Controller
 
     public function index(Request $request)
     {
-        $email = session('email');
+        $account = session('account');
         
         $news = news::orderBy('news_time','desc')->limit(3)->get();
         
         foreach($news as $new){
             $shownews[] = str_replace('public/','',$new->news_pic);
         }
-        return view('be_homepage.index', ['email' => $email , 'shownews' => $shownews]);
+        return view('be_homepage.index', ['account' => $account , 'shownews' => $shownews]);
         
-        session()->forget('email');
-        return redirect('/');
+        // session()->forget('email');
+        // return redirect('/');
     }
 
     public function store(Request $request)

@@ -15,8 +15,9 @@ class backdata extends Controller
     public function index()
     {
         $date ='';
-        $test = [1,2,3,4] ;
-        return view('backdata.index' , ['date' => $date , 'test' => $test]);
+        $total = 0;
+        $count = 0;
+        return view('backdata.index' , ['date' => $date , 'total' => $total , 'count' => $count]);
     }
     public function dataset()
     {
@@ -26,14 +27,17 @@ class backdata extends Controller
         //echo var_dump(substr($date,0, 10)) . "</br>";
         //echo var_dump(substr($date, -10)) ;
         $start = substr($date,0, 10);
-        $end = substr($date, -10);
+        $start = date_add( $start, date_interval_create_from_date_string("1 day"));
+        
+        echo $start;
+        /*$end = substr($date, -10);
         $searchs = order::where('tekedate_time' , '>' , $start)->where('tekedate_time' , '<' , $end)->get();
         foreach($searchs as $search){
             $total += $search->total ;
         }
         $count = count($searchs);
-        $test = [1,2,3,4] ;
-        return view('backdata.index', [ 'date' => $date , 'searchs' => $searchs , 'total' => $total , 'count' => $count , 'test' => $test]);
+        return view('backdata.index', [ 'date' => $date , 'searchs' => $searchs , 'total' => $total , 'count' => $count ]);
+    */
     }
 
 }

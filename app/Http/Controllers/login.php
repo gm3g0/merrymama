@@ -21,8 +21,10 @@ class login extends Controller
     public function index()
     {
         //
-        $email = session('email');
-        return view('login.index', ['email' => $email]);
+        $account = session('account');
+        if(!isset($account)) return view('login.index');
+        else return back();//如果已經登入，就返回上一頁
+
     }
 
     /**
@@ -61,13 +63,20 @@ class login extends Controller
 
         $checkaccount = members::where('email', $account )->pluck('email');
         $checkpassword = members::where('password', $password )->pluck('password');
-        
+        $checkproof = members::where('email', $account )->pluck('proof');
+        $checkproof = json_decode(strval($checkproof))[0];
+
         if ($account == "" || $password == "") {
             return back()->with('notice', '請輸入帳號及密碼！' );
          
         }elseif( ('["' . $account . '"]' == $checkaccount ) && ('["' . $password . '"]' == $checkpassword)) {
-            session(['email' => $email]);
-            return redirect('/')->with('notice', '登入成功！');
+            session(['account' => $account]);
+            if($checkproof == 0){
+                return redirect('/');
+            }else{
+                return view('edit_homepage.index');
+            }
+            
          
          
                    
@@ -90,62 +99,8 @@ class login extends Controller
 
     }
     public function logout(){
-        session()->forget('email');
-        return ;
-    }
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        session()->forget('account');
+        return redirect('/');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

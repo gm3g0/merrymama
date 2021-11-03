@@ -1,4 +1,4 @@
-@extends(((isset($email)) ? 'layouts.login' : 'layouts.guest' ))
+@extends(((isset($account)) ? 'layouts.login' : 'layouts.guest' ))
 
 {{-- @extends('layouts.guest')  --}}
 

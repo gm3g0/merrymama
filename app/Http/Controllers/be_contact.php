@@ -10,8 +10,9 @@ class be_contact extends Controller
     
     public function index()
     {
+        $account = session('account');
         $contact = shops::all();
-        return view('be_contact.index' , ['contact' => $contact]);
+        return view('be_contact.index' , ['account' => $account ,'contact' => $contact]);
     }
     
 }

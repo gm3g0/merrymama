@@ -11,12 +11,13 @@ class be_product extends Controller
 
     public function index()  //商品介紹首頁
     {
+        $account = session('account');
         $Mon = products::where('type','like','%星期一%')->get();
         $Tue = products::where('type','like','%星期二%')->get();
         $Wed = products::where('type','like','%星期三%')->get();
         $Thu = products::where('type','like','%星期四%')->get();
         $Fri = products::where('type','like','%星期五%')->get();
-        return view('be_product.index' , [
+        return view('be_product.index' , ['account' => $account ,
             'Mon' => $Mon,
             'Tue' => $Tue,
             'Wed' => $Wed,
@@ -28,6 +29,7 @@ class be_product extends Controller
 
     public function product(Request $request)   //留言區
     {
+        
         $PName = $_POST['PName'];
         $content = $_POST['content'];
         $now = date("Y-m-d H:i:s"); //存取留言時間 
@@ -49,13 +51,14 @@ class be_product extends Controller
 
     public function show($PName)  //詳細介紹頁面
     {
+        $account = session('account');
         $product1 = products::where('PName', $PName )->first();
         $comments = comments::where('PName', $PName )
                             ->join('members','comments.email','=','members.email')
                             ->select('comments.context','comments.com_time','members.name')
                             ->get();
 
-        return view('be_product.index2' , ['product1' => $product1 , 'comments' => $comments]);
+        return view('be_product.index2' , ['account' => $account ,'product1' => $product1 , 'comments' => $comments]);
     }
 
     /**
