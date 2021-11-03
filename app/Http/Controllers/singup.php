@@ -15,8 +15,10 @@ class singup extends Controller
      */
     public function index()
     {
-        $email = session('email');
-        return view('singup.index', ['email' => $email]);
+        $account = session('account');
+        if(!isset($account)) return view('singup.index');
+        else return back();//如果已經登入，就返回上一頁
+
         
     }
 

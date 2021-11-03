@@ -29,18 +29,20 @@ class be_product extends Controller
 
     public function product(Request $request)   //留言區
     {
-        
+        $account = session('account');
         $PName = $_POST['PName'];
         $content = $_POST['content'];
         $now = date("Y-m-d H:i:s"); //存取留言時間 
-        $test_member = "test01@yahoo.com.tw" ;  //測試用，等session、能抓到使用者後，再做更改
+        //$test_member = "test01@yahoo.com.tw" ;  //測試用，等session、能抓到使用者後，再做更改
 
-        if($content == ""){
+        if($account == 'admin@nutc.edu.tw'){
+            return back()->with('notice',"此帳戶無法留言！");
+        }elseif($content == ""){
             return back()->with('notice',"請輸入留言！");
         }else{
             $savemesg = new comments;
             $savemesg->PName = $PName;
-            $savemesg->email = $test_member;
+            $savemesg->email = $account ;
             $savemesg->context = $content;
             $savemesg->com_time = $now;
             $savemesg->save();

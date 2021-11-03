@@ -19,7 +19,8 @@
       <div class="col-md-3">
           電話：<input type="tel" name="cphone" value="{{ $datamember->tel }}"></div>
       <div class="col-md-4">
-          E-mail：<input type="email" name="cemail" value="{{ $datamember->email }}"></div>
+          E-mail：<br>{{ $datamember->email }}</div>
+          <input type="email" name="cemail" value="{{ $datamember->email }}"style="display:none"/>
       <div class="col-md-7">
           本次取貨日期：{{ $takedate }}</div>
       <input type="text" name="takedate" value="{{ $takedate }}" style="display:none"/>

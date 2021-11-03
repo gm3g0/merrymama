@@ -30,7 +30,7 @@
         <!-- navbar只有light,dark,為設定字體顏色 -->
         <nav class="navbar navbar-expand-lg navbar-dark static-top" style="background-color: #6C4438 ">
           <div class="container">
-            <button class="navbar-brand no-gutters" style="border: 0px;background: transparent;"id="myb"onclick="location.href='{{route('homepage.index')}}'">
+            <button class="navbar-brand no-gutters" style="border: 0px;background: transparent;"id="myb"onclick="window.open('{{route('homepage.index')}}')">
               <img src="{{ asset('/logo.png')}}" height="90px" width="140px" style="margin: 0px;padding: 0px;" alt="icon" class="navbar-brand no-gutters">
               回前台
             </button>
@@ -243,7 +243,7 @@
                         <span class="menu-collapsed" >數據統計</span>   
                     </div>
                 </button>
-                <button onclick="location.href='{{route('data.index')}}'"  class="bg-transparent list-group-item list-group-item-action flex-column align-items-start">
+                <button onclick="location.href='{{route('logout')}}'"  class="bg-transparent list-group-item list-group-item-action flex-column align-items-start">
                   <div class="d-flex w-100 justify-content-start align-items-center"style="color: black">
                       <span class="fas fa-sign-out-alt fa-fw mr-3"aria-hidden="true"></span>
                       <span class="menu-collapsed" >登出</span>   

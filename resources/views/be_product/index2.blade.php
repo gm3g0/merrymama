@@ -87,13 +87,13 @@ $(".wishContent").on('input propertychange', function () {
     //判斷字數
     var len;
     if (userDesc) {
-        len = checkStrLengths(userDesc, 150);
+        len = checkStrLengths(userDesc, 100);
     } else {
         len = 0
     }
 
     //顯示字數
-    $(".wordsNum").html(len + '/150');
+    $(".wordsNum").html(len + '/100');
 });
 </script>
 @endsection

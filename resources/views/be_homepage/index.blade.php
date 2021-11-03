@@ -14,7 +14,7 @@
 <div class="col-12 col-sm-10 col-md-10 col-lg-8  text-center p-0 mt-5 mb-3">
   <h2 class="fas fa-bullhorn">&nbsp;最新消息</h2><br>
   {{-- 輪播式 --}}
-  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button id="bu" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>&nbsp;
       <button id="bu" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>&nbsp;
@@ -23,7 +23,7 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="色票2.png" class="d-block w-100" height="500px" width="450px" alt="...">
+        <img src="homepage.png" class="d-block w-100" height="500px" width="450px" alt="...">
       </div>
       @foreach($shownews as $shownew)
       <div class="carousel-item">

@@ -14,36 +14,42 @@ class be_buy extends Controller
 
     public function index()   //前台我要購買頁面
     {
-         
+        $account = session('account');
         $choosetime = takedate::max('choose_time');  //取得最新設定時間
         $takedates = takedate::where('choose_time',$choosetime)->pluck('tekedate_time'); //取得當次取貨日期
         $takedate = str_replace('["','',$takedates); //str_replace取代字串中a字元為b('a','b','字串') 在此為刪除不必要符號
         $takedate = str_replace('"]','',$takedate);
         $weeks = takedate::where('choose_time',$choosetime)->pluck('week'); //取得當次取貨星期 
         $week = json_decode($weeks)[0]; //將亂碼轉為jason陣列或物件
-        
-        if( trim($week) == "星期一" ){ //trim()刪除字串前的空白
-            $Ptype = products::where('type','like','%星期一%')->get();
-            return view('be_buy.index', ['takedate' => $takedate , 'week' => $week , 'Ptype' => $Ptype]);
-        }elseif(trim($week) == "星期二"){
-            $Ptype = products::where('type','like','%星期二%')->get();
-            return view('be_buy.index', ['takedate' => $takedate , 'week' => $week , 'Ptype' => $Ptype]);
-        }elseif(trim($week) == "星期三"){
-            $Ptype = products::where('type','like','%星期三%')->get();
-            return view('be_buy.index', ['takedate' => $takedate , 'week' => $week , 'Ptype' => $Ptype]);
-        }elseif(trim($week) == "星期四"){
-            $Ptype = products::where('type','like','%星期四%')->get();
-            return view('be_buy.index', ['takedate' => $takedate , 'week' => $week , 'Ptype' => $Ptype]);
-        }else{
-            $Ptype = products::where('type','like','%星期五%')->get();
-            return view('be_buy.index', ['takedate' => $takedate , 'week' => $week , 'Ptype' => $Ptype]);
+
+        if(!isset($account)){
+            return redirect()->route('login.index');
         }
+        else{
+            if( trim($week) == "星期一" ){ //trim()刪除字串前的空白
+                $Ptype = products::where('type','like','%星期一%')->get();
+                return view('be_buy.index', ['takedate' => $takedate , 'week' => $week , 'Ptype' => $Ptype]);
+            }elseif(trim($week) == "星期二"){
+                $Ptype = products::where('type','like','%星期二%')->get();
+                return view('be_buy.index', ['takedate' => $takedate , 'week' => $week , 'Ptype' => $Ptype]);
+            }elseif(trim($week) == "星期三"){
+                $Ptype = products::where('type','like','%星期三%')->get();
+                return view('be_buy.index', ['takedate' => $takedate , 'week' => $week , 'Ptype' => $Ptype]);
+            }elseif(trim($week) == "星期四"){
+                $Ptype = products::where('type','like','%星期四%')->get();
+                return view('be_buy.index', ['takedate' => $takedate , 'week' => $week , 'Ptype' => $Ptype]);
+            }else{
+                $Ptype = products::where('type','like','%星期五%')->get();
+                return view('be_buy.index', ['takedate' => $takedate , 'week' => $week , 'Ptype' => $Ptype]);
+            }
+        } 
     }
 
     public function create(Request $request)  //前台我要購買填寫資料部分
     {   
         $account = session('account');
         //$test_member = "test01@yahoo.com.tw" ;  //測試用，等session、能抓到使用者後，再做更改
+        
         $takedate = $_POST['takedate'];   //抓到取貨日期
         $savePName = $_POST['PName'];     //抓到所有商品名稱
         $savenum = $_POST['ticket'];      //抓到所有數量
