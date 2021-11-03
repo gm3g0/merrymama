@@ -27,17 +27,16 @@ class backdata extends Controller
         //echo var_dump(substr($date,0, 10)) . "</br>";
         //echo var_dump(substr($date, -10)) ;
         $start = substr($date,0, 10);
-        $start = date_add( $start, date_interval_create_from_date_string("1 day"));
-        
-        echo $start;
-        /*$end = substr($date, -10);
+        $start = date('Y-m-d',strtotime($start)-1*24*60*60);
+        $end = substr($date, -10);
+        $end = date('Y-m-d',strtotime($end)+1*24*60*60);
         $searchs = order::where('tekedate_time' , '>' , $start)->where('tekedate_time' , '<' , $end)->get();
         foreach($searchs as $search){
             $total += $search->total ;
         }
         $count = count($searchs);
         return view('backdata.index', [ 'date' => $date , 'searchs' => $searchs , 'total' => $total , 'count' => $count ]);
-    */
+    
     }
 
 }

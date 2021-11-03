@@ -51,7 +51,11 @@ class be_buy extends Controller
         $savecut = $_POST['cut'];         //抓到所有要不要切
         $savetotal = $_POST['tt'];        //抓到總金額
         $count = 0;         //計算所訂購麵包數量
-        if($savetotal == 0 ){
+
+        
+        if($account == 'admin@nutc.edu.tw'){
+            return back()->with('notice','此帳戶在本頁面僅供查看，若要訂購麵包，請登入自己的顧客帳號！');
+        }elseif($savetotal == 0 ){
             return back()->with('notice','請點選數量！');
         }else{
             for($i = 0 ; $i < count($savePName) ; $i++){     //將所訂購麵包另存別的陣列
