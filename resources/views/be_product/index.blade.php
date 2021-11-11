@@ -12,18 +12,19 @@
 <div class="col-12 col-sm-10 col-md-10 col-lg-8  text-center p-0 mt-5 mb-3" id="pa">
   <h2>商品介紹</h2><hr>
   <div id="js-scrollspy">
-    <div class="col-lg-2 js-scrollspy-nav nav">
+    <div class="col-lg-2 js-scrollspy-nav nav" id="wn">
       <div class="col-12">Day &nbsp;<i class="fas fa-heart"></i><hr style="height:1px;border:none;border-top:1px dashed #0066CC;"/></div>
-      <a href="#one"   class="col-12" >星期一</a>
-      <a href="#two"   class="col-12" >星期二</a>
-      <a href="#three" class="col-12" >星期三</a>
-      <a href="#four"  class="col-12" >星期四</a>
-      <a href="#five"  class="col-12" >星期五</a>
+      <a class="col-12 a" id="w1">星期一</a>
+      <a class="col-12 a" id="w2">星期二</a>
+      <a class="col-12 a" id="w3">星期三</a>
+      <a class="col-12 a" id="w4">星期四</a>
+      <a class="col-12 a" id="w5">星期五</a>
     </div>
 
     <div class="js-scrollspy-content content" id="msform" >
-      <h4 id="one" class="text-start" style="margin-left: 5px">星期一</h4>
-      <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px">
+      
+      <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px"id="one">
+      <h4 class="text-start" style="margin-left: 5px">星期一</h4>
       @foreach($Mon as $product)
         @if($product->status == 1)
         <div class="col">
@@ -42,10 +43,11 @@
         </div>
         @endif
       @endforeach
-      </div><br>
+      </div>
 
-      <h4 id="two" class="text-start" style="margin-left: 5px">星期二</h4>
-      <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px">
+      
+      <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px;display: none"id="two">
+      <h4 class="text-start" style="margin-left: 5px;">星期二</h4> 
       @foreach($Tue as $product)
         @if($product->status == 1)
         <div class="col">
@@ -64,10 +66,11 @@
         </div>
         @endif
       @endforeach  
-      </div><br>
+      </div>
       
-      <h4 id="three" class="text-start" style="margin-left: 5px">星期三</h4>
-      <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px">
+      
+      <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px;display: none"id="three">
+      <h4 class="text-start" style="margin-left: 5px;">星期三</h4>
       @foreach($Wed as $product)
         @if($product->status == 1)
         <div class="col">
@@ -86,10 +89,11 @@
         </div>
         @endif
       @endforeach  
-      </div><br>
+      </div>
 
-      <h4 id="four" class="text-start" style="margin-left: 5px">星期四</h4>
-      <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px">
+      
+      <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px;display: none"id="four">
+      <h4 class="text-start" style="margin-left: 5px;">星期四</h4>
       @foreach($Thu as $product)
         @if($product->status == 1)
         <div class="col">
@@ -108,10 +112,11 @@
         </div>
         @endif
       @endforeach  
-      </div><br>
+      </div>
 
-      <h4 id="five" class="text-start" style="margin-left: 5px">星期五</h4>
-      <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px">
+      
+      <div class="row row-cols-1 row-cols-md-2 g-4" style="margin:0px;display: none"id="five">
+      <h4  class="text-start" style="margin-left: 5px;">星期五</h4>
       @foreach($Fri as $product)
         @if($product->status == 1)
         <div class="col">
@@ -139,6 +144,68 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script>
+  $("#w1").click(function(){
+    $("#w1").css("color"," #fec601");
+    $("#one").show();
+    $("#two").hide();
+    $("#three").hide();
+    $("#four").hide();
+    $("#five").hide();
+    $("#w2").css("color","black");
+    $("#w3").css("color","black");
+    $("#w4").css("color","black");
+    $("#w5").css("color","black");
+  });
+  $("#w2").click(function(){
+    $("#w2").css("color"," #fec601");
+    $("#one").hide();
+    $("#two").show();
+    $("#three").hide();
+    $("#four").hide();
+    $("#five").hide();
+    $("#w1").css("color","black");
+    $("#w3").css("color","black");
+    $("#w4").css("color","black");
+    $("#w5").css("color","black");
+  });
+  $('#w3').click(function(){
+    $("#w3").css("color"," #fec601");
+    $("#one").hide();
+    $("#two").hide();
+    $("#three").show();
+    $("#four").hide();
+    $("#five").hide();
+    $("#w1").css("color","black");
+    $("#w2").css("color","black");
+    $("#w4").css("color","black");
+    $("#w5").css("color","black");
+  });
+  $('#w4').click(function(){
+    $("#w4").css("color"," #fec601");
+    $("#one").hide();
+    $("#two").hide();
+    $("#three").hide();
+    $("#four").show();
+    $("#five").hide();
+    $("#w2").css("color","black");
+    $("#w3").css("color","black");
+    $("#w1").css("color","black");
+    $("#w5").css("color","black");
+  });
+  $('#w5').click(function(){
+    $("#w5").css("color"," #fec601");
+    $("#one").hide();
+    $("#two").hide();
+    $("#three").hide();
+    $("#four").hide();
+    $("#five").show();
+    $("#w2").css("color","black");
+    $("#w3").css("color","black");
+    $("#w4").css("color","black");
+    $("#w1").css("color","black");
+  });
+</script>
 <script>			
     var spy = new ScrollSpy('#js-scrollspy', {
 				nav: '.js-scrollspy-nav  > a',
