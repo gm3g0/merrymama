@@ -61,6 +61,25 @@
   <div id="nn11">fhkh</div>
   @endforeach
 </div> --}}
+<div style="display: none">
+  <span id="name1">名稱1</span>
+  <span id="nub1">12</span>
+  <span id="name2">名稱2</span>
+  <span id="nub2">55</span>
+  <span id="name3">名稱3</span>
+  <span id="nub3">45</span>
+  <span id="name4">名稱4</span>
+  <span id="nub4">30</span>
+  <span id="name5">名稱5</span>
+  <span id="nub5">50</span>
+  <span id="name6">名稱6</span>
+  <span id="nub6">18</span>
+  <span id="name7">名稱7</span>
+  <span id="nub7">20</span>
+  <span id="name8">名稱8</span>
+  <span id="nub8">33</span>
+
+</div>
 <div class="row row-cols-1 row-cols-md-2 g-4">
   <div class="col">
     <div class="card h-100" >
@@ -85,15 +104,22 @@
       </div>
     </div>
   </div>
+  <div class="col">
+    <div class="card h-100" >
+      <div class="card-body">
+        <div id="container2"></div>
+      </div>
+    </div>
+  </div>
 
 </div>
 </form>
 <script>
   $('#date_input').dateRangePicker({
-singleMonth: true,
-showShortcuts: false,
-showTopbar: false,
-});
+    singleMonth: true,
+    showShortcuts: false,
+    showTopbar: false,
+    });
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
@@ -119,13 +145,29 @@ showTopbar: false,
   </script>
 
 <script src="http://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
-
 <script>
-  for(var i=0 ;i<4 ; i++){
-    var a=document.getElementById("nn12"+i).innerHTML;
-  }
-  
-  var b=document.getElementById("nn11").innerHTML;
+  // for(var i=0 ;i<4 ; i++){
+  //   var a=document.getElementById("nn12"+i).innerHTML;
+  // }
+  var na1=document.getElementById("name1").innerHTML;
+  var nub1=document.getElementById("nub1").innerHTML;
+  var na2=document.getElementById("name2").innerHTML;
+  var nub2=document.getElementById("nub2").innerHTML;
+  var na3=document.getElementById("name3").innerHTML;
+  var nub3=document.getElementById("nub3").innerHTML;
+  var na4=document.getElementById("name4").innerHTML;
+  var nub4=document.getElementById("nub4").innerHTML;
+  var na5=document.getElementById("name5").innerHTML;
+  var nub5=document.getElementById("nub5").innerHTML;
+  var na6=document.getElementById("name6").innerHTML;
+  var nub6=document.getElementById("nub6").innerHTML;
+  var na7=document.getElementById("name7").innerHTML;
+  var nub7=document.getElementById("nub7").innerHTML;
+  var na8=document.getElementById("name8").innerHTML;
+  var nub8=document.getElementById("nub8").innerHTML;
+
+</script>
+<script>
   // Create the chart
   Highcharts.chart('container1', {
     chart: {
@@ -134,10 +176,12 @@ showTopbar: false,
     title: {
         text: 'World\'s largest cities per 2017'
     },
-    
     subtitle: {
         text: 'Source: <a href="http://en.wikipedia.org/wiki/List_of_cities_proper_by_population">Wikipedia</a>'
     },
+    credits : {  
+      enabled:false,
+    },  
     xAxis: {
         type: 'category',
         labels: {
@@ -160,31 +204,73 @@ showTopbar: false,
     tooltip: {
         pointFormat: 'Population in 2017: <b>{point.y:.1f} millions</b>'
     },
-    credits: {
-        enabled:false
+    series: [{
+        name: 'Population',
+        data: [
+            [na1, parseInt(nub1)],
+            [na2, parseInt(nub2)],
+            [na3, parseInt(nub3)],
+            [na4, parseInt(nub4)]
+        ],
+        dataLabels: {
+            enabled: true,
+            rotation: -90,
+            color: '#FFFFFF',
+            align: 'right',
+            format: '{point.y:.1f}', // one decimal
+            y: 10, // 10 pixels down from the top
+            style: {
+                fontSize: '13px',
+                fontFamily: 'Verdana, sans-serif'
+            }
+        }
+    }]
+});
+</script>
+<script>
+  // Create the chart
+  Highcharts.chart('container2', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'World\'s largest cities per 2017'
+    },
+    subtitle: {
+        text: 'Source: <a href="http://en.wikipedia.org/wiki/List_of_cities_proper_by_population">Wikipedia</a>'
+    },
+    credits : {  
+      enabled:false,
+    },  
+    xAxis: {
+        type: 'category',
+        labels: {
+            rotation: -45,
+            style: {
+                fontSize: '13px',
+                fontFamily: 'Verdana, sans-serif'
+            }
+        }
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Population (millions)'
+        }
+    },
+    legend: {
+        enabled: false
+    },
+    tooltip: {
+        pointFormat: 'Population in 2017: <b>{point.y:.1f} millions</b>'
     },
     series: [{
         name: 'Population',
         data: [
-         
-            ['Karachi', 14.9],
-            ['Shenzhen', 13.7],
-            ['Guangzhou', 13.1],
-            ['Istanbul', 12.7],
-            ['Mumbai', 12.4],
-            ['Moscow', 12.2],
-            ['São Paulo', 12.0],
-            ['Delhi', 11.7],
-            ['Kinshasa', 11.5],
-            ['Tianjin', 11.2],
-            ['Lahore', 11.1],
-            ['Jakarta', 10.6],
-            ['Dongguan', 10.6],
-            ['Lagos', 10.6],
-            ['Bengaluru', 10.3],
-            ['Seoul', 9.8],
-            ['Foshan', 9.3],
-            ['Tokyo', 9.3]
+            [na5, parseInt(nub5)],
+            [na6, parseInt(nub6)],
+            [na7, parseInt(nub7)],
+            [na8, parseInt(nub8)]
         ],
         dataLabels: {
             enabled: true,
