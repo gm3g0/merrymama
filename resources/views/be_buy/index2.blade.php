@@ -15,9 +15,9 @@
   <div class="container" style="padding-left: 50px;">
     <div class="row col-md-12 text-start justify-content-center">
       <div class="col-md-3"> 
-          姓名：<input type="text" name="cname" value="{{ $datamember->name }}"></div>
+          姓名：<br>{{ $datamember->name }}</div>
       <div class="col-md-3">
-          電話：<input type="tel" name="cphone" value="{{ $datamember->tel }}"></div>
+          電話：<br>{{ $datamember->tel }}</div>
       <div class="col-md-4">
           E-mail：<br>{{ $datamember->email }}</div>
           <input type="email" name="cemail" value="{{ $datamember->email }}"style="display:none"/>

@@ -61,19 +61,15 @@
       <div id="collapseOne{{$cntt}}".$cntt class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
         <div class="accordion-body">
           <div class="container"><br>
-          <?php $abc = 0 ?>
           @foreach($detail_order as $detail)
-          <?php $abc += 1  ?>
             @if( $detail->order_id == $order->order_id )
-            <div class="row col-md-12 text-start align-self-center" style="margin: 0px;">
-{{--               
+            <div class="row col-md-12 text-start align-self-center" style="margin: 0px;">             
               <div class="col-md-6">
-                <?php
-                  if($abc == 1){ ?>
+              @if($test == 1)
                     {{ $detail->remark }}
-                  <?php }
-                ?>
-              </div> --}}
+                    <?php $test  += 1; ?>
+              @endif
+              </div>
               <div class="col-md-6">
                 {{ $detail->PName }}
               </div>
@@ -86,7 +82,9 @@
               <hr style="margin: 10px">
             </div><br>
             @endif
+            
           @endforeach
+          <?php $test  = 1; ?>
           </div>
         </div>
       </div>

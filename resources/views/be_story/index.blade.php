@@ -4,16 +4,16 @@
 @endsection
 
 @section('title')
-    <title>瑪利MAMA|瑪利媽媽介紹</title>
+    <title>瑪利MAMA|瑪利MAMA介紹</title>
 @endsection
 
 @section('main')
 <div class="col-12 col-sm-10 col-md-10 col-lg-8  text-center p-0 mt-5 mb-3">
-  <h2>瑪利媽媽介紹</h2><hr>
-  <h4 class="text-start">關於瑪利媽媽</h4>
-    <p class="text-start">&emsp;「瑪利MAMA‧手作麵包」以瑪利亞母愛無私無 悔的精神，賦予庇護商店快樂付出、活力工作、 經典品質的形象。
-      象徵瑪利媽媽的服務與產品， 如同每位媽媽的堅韌意志、勤手勤腳傳承給子女 的美果，是最經典的品質保證、無可取代的傳家寶。</p>
-    <p class="text-start">&emsp;「瑪利MAMA‧手作麵包」庇護商店打造清爽舒適 、乾淨明亮的店面環境，主打歐式麵包，
+  <h2>瑪利MAMA介紹</h2><hr>
+  <h4 class="text-start">關於瑪利MAMA</h4>
+    <p class="text-start">&emsp;「瑪利MAMA‧手作麵包」以瑪利亞母愛無私無悔的精神，賦予庇護商店快樂付出、活力工作、 經典品質的形象。
+      象徵瑪利媽媽的服務與產品， 如同每位媽媽的堅韌意志、勤手勤腳傳承給子女的美果，是最經典的品質保證、無可取代的傳家寶。</p>
+    <p class="text-start">&emsp;「瑪利MAMA‧手作麵包」庇護商店打造清爽舒適、乾淨明亮的店面環境，主打歐式麵包，
       強調老麵麵糰、低油、低糖，健康無負擔、優質之烘焙產品及營養均衡卻不失美味的輕食料理。</p>
     <p class="text-start">&emsp;「瑪利MAMA‧手作麵包」庇護商店期待能陪伴身心障礙者築夢。
       雖然他們有先天發展的不足，內心卻是大滿足，他們純真、簡單，用心學習揉製健康又好吃的麵包，

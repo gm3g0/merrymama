@@ -78,13 +78,13 @@
       </div>
     </div>
   </div>
-  {{-- <div class="col">
+  <div class="col">
     <div class="card h-100" >
       <div class="card-body">
         <div id="container1"></div>
       </div>
     </div>
-  </div> --}}
+  </div>
 
 </div>
 </form>
@@ -166,10 +166,7 @@ showTopbar: false,
     series: [{
         name: 'Population',
         data: [
-          // for(let i=0 ; i<5 ;i++){
-          //   [ i, i+2]
-          // }
-            [b, parseInt(a)],
+         
             ['Karachi', 14.9],
             ['Shenzhen', 13.7],
             ['Guangzhou', 13.1],

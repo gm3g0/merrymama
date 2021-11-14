@@ -39,6 +39,8 @@ class be_product extends Controller
             return back()->with('notice',"此帳戶無法留言！");
         }elseif($content == ""){
             return back()->with('notice',"請輸入留言！");
+        }elseif($account == ""){
+            return back()->with('notice',"請先登入！");
         }else{
             $savemesg = new comments;
             $savemesg->PName = $PName;
@@ -58,6 +60,7 @@ class be_product extends Controller
         $comments = comments::where('PName', $PName )
                             ->join('members','comments.email','=','members.email')
                             ->select('comments.context','comments.com_time','members.name')
+                            ->orderBy('comments.com_time','desc')
                             ->get();
 
         return view('be_product.index2' , ['account' => $account ,'product1' => $product1 , 'comments' => $comments]);

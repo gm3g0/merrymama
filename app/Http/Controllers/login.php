@@ -63,14 +63,15 @@ class login extends Controller
 
         $checkaccount = members::where('email', $account )->pluck('email');
         $checkpassword = members::where('password', $password )->pluck('password');
-        $checkproof = members::where('email', $account )->pluck('proof');
-        $checkproof = json_decode(strval($checkproof))[0];
+        
 
         if ($account == "" || $password == "") {
             return back()->with('notice', '請輸入帳號及密碼！' );
          
         }elseif( ('["' . $account . '"]' == $checkaccount ) && ('["' . $password . '"]' == $checkpassword)) {
             session(['account' => $account]);
+            $checkproof = members::where('email', $account )->pluck('proof');
+            $checkproof = json_decode(strval($checkproof))[0];
             if($checkproof == 0){
                 return redirect('/');
             }else{

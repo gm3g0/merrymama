@@ -26,12 +26,13 @@ class ordermanage extends Controller
         foreach( $orders as $order ){
             $count = $order->total + $count;
         }
-
+        $test = 1;
         $detail_order = detail_order::all();  //取得詳細訂單
 
         return view('ordermanage.order' , [ 'takedate' => $takedate ,
                                             'count' => $count , 
-                                            'orders' => $orders , 
+                                            'orders' => $orders ,
+                                            'test' => $test, 
                                             'detail_order' => $detail_order]);
     }
 
@@ -56,12 +57,13 @@ class ordermanage extends Controller
             }
         }
         $takedate_orders = takedate_order::all();
-
+        $test = 1;
         $orders = order::all();        //取得訂單資訊
         $detail_order = detail_order::all();  //取得詳細訂單
         return view('ordermanage.history' , [ 'takedates' => $takedates ,
                                                 'takedate_orders' => $takedate_orders ,
-                                                'orders' => $orders , 
+                                                'orders' => $orders ,
+                                                'test' => $test, 
                                                 'detail_order' => $detail_order]);
     }
 

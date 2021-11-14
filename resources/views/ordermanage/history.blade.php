@@ -63,6 +63,12 @@
                       @if( $detail->order_id == $order->order_id )
                       <div class="row col-md-12 text-start align-self-center" style="margin: 0px;">
                         <div class="col-md-6">
+                        @if($test == 1)
+                          {{ $detail->remark }}
+                          <?php $test  += 1; ?>
+                        @endif
+                        </div>
+                        <div class="col-md-6">
                           {{ $detail->PName }}
                         </div>
                         <div class="col-md-2">
@@ -75,6 +81,7 @@
                       </div><br>
                       @endif
                     @endforeach
+                    <?php $test  = 1; ?>
                     </div>
                   </div>
                 </div>
