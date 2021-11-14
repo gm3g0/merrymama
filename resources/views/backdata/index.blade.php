@@ -47,37 +47,23 @@
     <button type="submit" class="next action-buttonb" style="outline: none;">搜尋</button>
   </div>
 </div><br>
-{{-- <div>
-  @php
-    $cnt = 0;
-  @endphp
-  @foreach($test as $te)
-  @php
-    $cnt += 1;
-    $cntt=strval($cnt);
-  @endphp
-  {{-- <div id="nn12{{$cntt}}">{{ $te }}</div> 
-  <div id="nn12{{$cntt}}">{{ $te }}</div>
-  <div id="nn11">fhkh</div>
-  @endforeach
-</div> --}}
 <div style="display: none">
-  <span id="name1">名稱1</span>
-  <span id="nub1">12</span>
-  <span id="name2">名稱2</span>
-  <span id="nub2">55</span>
-  <span id="name3">名稱3</span>
-  <span id="nub3">45</span>
-  <span id="name4">名稱4</span>
-  <span id="nub4">30</span>
-  <span id="name5">名稱5</span>
+  <span id="name1">留言</span>
+  <span id="nub1">{{ $comment_total }}</span>
+  <span id="name2">(不重複)留言的會員</span>
+  <span id="nub2">{{ count($comment_member) }}</span>
+  <span id="name3">(不重複)被留言的麵包</span>
+  <span id="nub3">{{ count($comment_PName) }}</span>
+  <span id="name4"></span>
+  <span id="nub4"></span>
+  <span id="name5">麵包被購買的種類數</span>
   <span id="nub5">50</span>
-  <span id="name6">名稱6</span>
+  <span id="name6">(不重複)購買麵包的會員數</span>
   <span id="nub6">18</span>
-  <span id="name7">名稱7</span>
-  <span id="nub7">20</span>
-  <span id="name8">名稱8</span>
-  <span id="nub8">33</span>
+  <span id="name7"></span>
+  <span id="nub7"></span>
+  <span id="name8"></span>
+  <span id="nub8"></span>
 
 </div>
 <div class="row row-cols-1 row-cols-md-2 g-4">
@@ -174,11 +160,9 @@
         type: 'column'
     },
     title: {
-        text: 'World\'s largest cities per 2017'
+        text: '留言相關統計'
     },
-    subtitle: {
-        text: 'Source: <a href="http://en.wikipedia.org/wiki/List_of_cities_proper_by_population">Wikipedia</a>'
-    },
+    
     credits : {  
       enabled:false,
     },  
@@ -195,14 +179,14 @@
     yAxis: {
         min: 0,
         title: {
-            text: 'Population (millions)'
+            text: '個 / 人'
         }
     },
     legend: {
         enabled: false
     },
     tooltip: {
-        pointFormat: 'Population in 2017: <b>{point.y:.1f} millions</b>'
+        pointFormat: '數量： <b>{point.y:.1f} 個 / 人</b>'
     },
     series: [{
         name: 'Population',
@@ -234,10 +218,7 @@
         type: 'column'
     },
     title: {
-        text: 'World\'s largest cities per 2017'
-    },
-    subtitle: {
-        text: 'Source: <a href="http://en.wikipedia.org/wiki/List_of_cities_proper_by_population">Wikipedia</a>'
+        text: '購買相關統計'
     },
     credits : {  
       enabled:false,
@@ -255,14 +236,14 @@
     yAxis: {
         min: 0,
         title: {
-            text: 'Population (millions)'
+            text: '種 / 人'
         }
     },
     legend: {
         enabled: false
     },
     tooltip: {
-        pointFormat: 'Population in 2017: <b>{point.y:.1f} millions</b>'
+        pointFormat: '數量： <b>{point.y:.1f} 種 / 人</b>'
     },
     series: [{
         name: 'Population',
