@@ -48,18 +48,18 @@
   </div>
 </div><br>
 <div style="display: none">
-  <span id="name1">留言</span>
+  <span id="name1">留言數</span>
   <span id="nub1">{{ $comment_total }}</span>
-  <span id="name2">(不重複)留言的會員</span>
+  <span id="name2">(不重複)留言的會員數</span>
   <span id="nub2">{{ count($comment_member) }}</span>
   <span id="name3">(不重複)被留言的麵包</span>
   <span id="nub3">{{ count($comment_PName) }}</span>
   <span id="name4"></span>
   <span id="nub4"></span>
-  <span id="name5">麵包被購買的種類數</span>
-  <span id="nub5">50</span>
+  <span id="name5">被購買的麵包總數量</span>
+  <span id="nub5">{{ $cnt }}</span>
   <span id="name6">(不重複)購買麵包的會員數</span>
-  <span id="nub6">18</span>
+  <span id="nub6">{{ count($product_member) }}</span>
   <span id="name7"></span>
   <span id="nub7"></span>
   <span id="name8"></span>
