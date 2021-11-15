@@ -14,7 +14,7 @@
   <div id="js-scrollspy">
     <div class="col-lg-2 js-scrollspy-nav nav" id="wn">
       <div class="col-12">Day &nbsp;<i class="fas fa-heart"></i><hr style="height:1px;border:none;border-top:1px dashed #0066CC;"/></div>
-      <a class="col-12 a" id="w1">星期一</a>
+      <a class="col-12 a" id="w1" style="color: #fec601">星期一</a>
       <a class="col-12 a" id="w2">星期二</a>
       <a class="col-12 a" id="w3">星期三</a>
       <a class="col-12 a" id="w4">星期四</a>

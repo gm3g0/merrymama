@@ -28,8 +28,8 @@
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingOne">
         <button class="accordion-button  collapsed" type="button" data-toggle="collapse" .cntt data-target="#collapseOne{{$cntt}}" aria-expanded="false" aria-controls="collapseOne" >
-          <div class="row">
-            <div class="fs" style="font-size: 16px">訂單編號：{{ $order->order_id }}&nbsp;&nbsp;日期：{{ $order->tekedate_time }}&nbsp;&nbsp;金額：{{ $order->total }}</div>
+          <div class="row col-8 fs text-start" style="font-size: 16px">
+            <div class="col-3">訂單編號：{{ $order->order_id }}</div><div class="col-5">日期：{{ $order->tekedate_time }}</div><div class="col-4">金額：{{ $order->total }}</div>
           </div>
         </button>
       </h2>
@@ -38,8 +38,14 @@
             <div class="container">
               @foreach($datadetail_order as $detail_order)
                 @if( $detail_order->order_id == $order->order_id )  
-                <div class="row col-md-12 text-start align-self-center" style="margin: 0px">
+
+                <div class="text-start">
                   
+                    <b>備註：</b>
+                    
+                  
+                </div><br>
+                <div class="row col-md-12 text-start align-self-center" style="margin: 0px">
                   <div class="col-md-8">
                     {{ $detail_order->PName }}
                   </div>

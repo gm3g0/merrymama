@@ -83,5 +83,9 @@ class backdata extends Controller
                                         'cnt' => $cnt]);
     
     }
+    public function excel($type){
+        //return redirect('/');
+
+    }
 
 }

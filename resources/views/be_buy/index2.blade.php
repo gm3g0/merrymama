@@ -14,13 +14,14 @@
     @csrf
   <div class="container" style="padding-left: 50px;">
     <div class="row col-md-12 text-start justify-content-center">
-      <div class="col-md-3"> 
-          姓名：<br>{{ $datamember->name }}</div>
-      <div class="col-md-3">
-          電話：<br>{{ $datamember->tel }}</div>
-      <div class="col-md-4">
-          E-mail：<br>{{ $datamember->email }}</div>
+      <div class="col-md-3 text-end"> 
+          姓名：{{ $datamember->name }}</div>
+      <div class="col-md-3 text-end">
+          電話：{{ $datamember->tel }}</div>
+      <div class="col-md-6 text-center">
+          E-mail：{{ $datamember->email }}</div>
           <input type="email" name="cemail" value="{{ $datamember->email }}"style="display:none"/>
+      <div class="col-md-7" style="visibility:hidden">0</div>
       <div class="col-md-7">
           本次取貨日期：{{ $takedate }}</div>
       <input type="text" name="takedate" value="{{ $takedate }}" style="display:none"/>

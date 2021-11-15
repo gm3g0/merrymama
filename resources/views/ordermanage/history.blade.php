@@ -51,24 +51,25 @@
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingOne">
                 <button class="accordion-button  collapsed" type="button" data-toggle="collapse".$cntt.$cnn data-target="#collapseOne{{$cntt}}{{$cnn}}" aria-expanded="false" aria-controls="collapseOne" >
-                  <div class="row">
-                    <div class="fs" style="font-size: 16px">訂單編號：{{ $order->order_id }}&nbsp;&nbsp;金額：{{ $order->total }}&nbsp;&nbsp;會員：{{ $order->email }}</div>
+                  <div class="row col-12">
+                    <div class="col-3" >訂單編號：{{ $order->order_id }}</div><div class="col-3">金額：{{ $order->total }}</div><div class="col-6">會員：{{ $order->email }}</div>
                   </div>
                 </button>
               </h2>
                 <div id="collapseOne{{$cntt}}{{$cnn}}".$cntt.$cnn class="accordion-collapse collapse"aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                   <div class="accordion-body">
-                    <div class="container"><br>
+                    <div class="container">
                     @foreach($detail_order as $detail)
                       @if( $detail->order_id == $order->order_id )
-                      <div class="row col-md-12 text-start align-self-center" style="margin: 0px;">
-                        <div class="col-md-6">
+                      <div class="text-start">
                         @if($test == 1)
+                          <b>備註：</b>
                           {{ $detail->remark }}
                           <?php $test  += 1; ?>
                         @endif
-                        </div>
-                        <div class="col-md-6">
+                      </div><br>
+                      <div class="row col-md-12 text-start align-self-center" style="margin: 0px;">
+                        <br><div class="col-md-6">
                           {{ $detail->PName }}
                         </div>
                         <div class="col-md-2">
@@ -78,7 +79,7 @@
                           {{ $detail->cut }}
                         </div>
                         <hr style="margin: 10px">
-                      </div><br>
+                      </div>
                       @endif
                     @endforeach
                     <?php $test  = 1; ?>
