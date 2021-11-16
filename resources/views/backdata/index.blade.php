@@ -46,9 +46,9 @@
   <div class="col-md-2">
     <button type="submit" class="next action-buttonb" style="outline: none;">搜尋</button>
   </div>
-  <div class="col-md-1">
+  {{-- <div class="col-md-1">
     <a href="{{ URL::to('excel/xls') }}"><button class="next action-buttonb" style="outline: none;">Excel</button></a>
-  </div>
+  </div> --}}
 </div><br>
 <div style="display: none">
   <span id="name1">留言數</span>
