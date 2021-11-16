@@ -40,22 +40,27 @@
                 @if( $detail_order->order_id == $order->order_id )  
 
                 <div class="text-start">
-                  
+                @if($test == 1)
                     <b>備註：</b>
-                    
-                  
+                    {{ $detail_order->remark }}
+                    <?php $test  += 1; ?>
+                @endif  
                 </div><br>
                 <div class="row col-md-12 text-start align-self-center" style="margin: 0px">
-                  <div class="col-md-8">
+                  <div class="col-md-5">
                     {{ $detail_order->PName }}
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-2">
                     x {{ $detail_order->num }}
+                  </div>
+                  <div class="col-md-2">
+                    {{ $detail_order->cut }}
                   </div>
                   <hr style="margin: 10px;width: 180px">
                 </div>
                 @endif
               @endforeach
+              <?php $test  = 1; ?>
             </div>
           </div>
         </div>

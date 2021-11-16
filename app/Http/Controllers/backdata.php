@@ -84,7 +84,15 @@ class backdata extends Controller
     
     }
     public function excel($type){
-        //return redirect('/');
+        $data = order::get(['email','total'])->toArray();
+           // dd($data);
+
+        return Excel::create('export_to_excel_example', function($excel) use ($data) {
+            $excel->sheet('mySheet', function($sheet) use ($data)
+            {
+                $sheet->fromArray($data);
+            });
+        })->download($type);
 
     }
 
