@@ -46,9 +46,6 @@
   <div class="col-md-2">
     <button type="submit" class="next action-buttonb" style="outline: none;">搜尋</button>
   </div>
-  <div class="col-md-1">
-    <a href="{{ URL::to('excel/xls') }}"><button class="next action-buttonb" style="outline: none;">Excel</button></a>
-  </div>
 </div><br>
 <div style="display: none">
   <span id="name1">留言數</span>
@@ -97,6 +94,20 @@
     <div class="card h-100" >
       <div class="card-body">
         <div id="container2"></div>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100" >
+      <div class="card-body">
+        <div id="container3"></div>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100" >
+      <div class="card-body">
+        <div id="container4"></div>
       </div>
     </div>
   </div>
@@ -270,6 +281,80 @@
         }
     }]
 });
+</script>
+<script>
+  Highcharts.chart('container3', {
+
+  title: {
+      text: 'Logarithmic axis demo'
+  },
+  credits : {  
+      enabled:false,
+    },  
+
+  xAxis: {
+      tickInterval: 1,
+      type: 'logarithmic',
+      accessibility: {
+          rangeDescription: 'Range: 1 to 10'
+      }
+  },
+  
+  yAxis: {
+      type: 'logarithmic',
+      minorTickInterval: 0.1,
+      accessibility: {
+          rangeDescription: 'Range: 0.1 to 1000'
+      }
+  },
+  
+  tooltip: {
+      headerFormat: '<b>{series.name}</b><br />',
+      pointFormat: 'x = {point.x}, y = {point.y}'
+  },
+  
+  series: [{
+      data: [1, 2, 4, 8, 16, 32, 64, 128, 256, 512],
+      pointStart: 1
+  }]
+  });
+</script>
+<script>
+  Highcharts.chart('container4', {
+
+  title: {
+      text: 'Logarithmic axis demo'
+  },
+  credits : {  
+      enabled:false,
+    },  
+
+  xAxis: {
+      tickInterval: 1,
+      type: 'logarithmic',
+      accessibility: {
+          rangeDescription: 'Range: 1 to 10'
+      }
+  },
+  
+  yAxis: {
+      type: 'logarithmic',
+      minorTickInterval: 0.1,
+      accessibility: {
+          rangeDescription: 'Range: 0.1 to 1000'
+      }
+  },
+  
+  tooltip: {
+      headerFormat: '<b>{series.name}</b><br />',
+      pointFormat: 'x = {point.x}, y = {point.y}'
+  },
+  
+  series: [{
+      data: [1, 2, 4, 8, 16, 32, 64, 128, 256, 512],
+      pointStart: 1
+  }]
+  });
 </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>

@@ -23,20 +23,23 @@
 <h2>訂單管理-訂單資訊</h2><br>
 <div class="container">
   <div class="row  align-items-center">
-    <div class="col-md-2 text-end">
-      <h4>取貨日期：</h4>
-    </div>
-    <div class="col-md-2 text-start ">
-      <strong >{{ $takedate }}</strong>
-    </div>
-    <div class="col-md-3 text-start ">
+    <div class="col-md-5">
+      <h4>取貨日期：<strong>{{ $takedate }}</strong></h4>
       
     </div>
-    <div class="col-md-3  text-end ">
-      <h4 >目前累計金額：</h4>
+    {{-- <div class="col-md-2 text-start ">
+      
+    </div> --}}
+    
+    <div class="col-md-5">
+      <h4 >目前累計金額：<strong>{{ $count }}</strong> 元</h4>
+      
     </div>
-    <div class="col-md-2 text-start">
-      <strong>{{ $count }}</strong> 元
+    {{-- <div class="col-md-2 text-start">
+      
+    </div> --}}
+    <div class="col-md-2 text-end" id="msform" style="margin-top: 0px;">
+      <input type="button" class="next action-buttonb" style="outline: none;" value="Excel"onclick="window.open('https://docs.google.com/spreadsheets/d/1fJGNve3_rjgjofGVTYF-VKE81-_fmAgF_nMthdbm7ko/edit?usp=sharing')"/>
     </div>
   </div>
 </div>
