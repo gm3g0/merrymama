@@ -283,78 +283,82 @@
 });
 </script>
 <script>
-  Highcharts.chart('container3', {
-
-  title: {
-      text: 'Logarithmic axis demo'
-  },
-  credits : {  
+Highcharts.chart('container3', {
+    chart: {
+        type: 'line'
+    },
+    title: {
+        text: '會員註冊人數(月)'
+    },
+    credits : {  
       enabled:false,
-    },  
-
-  xAxis: {
-      tickInterval: 1,
-      type: 'logarithmic',
-      accessibility: {
-          rangeDescription: 'Range: 1 to 10'
-      }
-  },
-  
-  yAxis: {
-      type: 'logarithmic',
-      minorTickInterval: 0.1,
-      accessibility: {
-          rangeDescription: 'Range: 0.1 to 1000'
-      }
-  },
-  
-  tooltip: {
-      headerFormat: '<b>{series.name}</b><br />',
-      pointFormat: 'x = {point.x}, y = {point.y}'
-  },
-  
-  series: [{
-      data: [1, 2, 4, 8, 16, 32, 64, 128, 256, 512],
-      pointStart: 1
-  }]
-  });
+    },
+    
+    xAxis: {
+        categories: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+    },
+    yAxis: {
+        title: {
+            text: '人數(個)'
+        }
+    },
+    plotOptions: {
+        line: {
+            dataLabels: {
+                enabled: true
+            },
+            enableMouseTracking: false
+        }
+    },
+    series: [{
+        name: '註冊人數',
+        data: [0,0,0,0,0,0,0,3,2,7, {
+            y: 13,
+            marker: {
+                symbol: 'url(https://www.highcharts.com/samples/graphics/sun.png)'
+            }
+        },2]
+    }]
+});
 </script>
 <script>
   Highcharts.chart('container4', {
-
-  title: {
-      text: 'Logarithmic axis demo'
-  },
-  credits : {  
+    chart: {
+        type: 'line'
+    },
+    title: {
+        text: '會員註冊人數(月)'
+    },
+    credits : {  
       enabled:false,
-    },  
-
-  xAxis: {
-      tickInterval: 1,
-      type: 'logarithmic',
-      accessibility: {
-          rangeDescription: 'Range: 1 to 10'
-      }
-  },
-  
-  yAxis: {
-      type: 'logarithmic',
-      minorTickInterval: 0.1,
-      accessibility: {
-          rangeDescription: 'Range: 0.1 to 1000'
-      }
-  },
-  
-  tooltip: {
-      headerFormat: '<b>{series.name}</b><br />',
-      pointFormat: 'x = {point.x}, y = {point.y}'
-  },
-  
-  series: [{
-      data: [1, 2, 4, 8, 16, 32, 64, 128, 256, 512],
-      pointStart: 1
-  }]
-  });
+    },
+    
+    xAxis: {
+        categories: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+    },
+    yAxis: {
+        title: {
+            text: '人數(個)'
+        }
+    },
+    plotOptions: {
+        line: {
+            dataLabels: {
+                enabled: true
+            },
+            enableMouseTracking: false
+        }
+    },
+    series: [{
+        name: '註冊人數',
+        data: [0,0,0,0,0,0,0,3,2,7, {
+            y: 13,
+            marker: {
+                symbol: 'url(https://www.highcharts.com/samples/graphics/sun.png)'
+            }
+        },2]
+    }]
+});
 </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
