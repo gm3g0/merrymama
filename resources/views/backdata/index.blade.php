@@ -327,7 +327,7 @@ Highcharts.chart('container3', {
         type: 'line'
     },
     title: {
-        text: '會員註冊人數(月)'
+        text: '購買金額(月)'
     },
     credits : {  
       enabled:false,
@@ -338,7 +338,7 @@ Highcharts.chart('container3', {
     },
     yAxis: {
         title: {
-            text: '人數(個)'
+            text: '金額(元)'
         }
     },
     plotOptions: {
@@ -350,13 +350,13 @@ Highcharts.chart('container3', {
         }
     },
     series: [{
-        name: '註冊人數',
-        data: [0,0,0,0,0,0,0,3,2,7, {
-            y: 13,
+        name: '購買金額',
+        data: [4305,5135,{
+            y: 7240,
             marker: {
                 symbol: 'url(https://www.highcharts.com/samples/graphics/sun.png)'
             }
-        },2]
+        },4650,5430,6035 ]
     }]
 });
 </script>
