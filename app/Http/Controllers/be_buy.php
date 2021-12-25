@@ -101,7 +101,8 @@ class be_buy extends Controller
         $saveorder->total = $savetotal;
         $saveorder->save();
 
-        $order_id = order::where('email' , $email)->where('tekedate_time' , $takedate)->pluck('order_id');
+        $now = date("Y-m-d H:i:s");
+        $order_id = order::where('email' , $email)->where('tekedate_time' , $takedate)->where('created_at' , $now)->pluck('order_id');
         $order_id = str_replace('[','',$order_id);
         $order_id = str_replace(']','',$order_id);
         for($j= 0 ; $j < count($savePName) ; $j++ ){   //此為詳細訂單儲存
