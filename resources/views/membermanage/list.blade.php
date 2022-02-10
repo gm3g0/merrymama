@@ -1,6 +1,7 @@
 @extends('layouts.staff2')
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/all.css')}}"/>
+    
 @endsection
 
 @section('title')
@@ -31,6 +32,9 @@
   @endif
   <div class="row g-3 align-items-center float-right" style="padding: 0px;">
     <div class="col-auto">
+      <button onclick="ExportToExcel('xlsx')">Export table to excel</button>
+  </div>
+    <div class="col-auto">
         <label for="inputPassword6" class="col-form-label">名稱：</label>
     </div>
     <div class="col-auto">
@@ -43,7 +47,7 @@
 
   <section class="table table-hover">
     <div class="col align-self-center"> <!--時間表-->
-      <table cellpadding="0" cellspacing="0" >
+      <table cellpadding="0" cellspacing="0" id="table">
         <thead>
           <tr class="tbl-header">
             <th><h6><b> 名稱</th>
@@ -80,6 +84,15 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script>
+      function ExportToExcel(type, fn, dl) {
+          var elt = document.getElementById('table');
+          var wb = XLSX.utils.table_to_book(elt, { sheet: "會員" });
+          return dl ?
+              XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+              XLSX.writeFile(wb, fn || ('會員管理.' + (type || 'xlsx')));
+      }
 
+  </script>
 
 @endsection

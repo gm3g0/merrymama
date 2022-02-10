@@ -19,7 +19,7 @@
 </style>
 @endsection
 @section('main')
-<h2>會員管理</h2>
+<h2>會員管理</h2><button onclick="ExportToExcel('xlsx')">Export table to excel</button>
 <form id="msform" method="GET">
   <div class="container">
     <div class="row">
@@ -40,7 +40,7 @@
 </div>
 <section class="table table-hover">
   <div class="col align-self-center"> <!--時間表-->
-    <table cellpadding="0" cellspacing="0" >
+    <table cellpadding="0" cellspacing="0" id="table">
       <thead>
         <tr class="tbl-header">
           <th><h6><b> 訂單編號</th>
@@ -102,6 +102,16 @@
 </form>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script>
+      function ExportToExcel(type, fn, dl) {
+          var elt = document.getElementById('table');
+          var name='<?php echo $member->name ;?>';
+          var wb = XLSX.utils.table_to_book(elt, { sheet: name });
+          return dl ?
+              XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+              XLSX.writeFile(wb, fn || ('會員訂單.' + (type || 'xlsx')));
+      }
 
+  </script>
 
 @endsection
