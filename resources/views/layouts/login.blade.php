@@ -95,7 +95,7 @@
             d.innerHTML='現在時間:'+year+'年'+mon+'月'+da+'日'+/*'星期'+day+*/' '+h+':'+m+':'+s; },1000) }</script>
         </div> --}}
         <div class="col warp">
-          <div class="row justify-content-center mt-0">
+          <div class="row justify-content-center mt-0"id="go">
         @yield('main')
         
       </div></div>

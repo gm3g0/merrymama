@@ -39,10 +39,12 @@
       
     </div> --}}
     <div class="col-md-2 text-end" id="msform" style="margin-top: 0px;">
-      <input type="button" class="next action-buttonb" style="outline: none;" value="Excel"onclick="window.open('https://docs.google.com/spreadsheets/d/1fJGNve3_rjgjofGVTYF-VKE81-_fmAgF_nMthdbm7ko/edit?usp=sharing')"/>
+      <button class="next action-buttonv" style="outline: none;" value="Excel" onclick="ExportToExcel('xlsx')">Excel</button>
+      {{--<input type="button" class="next action-buttonb" style="outline: none;" value="Excel"onclick="window.open('https://docs.google.com/spreadsheets/d/1fJGNve3_rjgjofGVTYF-VKE81-_fmAgF_nMthdbm7ko/edit?usp=sharing')"/>--}}
     </div>
   </div>
 </div>
+
   @php
     $cnt = 0;
   @endphp
@@ -98,7 +100,72 @@
   @endforeach
 </div>
   
-  
+<section class="table table-hover">
+  <div class="col align-self-center"> <!--時間表-->
+    <table cellpadding="0" cellspacing="0" id="table">
+      <thead>
+        <tr class="tbl-header">
+          <th><h6><b> 訂單編號</th>
+          <th><h6><b> 金額</th>
+          <th><h6><b> 會員</th>
+          <th><h6><b> 備註</th>
+          <th><h6><b> 麵包品項</th>
+          <th><h6><b> 數量</th>
+          <th><h6><b> 切或不切</th>
+        </tr>
+      </thead>
+  </div>
+  <div class="tbl-content">
+      <tbody >
+        @php
+          $cnt = 0;
+        @endphp
+          @foreach($orders as $order)
+              @php
+                $cnt += 1;
+                $cntt=strval($cnt);
+              @endphp
+              <tr>
+                <td>
+                  {{ $order->order_id }}
+                </td>
+                <td>{{ $order->total }}</td>  
+                <td>{{ $order->email }}</td>
+                
+                <td>
+                  @if($test == 1)
+                    <b>備註：</b>
+                    {{ $detail->remark }}
+                    <?php $test  += 1; ?>
+                  @endif
+                </td>
+            @foreach($detail_order as $detail)
+              @if( $detail->order_id == $order->order_id )
+                
+                <td>{{ $detail->PName }}</td>
+                <td>x {{ $detail->num }}</td>
+                <td>{{ $detail->cut }}</td>
+              </tr>
+              @endif
+            @endforeach
+            @endforeach
+            <?php $test  = 1; ?>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script>
+  function ExportToExcel(type, fn, dl) {
+      var elt = document.getElementById('table');
+      var wb = XLSX.utils.table_to_book(elt, { sheet: "訂單" });
+      return dl ?
+          XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+          XLSX.writeFile(wb, fn || ('訂單.' + (type || 'xlsx')));
+  }
+
+</script>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>

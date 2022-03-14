@@ -19,7 +19,7 @@
       雖然他們有先天發展的不足，內心卻是大滿足，他們純真、簡單，用心學習揉製健康又好吃的麵包，
       希望讓每一個進來的人都滿載幸福的滋味。 每堆積一份幸福，離夢想就愈來愈近......</p>
     <p class="text-start">&emsp;在瑪利亞愛心家園烘焙教室裡，常常看見用雙手使勁揉動麵糰的身影，她是Amy。</p>
-  <img src="story.jpg" alt="瑪利媽媽圖片"><br>
+  <img class="col-md-12" src="story.jpg" alt="瑪利媽媽圖片"><br>
 <br>
   <h4 class="text-start">Amy的故事</h4>
     <p class="text-start">&emsp;Amy長得白淨可愛，臉龐看不出智力發展有遲緩的狀況，領悟力雖然緩慢了些，
@@ -28,7 +28,7 @@
       生命有如經過洗禮般純淨，智力遲緩已不再是障礙。</p>
     <p class="text-start">&emsp;Amy的夢想如麵包般發酵了，在緩慢思維中，計算著一個麵包一個喜悅，一百個麵包就是一百個祝福。</p>
     <p class="text-start">&emsp;Amy笑著說，她想做足夠讓全世界幸福的好麵包！</p>
-  <img src="amystory.jpg" alt="Amy故事圖片">
+  <img class="col-md-12" src="amystory.jpg" alt="Amy故事圖片">
 
 
 

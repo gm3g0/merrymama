@@ -44,9 +44,9 @@ Route::post('/singup', [singup::class,'singup'])->name('singup');
 
 Route::resource('QA', be_QA::class)->only('index');
 
-Route::resource('buy',be_buy::class)->only('index','create','store');
-Route::post('/buycheck',[be_buy::class,'create'])->name('be_buy.index2');
-Route::post('/finish',[be_buy::class,'store'])->name('be_buy.finish');
+Route::resource('buy',be_buy::class)->only('index','create','store')->middleware('afuserAuth');
+Route::post('/buycheck',[be_buy::class,'create'])->name('be_buy.index2')->middleware('afuserAuth');
+Route::post('/finish',[be_buy::class,'store'])->name('be_buy.finish')->middleware('afuserAuth');
 
 
 Route::resource('story', be_story::class)->only('index','create');
@@ -60,38 +60,38 @@ Route::get('/show/{product_PName}',[be_product::class,'show'])->name('be_product
 
 Route::resource('contact', be_contact::class)->only('index');
 
-Route::resource('member', be_member::class)->only('index','create','member');
-Route::get('/edit',[be_member::class,'create'])->name('be_member.edit');
-Route::post('/member', [be_member::class,'member'])->name('member');
+Route::resource('member', be_member::class)->only('index','create','member')->middleware('afuserAuth');
+Route::get('/edit',[be_member::class,'create'])->name('be_member.edit')->middleware('afuserAuth');
+Route::post('/member', [be_member::class,'member'])->name('member')->middleware('afuserAuth');
 
 
-Route::resource('ordermanage', ordermanage::class)->only('index','create');
-Route::get('/or_history',[ordermanage::class,'create'])->name('ordermanage.history');
+Route::resource('ordermanage', ordermanage::class)->only('index','create')->middleware('afuserAuth');
+Route::get('/or_history',[ordermanage::class,'create'])->name('ordermanage.history')->middleware('afuserAuth');
 
-Route::resource('membermanage', membermanage::class)->only('index','create','membermanage');
-Route::get('/me_order/{member_name}',[membermanage::class,'create'])->name('memberrmanage.order');
-Route::post('/membermanage', [membermanage::class,'membermanage'])->name('membermanage');
+Route::resource('membermanage', membermanage::class)->only('index','create','membermanage')->middleware('afuserAuth');
+Route::get('/me_order/{member_name}',[membermanage::class,'create'])->name('memberrmanage.order')->middleware('afuserAuth');
+Route::post('/membermanage', [membermanage::class,'membermanage'])->name('membermanage')->middleware('afuserAuth');
 
-Route::resource('productmanage', productmanage::class)->only('index','productmanage','new_product','edit_product','productedit','edit');
-Route::post('/productmanage', [productmanage::class,'productmanage'])->name('productmanage');
-Route::post('/new_product', [productmanage::class,'new_product'])->name('new_product');
-Route::post('/edit_product', [productmanage::class,'edit_product'])->name('edit_product');
-Route::get('/productedit/{product_PName?}', [productmanage::class,'productedit'])->name('productedit');
-Route::post('/edit', [productmanage::class,'edit'])->name('edit');
+Route::resource('productmanage', productmanage::class)->only('index','productmanage','new_product','edit_product','productedit','edit')->middleware('afuserAuth');
+Route::post('/productmanage', [productmanage::class,'productmanage'])->name('productmanage')->middleware('afuserAuth');
+Route::post('/new_product', [productmanage::class,'new_product'])->name('new_product')->middleware('afuserAuth');
+Route::post('/edit_product', [productmanage::class,'edit_product'])->name('edit_product')->middleware('afuserAuth');
+Route::get('/productedit/{product_PName?}', [productmanage::class,'productedit'])->name('productedit')->middleware('afuserAuth');
+Route::post('/edit', [productmanage::class,'edit'])->name('edit')->middleware('afuserAuth');
 
-Route::resource('backbuy',backbuy::class)->only('index','backbuy');
-Route::post('/backbuy', [backbuy::class,'backbuy'])->name('backbuy.backbuy');
+Route::resource('backbuy',backbuy::class)->only('index','backbuy')->middleware('afuserAuth');
+Route::post('/backbuy', [backbuy::class,'backbuy'])->name('backbuy.backbuy')->middleware('afuserAuth');
 
-Route::resource('data',backdata::class)->only('index','dataset','excel');
-Route::post('/backdata', [backdata::class,'dataset'])->name('data.backdata');
-Route::get('/excel/{type}', [backdata::class,'excel'])->name('excel');
+Route::resource('data',backdata::class)->only('index','dataset','excel')->middleware('afuserAuth');
+Route::post('/backdata', [backdata::class,'dataset'])->name('data.backdata')->middleware('afuserAuth');
+Route::get('/excel/{type}', [backdata::class,'excel'])->name('excel')->middleware('afuserAuth');
 
-Route::resource('contact_edit', contact_edit::class)->only('index','contact_edit');
-Route::post('/contact_edit', [contact_edit::class,'contact_edit'])->name('contact_edit.contact_edit');
+Route::resource('contact_edit', contact_edit::class)->only('index','contact_edit')->middleware('afuserAuth');
+Route::post('/contact_edit', [contact_edit::class,'contact_edit'])->name('contact_edit.contact_edit')->middleware('afuserAuth');
 
-Route::resource('edit_QA',edit_QA::class)->only('index','edit_QA','new_QA');
-Route::post('/edit_QA', [edit_QA::class,'edit_QA'])->name('edit_QA.edit_QA');
-Route::post('/new_QA', [edit_QA::class,'new_QA'])->name('new_QA.new_QA');
+Route::resource('edit_QA',edit_QA::class)->only('index','edit_QA','new_QA')->middleware('afuserAuth');
+Route::post('/edit_QA', [edit_QA::class,'edit_QA'])->name('edit_QA.edit_QA')->middleware('afuserAuth');
+Route::post('/new_QA', [edit_QA::class,'new_QA'])->name('new_QA.new_QA')->middleware('afuserAuth');
 
 Route::get('/PageController', [PageController::class,'PageController'])->middleware('userAuth');
 Route::post('login.php', 'UserController@login');

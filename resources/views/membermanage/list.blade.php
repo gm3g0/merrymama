@@ -30,10 +30,8 @@
       {{ session()->get('notice') }}
     </div>
   @endif
-  <div class="row g-3 align-items-center float-right" style="padding: 0px;">
-    <div class="col-auto">
-      <button onclick="ExportToExcel('xlsx')">Export table to excel</button>
-  </div>
+  <div class="row g-3 align-items-center float-right" style="padding: 0px;"id="msform">
+    
     <div class="col-auto">
         <label for="inputPassword6" class="col-form-label">名稱：</label>
     </div>
@@ -43,6 +41,9 @@
     <div class="col-auto">
         <button type="submit" class="next action-buttonb" style="outline: none;">搜尋</button>
     </div>
+    <div class="col-auto">
+      <button class="next action-buttonv" style="outline: none;" value="Excel" onclick="ExportToExcel('xlsx')">Excel</button>
+  </div>
   </div><br>
 
   <section class="table table-hover">

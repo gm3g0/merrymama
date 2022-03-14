@@ -15,6 +15,7 @@ class backbuy extends Controller
      */
     public function index()  //後台我要購買設定首頁 
     {
+        $account = session('account');
         $Mon = products::where('type','like','%星期一%')->get();
         $Tue = products::where('type','like','%星期二%')->get();
         $Wed = products::where('type','like','%星期三%')->get();
@@ -36,6 +37,7 @@ class backbuy extends Controller
      */
     public function backbuy()
     {
+        $account = session('account');
         $week = $_POST["buyweek"];
         $date = $_POST["date"];
 

@@ -62,6 +62,16 @@
     width: 100%;
     height: 100%;
 }
+#go {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+@media screen and (max-width: 768px) {
+    #go {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+}
 #mat {
     margin-top: 50px;
 }
@@ -357,6 +367,19 @@ div {
 #msform .action-buttonb {
     width: 100px;
     background: #adc178;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 0px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+    text-decoration: none;
+    font-size: 16px;
+}
+#msform .action-buttonv {
+    width: 100px;
+    background: #789ec1;
     font-weight: bold;
     color: white;
     border: 0 none;

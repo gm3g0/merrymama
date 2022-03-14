@@ -56,7 +56,9 @@
                   <div class="col-md-2">
                     {{ $detail_order->cut }}
                   </div>
-                  <hr style="margin: 10px;width: 180px">
+                  <div class="col-md-9">
+                    <hr style="margin: 0px;">
+                  </div>
                 </div>
                 @endif
               @endforeach

@@ -19,7 +19,7 @@
 </style>
 @endsection
 @section('main')
-<h2>會員管理</h2><button onclick="ExportToExcel('xlsx')">Export table to excel</button>
+<h2>會員管理</h2>
 <form id="msform" method="GET">
   <div class="container">
     <div class="row">
@@ -30,6 +30,7 @@
         <div class="col-md-9">生理性別： {{ $member->sex }}</div>
         <div class="col-md-9">生日： {{ $member->birthday }}</div>
       </div>
+      <div class="col-md-12 text-end"><button class="next action-buttonv" style="outline: none;" value="Excel" onclick="ExportToExcel('xlsx')">Excel</button></div>
     </div><br>
 
   <h5 class="row justify-content-between">
