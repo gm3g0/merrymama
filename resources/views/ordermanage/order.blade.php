@@ -141,7 +141,10 @@
                 </td>
             @foreach($detail_order as $detail)
               @if( $detail->order_id == $order->order_id )
-                
+                {{--在這邊判斷
+                <td></td>
+                <td></td>
+                <td></td>--}}
                 <td>{{ $detail->PName }}</td>
                 <td>x {{ $detail->num }}</td>
                 <td>{{ $detail->cut }}</td>
