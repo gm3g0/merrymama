@@ -100,7 +100,7 @@
   @endforeach
 </div>
   
-<section class="table table-hover" ><!--style="display: none"-->
+<section class="table table-hover" style="display: none">
   <div class="col align-self-center"> <!--時間表-->
     <table cellpadding="0" cellspacing="0" id="table">
       <thead>
@@ -108,10 +108,10 @@
           <th><h6><b> 訂單編號</th>
           <th><h6><b> 金額</th>
           <th><h6><b> 會員</th>
-          <th><h6><b> 備註</th>
           <th><h6><b> 麵包品項</th>
           <th><h6><b> 數量</th>
           <th><h6><b> 切或不切</th>
+          <th><h6><b> 備註</th>
         </tr>
       </thead>
   </div>
@@ -131,7 +131,17 @@
                 </td>
                 <td>{{ $order->total }}</td>  
                 <td>{{ $order->email }}</td>
-                
+
+            @foreach($detail_order as $detail)
+              @if( $detail->order_id == $order->order_id )
+                @if( $cntForbeauty >= 1 )
+                <td></td>
+                <td></td>
+                <td></td>
+                @endif
+                <td>{{ $detail->PName }}</td>
+                <td>x {{ $detail->num }}</td>
+                <td>{{ $detail->cut }}</td>
                 <td>
                   @if($test == 1)
                     <b>備註：</b>
@@ -140,22 +150,14 @@
                     <?php $test  += 1; ?>
                   @endif
                 </td>
-            @foreach($detail_order as $detail)
-              @if( $detail->order_id == $order->order_id )
-                @if( $cnt0 >=1 )
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                @endif
-                <td>{{ $detail->PName }}</td>
-                <td>x {{ $detail->num }}</td>
-                <td>{{ $detail->cut }}</td>
               </tr>
+              <?php $cntForbeauty  += 1; ?>
               @endif
             @endforeach
-            @endforeach
-            <?php $test  = 1; ?>
+            <?php $cntForbeauty = 0; ?>
+            <?php $test = 1; ?>
+          @endforeach
+          
       </tbody>
     </table>
   </div>

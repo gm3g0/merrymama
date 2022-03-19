@@ -23,10 +23,9 @@ class ordermanage extends Controller
         $orders = order::where('tekedate_time',$takedate)->get();  //取得本次訂單
 
         $count = 0;  //計算累計金額
-        $cnt = 0; //計算有幾筆
+        $cntForbeauty = 0; //計算有幾筆
         foreach( $orders as $order ){
             $count = $order->total + $count;
-            $cnt += 1; 
         }
         $test = 1;
         $detail_order = detail_order::all();  //取得詳細訂單
@@ -35,7 +34,7 @@ class ordermanage extends Controller
                                             'count' => $count , 
                                             'orders' => $orders ,
                                             'test' => $test,
-                                            'cnt' => $cnt,  
+                                            'cntForbeauty' => $cntForbeauty,  
                                             'detail_order' => $detail_order]);
     }
 
