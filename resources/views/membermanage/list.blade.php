@@ -41,9 +41,6 @@
     <div class="col-auto">
         <button type="submit" class="next action-buttonb" style="outline: none;">搜尋</button>
     </div>
-    <div class="col-auto">
-      <button class="next action-buttonv" style="outline: none;" value="Excel" onclick="ExportToExcel('xlsx')">Excel</button>
-  </div>
   </div><br>
 
   <section class="table table-hover">
@@ -85,15 +82,6 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script>
-      function ExportToExcel(type, fn, dl) {
-          var elt = document.getElementById('table');
-          var wb = XLSX.utils.table_to_book(elt, { sheet: "會員" });
-          return dl ?
-              XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
-              XLSX.writeFile(wb, fn || ('會員管理.' + (type || 'xlsx')));
-      }
 
-  </script>
 
 @endsection

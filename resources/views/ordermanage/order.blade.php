@@ -100,7 +100,7 @@
   @endforeach
 </div>
   
-<section class="table table-hover">
+<section class="table table-hover" ><!--style="display: none"-->
   <div class="col align-self-center"> <!--時間表-->
     <table cellpadding="0" cellspacing="0" id="table">
       <thead>
@@ -118,12 +118,12 @@
   <div class="tbl-content">
       <tbody >
         @php
-          $cnt = 0;
+          $cnt0 = 0;
         @endphp
           @foreach($orders as $order)
               @php
-                $cnt += 1;
-                $cntt=strval($cnt);
+                $cnt0 += 1;
+                $cntt=strval($cnt0);
               @endphp
               <tr>
                 <td>
@@ -135,14 +135,15 @@
                 <td>
                   @if($test == 1)
                     <b>備註：</b>
+                    
                     {{ $detail->remark }}
                     <?php $test  += 1; ?>
                   @endif
                 </td>
             @foreach($detail_order as $detail)
               @if( $detail->order_id == $order->order_id )
-                @if( $cnt == 1 )
-                
+                @if( $cnt0 >=1 )
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>

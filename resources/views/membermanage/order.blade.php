@@ -30,7 +30,6 @@
         <div class="col-md-9">生理性別： {{ $member->sex }}</div>
         <div class="col-md-9">生日： {{ $member->birthday }}</div>
       </div>
-      <div class="col-md-12 text-end"><button class="next action-buttonv" style="outline: none;" value="Excel" onclick="ExportToExcel('xlsx')">Excel</button></div>
     </div><br>
 
   <h5 class="row justify-content-between">
@@ -103,16 +102,6 @@
 </form>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script>
-      function ExportToExcel(type, fn, dl) {
-          var elt = document.getElementById('table');
-          var name='<?php echo $member->name ;?>';
-          var wb = XLSX.utils.table_to_book(elt, { sheet: name });
-          return dl ?
-              XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
-              XLSX.writeFile(wb, fn || ('會員訂單.' + (type || 'xlsx')));
-      }
 
-  </script>
 
 @endsection
